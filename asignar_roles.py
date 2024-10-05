@@ -27,13 +27,14 @@ def mejor_asignacion(roles):
     mejor_puntuacion_total = float('-inf')
     mejor_asignacion_roles = None
     
-    # Generar todas las permutaciones de asignación de roles
-    for asignacion in permutations(range(len(roles))):  # Asignación de un rol a cada jugador
+    # Generar todas las permutaciones de asignación de roles a jugadores
+    jugadores = list(range(len(roles[0]['jugadores'])))  # Número de jugadores
+    for asignacion in permutations(jugadores):
         puntuacion_total = 0
         
-        for i, rol_index in enumerate(asignacion):
-            rol = roles[rol_index]
-            prob_grande, prob_pequena = rol['jugadores'][i]
+        # Iterar sobre los jugadores y asignar un rol
+        for jugador_index, jugador_asignado in enumerate(asignacion):
+            prob_grande, prob_pequena = roles[jugador_index]['jugadores'][jugador_asignado]
             puntuacion_total += calcular_puntuacion(prob_grande, prob_pequena)
         
         # Guardar la asignación con la mejor puntuación total
@@ -50,8 +51,8 @@ mejor_asig, puntuacion = mejor_asignacion(roles)
 
 # Mostrar el resultado de la mejor asignación
 print("Mejor asignación de roles:")
-for i, rol_index in enumerate(mejor_asig):
-    rol = roles[rol_index]
-    print(f"Jugador {i+1} asignado a {rol['nombre']}")
+for i, jugador_asignado in enumerate(mejor_asig):
+    rol = roles[i]
+    print(f"Jugador {jugador_asignado + 1} asignado a {rol['nombre']}")
 
 print(f"Puntuación total esperada: {puntuacion}")
