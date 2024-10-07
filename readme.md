@@ -8,6 +8,6 @@ Equipo: Aleksib(IGL), W0nderful(Sniper), Snax(support), Niko(stathunter), Apex(a
 
 | Round\Player | Aleksib | W0nderful | Snax | Niko | Apex | Points |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1      | (bottom)        | (avenger)          | (bait)     | (pistol)     | (assist)     |      |
-| Round 2             | (kobe)        | (4k)          | (cannon folder)     | (carry)     | (flash)     |     |
-|              |         |           |      |      |      |     |
+| Round 1      | (bottom) 8/6/5/0 | (avenger) 16/6/5/0 | (bait) | (pistol) | (assist) |      |
+| Round 2      | (kobe) | (4k) | (cannon folder) | (carry) | (flash) |     |
+| Round 2      |         |           |      |      |      |     |
