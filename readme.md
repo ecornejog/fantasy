@@ -11,4 +11,6 @@ Equipo: Aleksib(IGL), W0nderful(Sniper), Snax(support), Niko(stathunter), Apex(a
 | Round 1      | (bottom) 8/6/5/0 | (avenger) 16/6/5/0 | (bait) -5/-3/2/5 | (pistol) -9/-3/-2/0 | (assist) 2/6/2/0 | 41 |
 | Round 2      | (kobe) -6/6/2/5 | (4k) -3/6/2/0 | (cannon folder) -15/-3/5/5 | (carry) -27/-3/-2/0 | (flash) 1/6/2/0 | -19 |
 | Round 3      | 10 | 15 | -3 | -3 | 9 | 28 |
-| Round 4      | (farmer) | (top) | -3 | -3 | (kast) |     |
+| Round 4      | (farmer) -15/-3/-2/0 | (top) 15/-3/2/5 | -3 | -3 | (kast) -14/-3/-2/0 |  -26   |
+
+Total Points: 24 (83%)
