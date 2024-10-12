@@ -8,8 +8,8 @@ Equipo: Aleksib (Support), IM (Stathunter), Apex (leader), Zywoo (Multifragger),
 
 | Round\Player | Aleksib | IM | Apex | Zywoo | Brollan | Points |
 |--------------|---------|-----------|------|------|------|--------|
-| Quarter      | (bottom) | (avenger)  | (assist) | (top) | (bait) |  |
-| Semis      |  |  |  |  |  |  |
+| Quarter      | (bottom) -1/6/5/0 | (avenger) 17/6/5/5 | (assist) -6/-3/-2/5 | (top) 14/-3/5/5 | (bait) -3/6/-2/5 | 64 |
+| Semis      | (kobe) | (pistols) | -3 | -3 | (cannon) |  |
 | Final      |  |  |  |  |  |  |
 
 Total Points: 
