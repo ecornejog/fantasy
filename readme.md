@@ -9,10 +9,14 @@ Equipo: Aleksib (Support), IM (Stathunter), Apex (leader), Zywoo (Multifragger),
 | Round\Player | Aleksib | IM | Apex | Zywoo | Brollan | Points |
 |--------------|---------|-----------|------|------|------|--------|
 | Quarter      | (bottom) -1/6/5/0 | (avenger) 17/6/5/5 | (assist) -6/-3/-2/5 | (top) 14/-3/5/5 | (bait) -3/6/-2/5 | 64 |
-| Semis      | (kobe) | (pistols) | -3 | -3 | (cannon) |  |
-| Final      |  |  |  |  |  |  |
+| Semis      | (kobe) -9/6/5/0 | (pistols) 1/6/2/5 | -3 | -3 | (cannon) 30/6/5/0 | 51 |
+| Final      | (farm) | (carry) | -3 | -3 | (kast) |  |
 
 Total Points: 
+Player:   
+Team:   
+Rol:   
+Boost:   
 
 ## IEM RIO 2024 (group stage)
 
@@ -25,8 +29,8 @@ Equipo: Aleksib(IGL), W0nderful(Sniper), Snax(support), Niko(stathunter), Apex(a
 | Round 3      | 10 | 15 | -3 | -3 | 9 | 28 |
 | Round 4      | (farmer) -15/-3/-2/0 | (top) 15/-3/2/5 | -3 | -3 | (kast) -14/-3/-2/0 |  -26   |
 
-Total Points: 24 (83%)
-Player: -44 (93%)
-Team: 21 (45%)
-Rol: 27 (70%)
-Boost: 20 (34%)
+Total Points: 24 (83%)  
+Player: -44 (93%)  
+Team: 21 (45%)  
+Rol: 27 (70%)  
+Boost: 20 (34%)  
