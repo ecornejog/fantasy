@@ -1,6 +1,23 @@
 # Fantasy
 
-Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
+Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.  
+
+## ESL Challenger Katowice 2024
+
+Equipo: Maj3r(Eco), Calyx(HS), nqz(Camper), snow(support), Lucaozy(defender)  
+
+| Round\Player | Maj3r | Calyx | nqz | snow | Lucaozy | Points |
+|--------------|---------|-----------|------|------|------|--------|
+| Round 1 | (farmer) | (bottom) | (avenger) | (bait) | (assist) |  |
+| Round 2 |  |  |  |  |  |  |
+| Round 3 |  |  |  |  |  |  |
+
+Total Points:   
+Player:   
+Team:   
+Rol:   
+Boost:   
+
 
 ## IEM RIO 2024 (playoff)
 
@@ -18,12 +35,8 @@ Team: 27 (21%)
 Rol: 28 (27%)  
 Boost: 25 (27%)  
 
-## IEM RIO 2024 (group stage)
+## Previous results
 
-Equipo: Aleksib(IGL), W0nderful(Sniper), Snax(support), Niko(stathunter), Apex(attacker)
-
-Total Points: 24 (83%)  
-Player: -44 (93%)  
-Team: 21 (45%)  
-Rol: 27 (70%)  
-Boost: 20 (34%)  
+| Event | Total Points | Player | Team | Rol | Booster |
+|-------|--------------|--------|------|-----|---------|
+| IEM RIO 2024 Groups | 24 (83%) | -44 (93%) | 21 (45%) | 27 (70%) | 20 (34%) |
