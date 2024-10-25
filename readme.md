@@ -9,8 +9,10 @@ Equipo: Maj3r(Eco), Calyx(HS), nqz(Camper), snow(support), Lucaozy(defender)
 | Round\Player | Maj3r | Calyx | nqz | snow | Lucaozy | Points |
 |--------------|---------|-----------|------|------|------|--------|
 | Round 1 | (farmer) | (bottom) | (avenger) | (bait) | (assist) |  |
-| Round 2 |  |  |  |  |  |  |
+| Round 2 | (kobe) | (AimBot) | (Pistol) | (KAST) | (TOP) |  |
 | Round 3 |  |  |  |  |  |  |
+| Semis |  |  |  |  |  |  |
+| Final |  |  |  |  |  |  |
 
 Total Points:   
 Player:   
