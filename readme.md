@@ -2,6 +2,24 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.  
 
+## BLAST Premier World Final 2024
+
+Equipo: IM (), Wonderful (), snax (), Niko (), Jackz()  
+
+| Round\Player | IM | Wonderful | snax | niko | jackz | Points |
+|--------------|---------|-----------|------|------|------|--------|
+| Opening |  |  |  |  |  |  |
+| LB & UB |  |  |  |  |  |  |
+| Cuartos |  |  |  |  |  |  |
+| Semis |  |  |  |  |  |  |
+| Final |  |  |  |  |  |  |
+
+Total Points:   
+Player:   
+Team:   
+Rol:   
+Boost: 
+
 ## ESL Challenger Katowice 2024
 
 Equipo: Maj3r(Eco), Calyx(HS), nqz(Camper), snow(support), Lucaozy(defender)  
@@ -20,25 +38,9 @@ Team:
 Rol:   
 Boost:   
 
-
-## IEM RIO 2024 (playoff)
-
-Equipo: Aleksib (Support), IM (Stathunter), Apex (leader), Zywoo (Multifragger), Brollan (attacker)
-
-| Round\Player | Aleksib | IM | Apex | Zywoo | Brollan | Points |
-|--------------|---------|-----------|------|------|------|--------|
-| Quarter      | (bottom) -1/6/5/0 | (avenger) 17/6/5/5 | (assist) -6/-3/-2/5 | (top) 14/-3/5/5 | (bait) -3/6/-2/5 | 64 |
-| Semis      | (kobe) -9/6/5/0 | (pistols) 1/6/2/5 | -3 | -3 | (cannon) 30/6/5/0 | 51 |
-| Final      | (farm) 3/6/5/0 | (carry) 17/6/2/0 | -3 | -3 | (kast) -6/-3/-2/0 | 22 |
-
-Total Points: 137 (14%)  
-Player: 57 (20%)  
-Team: 27 (21%)  
-Rol: 28 (27%)  
-Boost: 25 (27%)  
-
 ## Previous results
 
 | Event | Total Points | Player | Team | Rol | Booster |
 |-------|--------------|--------|------|-----|---------|
+| IEM RIO 2024 Playoffs | 137 (14%) | 57 (20%) | 27 (21%) | 28 (27%) | 25 (27%) |
 | IEM RIO 2024 Groups | 24 (83%) | -44 (93%) | 21 (45%) | 27 (70%) | 20 (34%) |
