@@ -4,7 +4,7 @@ Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
 ## BLAST Premier World Final 2024
 
-Equipo: IM (), Wonderful (), snax (), Niko (), Jackz()  
+Equipo: IM (stathunter), Wonderful (igl), snax (support), Niko (attacker), Jackz(eco)  
 
 | Round\Player | IM | Wonderful | snax | niko | jackz | Points |
 |--------------|---------|-----------|------|------|------|--------|
