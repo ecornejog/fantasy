@@ -8,11 +8,11 @@ Equipo: IM (stathunter), Wonderful (igl), snax (support), Niko (attacker), Jackz
 
 | Round\Player | IM | Wonderful | snax | niko | jackz | Points |
 |--------------|---------|-----------|------|------|------|--------|
-| Opening | (assist) -5/-3/-2/5 | (avenger) -13/-3/-2/0 | (bottom) | (pistol) | (bait) |  |
-| LB & UB | (top) | (4k) | (cannon) | (carry) | (clutch) |  |
-| Cuartos |  |  |  |  |  |  |
-| Semis |  |  |  |  |  |  |
-| Final |  |  |  |  |  |  |
+| Opening | (assist) -5/-3/-2/5 | (avenger) -13/-3/-2/0 | (bottom) -12/6/5/5 | (pistol) 17/6/2/5 | (bait) -14/-3/2/5 | 1 |
+| LB & UB | (top) -8/-3/-2/0 | (4k) -5/-3/-2/0 | (cannon) -7/6/5/0 | (carry) 2/6/2/0 | (clutch) -1/6/-2/5 | -1 |
+| Cuartos | -3 | -3 | -9/6/5 | 6/6/2 | (saver) |  |
+| Semis | -3 | -3 | (farmer) | (kast) |  |  |
+| Final | -3 | -3 |  |  |  |  |
 
 Total Points:   
 Player:   
