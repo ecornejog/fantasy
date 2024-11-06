@@ -2,6 +2,26 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.  
 
+## Americas RMR Shangai 2024
+
+Equipo: yuurih (Attacker), skullz (noob), jks (HS), Yekindar (eco), JT (support)
+
+| Round\Player | yuurih | skullz | jks | yekindar | jt | Points |
+|--------------|---------|-----------|------|------|------|--------|
+| Round 1 | (assist) | (bottom) | (avenger) | (farmer) | (bait) |  |
+| Round 2 | (top) | (pistol) | (4k) | (aimbot) | (cannon) |  |
+| Round 3 | () | () | () | () | () |  |
+| Round 4 | () | () | () | () | () |  |
+| Round 5 | () | () | () | () | () |  |
+| 7th place decider | () | () | () | () | () |  |
+
+
+Total Points: 72 (42%) +6pts 
+Player: -32 (72%)  
+Team: 33 (17%)  
+Rol: 31 (43%)  
+Boost: 40 (12%)
+
 ## BLAST Premier World Final 2024
 
 Equipo: IM (stathunter), Wonderful (igl), snax (support), Niko (attacker), Jackz(eco)  
@@ -19,28 +39,11 @@ Player: -32 (72%)
 Team: 33 (17%)  
 Rol: 31 (43%)  
 Boost: 40 (12%)
-
-## ESL Challenger Katowice 2024
-
-Equipo: Maj3r(Eco), Calyx(HS), nqz(Camper), snow(support), Lucaozy(defender)  
-
-| Round\Player | Maj3r | Calyx | nqz | snow | Lucaozy | Points |
-|--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (farmer) 2/-3/2/0 | (bottom) 5/-3/5/0 | (avenger) 17/6/5/5 | (bait) 1/6/5/5 | (assist) 3/-3/2/5 | 65 |
-| Round 2 | (kobe) 9/6/5/5 | (AimBot) 16/6/2/0 | (Pistol) 7/6/5/0 | (KAST) 4/6/5/0 | (TOP) -1/-3/-2/0 | 76 |
-| Round 3 | (flash) -4/-3/5/0 | (cannon) 2/-3/5/5 | 12/6/5 | 2/6/5 | -3 | 40 |
-| Semis | -3 | -3 | (carry) 10/-3/2/0 | (4k) 2/-3/2/0 | -3 | 1 |
-| Final | -3 | -3 | -3 | -3 | -3 | -15 |
-
-Total Points: 167 (12%) +12pts 
-Player: 87 (17%)  
-Team: -3 (23%)  
-Rol: 58 (3%)  
-Boost: 25 (15%)  
-
+ 
 ## Previous results
 
 | Event | Total Points | Points to leaderboard | Player | Team | Rol | Booster |
 |-------|--------------|----|------|------|-----|---------|
+| ESL Challenger Kato 2024 | 167 (12%) | +12 | 87 (17%) | -3 (23%) | 58 (3%) | 25 (15%) |
 | IEM RIO 2024 Playoffs | 137 (14%) | +12 | 57 (20%) | 27 (21%) | 28 (27%) | 25 (27%) |
 | IEM RIO 2024 Groups | 24 (83%) | +0 | -44 (93%) | 21 (45%) | 27 (70%) | 20 (34%) |
