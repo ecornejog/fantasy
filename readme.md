@@ -16,11 +16,11 @@ Equipo: yuurih (Attacker), skullz (noob), jks (HS), Yekindar (eco), JT (support)
 | 7th place decider | () | () | () | () | () |  |
 
 
-Total Points: 72 (42%) +6pts 
-Player: -32 (72%)  
-Team: 33 (17%)  
-Rol: 31 (43%)  
-Boost: 40 (12%)
+Total Points:  (%) +pts 
+Player:  (%)  
+Team:  (%)  
+Rol:  (%)  
+Boost:  (%)
 
 ## BLAST Premier World Final 2024
 
