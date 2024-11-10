@@ -4,19 +4,19 @@ Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
 ## Americas RMR Shangai 2024
 
-Equipo: yuurih (Attacker), skullz (noob), jks (HS), Yekindar (eco), JT (support)
+Equipo: Jks (Eco), kauez (HS), snow (Support), slaxz (AWP), s1n (IGL)
 
-| Round\Player | yuurih | skullz | jks | yekindar | jt | Points |
+| Round\Player | jks | kauez | snow | slaxz | s1n | Points |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (assist) | (bottom) | (avenger) | (farmer) | (bait) |  |
-| Round 2 | (top) | (pistol) | (4k) | (aimbot) | (cannon) |  |
-| Round 3 | () | () | () | () | () |  |
+| Round 1 | (Avenger) | (Aim bot) | (Bait) | (Kast) | (asssist) |  |
+| Round 2 | (cannon) | (pistol) | (bottom) | (top) | (kobe) |  |
+| Round 3 | (4k) | (carry) | (clutch) | (flash) | (farmer) |  |
 | Round 4 | () | () | () | () | () |  |
 | Round 5 | () | () | () | () | () |  |
 | 7th place decider | () | () | () | () | () |  |
 
 
-Total Points:  (%) +pts 
+Total Points:  (%) +pts  
 Player:  (%)  
 Team:  (%)  
 Rol:  (%)  
@@ -34,7 +34,7 @@ Equipo: IM (stathunter), Wonderful (igl), snax (support), Niko (attacker), Jackz
 | Semis | -3 | -3 | (farmer) -3/6/5/5 | (kast) 6/6/2/0 | (aim bot) -7/-3/2/5 | 18 |
 | Final | -3 | -3 | (rambo) -2/6/5/0 | (kobe) 13/6/2/5 | -3 | 26 |
 
-Total Points: 72 (42%) +6pts 
+Total Points: 72 (42%) +6pts  
 Player: -32 (72%)  
 Team: 33 (17%)  
 Rol: 31 (43%)  
