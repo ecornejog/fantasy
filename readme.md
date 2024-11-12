@@ -8,7 +8,7 @@ Equipo: Jks (Eco), kauez (HS), snow (Support), slaxz (AWP), s1n (IGL)
 
 | Round\Player | jks | kauez | snow | slaxz | s1n | Points |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (Avenger) | (Aim bot) | (Bait) | (Kast) | (asssist) |  |
+| Round 1 | (Avenger) 6/-3/-2/0 | (Aim bot) 14/6/5/0 | (Bait) -1/6/5/0 | (Kast) -5/-3/2/0 | (asssist) -9/-3/-2/5 | 21 |
 | Round 2 | (cannon) | (pistol) | (bottom) | (top) | (kobe) |  |
 | Round 3 | (4k) | (carry) | (clutch) | (flash) | (farmer) |  |
 | Round 4 | () | () | () | () | () |  |
