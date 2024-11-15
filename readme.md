@@ -4,13 +4,13 @@ Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
 ## Europe A RMR Shangai 2024
 
-Equipo: Zywoo (), Karrigan (), broky (), mutiris (), agil()
+Equipo: Zywoo (multi), Karrigan (noob), broky (awp), mutiris (support), agil(eco)
 
 | Round\Player | zywoo | karrigan | broky | mutiris | agil |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | () | () | () | () | () |  |
-| Round 2 | () | () | () | () | () |  |
-| Round 3 | () | () | () | () | () |  |
+| Round 1 | (top) | (bait) | (avenger) | (assist) | (bottom) |  |
+| Round 2 | (pistol) | (cannon) | (carry) | (kobe) | (clutch) |  |
+| Round 3 | (4k) | (farmer) | (flash) | (aim) | (kast) |  |
 | Round 4 | () | () | () | () | () |  |
 | Round 5 | () | () | () | () | () |  |
 | 7th place decider | () | () | () | () | () |  |
@@ -32,15 +32,15 @@ Equipo: Jks (Eco), kauez (HS), snow (Support), slaxz (AWP), s1n (IGL)
 | Round 2 | (cannon) 6/6/2/5 | (pistol) -13/-3/5/0 | (bottom) 2/-3/2/0 | (top) -2/6/2/0 | (kobe) -2/6/2/0 | 21 |
 | Round 3 | (4k) 7/6/-2/0 | (carry) 17/6/5/0 | (clutch) 21/6/-2/0 | (flash) 7/6/5/0 | (farmer) 8/6/5/0 | 101 |
 | Round 4 | (saver) 5/6/2/0 | () 34/6/5/0 | () 7/6/5/0 | () -15/-3/-2/0 | (rambo) -13/-3/-2/0 | 38 |
-| Round 5 | () 6/6/0 | () 13/6/5 | () 7/6/2 | () | () |  |
-| 7th place decider | () | () | () | () | () |  |
+| Round 5 | () 6/6/0 | () 13/6/5 | () 7/6/2 | () 2/6/5/0 | () 4/6/2/0 | 76 |
+| 7th place decider | () 6/6/0 | () 13/6/5 | () 7/6/2 | () -13/-3/-2/0 | () -15/-3/-2/0 | 13 |
 
 
-Total Points:  (%) +pts  
-Player:  (%)  
-Team:  (%)  
-Rol:  (%)  
-Boost:  (%)
+Total Points: 270 (%73) +1 pts  
+Player: 104 (72%)  
+Team: 99 (57%)  
+Rol: 57 (65%)  
+Boost: 10 (61%)
  
 ## Previous results
 
