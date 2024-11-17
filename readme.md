@@ -9,7 +9,7 @@ Equipo: Zywoo (multi), Karrigan (noob), broky (awp), mutiris (support), agil(eco
 | Round\Player | zywoo | karrigan | broky | mutiris | agil |  |
 |--------------|---------|-----------|------|------|------|--------|
 | Round 1 | (top) 23/6/5/5 | (bait) 0/6/2/5 | (avenger) 9/6/5/5 | (assist) 8/-3/-2/5 | (bottom) -4/-3/-2/5 | 81 |
-| Round 2 | (pistol) | (cannon) | (carry) | (kobe) | (clutch) |  |
+| Round 2 | (pistol) 3/6/-2/0 | (cannon) 2/6/2/0 | (carry) -3/6/2/0 | (kobe) 11/6/2/5 | (clutch) -4/6/2/0 | 50 |
 | Round 3 | (4k) | (farmer) | (flash) | (aim) | (kast) |  |
 | Round 4 | () | () | () | () | () |  |
 | Round 5 | () | () | () | () | () |  |
