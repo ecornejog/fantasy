@@ -4,7 +4,7 @@ Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
 ## Europe B RMR Shangai 2024
 
-Equipo: Donk (), Majer (), Calyx (), kyxsan (), bro()
+Equipo: Donk (multi), Majer (eco), Calyx (hs), kyxsan (support), bro(noob)
 
 | Round\Player | Donk | Majer | Calyx | Kyxsan | bro |  |
 |--------------|---------|-----------|------|------|------|--------|
