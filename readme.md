@@ -8,9 +8,9 @@ Equipo: Donk (multi), Majer (eco), Calyx (hs), kyxsan (support), bro(noob)
 
 | Round\Player | Donk | Majer | Calyx | Kyxsan | bro |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | () | () | () | () | () |  |
-| Round 2 | () | () | () | () | () |  |
-| Round 3 | () | () | () | () | () |  |
+| Round 1 | (top) | (farmer) | (assist) | (bottom) | (bait) |  |
+| Round 2 | (Carry) | (Kobe) | (Aim bot) | (Cannon) | (avenger) |  |
+| Round 3 | (4k) | (flash) | (clutch) | (kast) | (pistol) |  |
 | Round 4 | () | () | () | () | () |  |
 | Round 5 | () | () | () | () | () |  |
 | 7th place decider | () | () | () | () | () |  |
@@ -30,8 +30,8 @@ Equipo: Zywoo (multi), Karrigan (noob), broky (awp), mutiris (support), agil(eco
 |--------------|---------|-----------|------|------|------|--------|
 | Round 1 | (top) 23/6/5/5 | (bait) 0/6/2/5 | (avenger) 9/6/5/5 | (assist) 8/-3/-2/5 | (bottom) -4/-3/-2/5 | 81 |
 | Round 2 | (pistol) 3/6/-2/0 | (cannon) 2/6/2/0 | (carry) -3/6/2/0 | (kobe) 11/6/2/5 | (clutch) -4/6/2/0 | 50 |
-| Round 3 | (4k) | (farmer) | (flash) | (aim) | (kast) |  |
-| Round 4 | () | () | () | () | () |  |
+| Round 3 | (4k) 19/6/2/5 | (farmer) -1/-3/2/0 | (flash) -12/-3/2/0 | (aim) 0/6/5/0 | (kast) 19/6/-2/5 | 56 |
+| Round 4 | () 15/6/1 | () | (saver) | (rambo) | () |  |
 | Round 5 | () | () | () | () | () |  |
 | 7th place decider | () | () | () | () | () |  |
 
