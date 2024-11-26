@@ -8,19 +8,19 @@ Equipo: Donk (multi), Majer (eco), Calyx (hs), kyxsan (support), bro(noob)
 
 | Round\Player | Donk | Majer | Calyx | Kyxsan | bro |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (top) | (farmer) | (assist) | (bottom) | (bait) |  |
-| Round 2 | (Carry) | (Kobe) | (Aim bot) | (Cannon) | (avenger) |  |
-| Round 3 | (4k) | (flash) | (clutch) | (kast) | (pistol) |  |
-| Round 4 | () | () | () | () | () |  |
-| Round 5 | () | () | () | () | () |  |
-| 7th place decider | () | () | () | () | () |  |
+| Round 1 | (top) 37/6/5/5 | (farmer) 9/6/5/5 | (assist) 10/6/2/0 | (bottom) 0/6/5/0 | (bait) 2/-3/2/0 | 108 |
+| Round 2 | (Carry) 10/-3/-2/5 | (Kobe) -1/-3/5/0 | (Aim bot) 1/-3/5/0 | (Cannon) -3/-3/-2/5 | (avenger) 2/-3/2/5 | 17 |
+| Round 3 | (4k) 10/6/5/0 | (flash) -2/-3/5/0 | (clutch) -7/-3/2/0 | (kast) -2/6/5/0 | (pistol) 2/6/2/5 | 37 |
+| Round 4 | () 7/-3/2/0 | () -10/-3/5/0 | () -2/-3/5/0 | () 16/6/5/0 | () 2/6/2/0 | 35 |
+| Round 5 | () 37/6/5/0 | () -3 | () -3 | () 2/6/3 | () 2/-3/2/0 | 54 |
+| 7th place decider | () 11/6/2/0 | () -3 | () -3 | () 2/6/3 | () -3 | 21 |
 
 
-Total Points:  (%) +pts  
-Player:  (%)  
-Team:  (%)  
-Rol:  (%)  
-Boost:  (%)
+Total Points: 272 (21%) +10 pts  
+Player: 135 (9%)  
+Team: 86 (27%)  
+Rol: 80 (13%)  
+Boost: 30 (22%)
 
 ## Europe A RMR Shangai 2024
 
@@ -31,16 +31,16 @@ Equipo: Zywoo (multi), Karrigan (noob), broky (awp), mutiris (support), agil(eco
 | Round 1 | (top) 23/6/5/5 | (bait) 0/6/2/5 | (avenger) 9/6/5/5 | (assist) 8/-3/-2/5 | (bottom) -4/-3/-2/5 | 81 |
 | Round 2 | (pistol) 3/6/-2/0 | (cannon) 2/6/2/0 | (carry) -3/6/2/0 | (kobe) 11/6/2/5 | (clutch) -4/6/2/0 | 50 |
 | Round 3 | (4k) 19/6/2/5 | (farmer) -1/-3/2/0 | (flash) -12/-3/2/0 | (aim) 0/6/5/0 | (kast) 19/6/-2/5 | 56 |
-| Round 4 | () 15/6/1 | () | (saver) | (rambo) | () |  |
-| Round 5 | () | () | () | () | () |  |
-| 7th place decider | () | () | () | () | () |  |
+| Round 4 | () 15/6/1 | () -2/6/2/0 | (saver) 4/6/-2/0 | (rambo) -23/-3/2/0 | () -27/-3/2/0 | -20 |
+| Round 5 | () 15/6/1 | () -3/6/2/0 | () -3/6/-2/0 | () -13/-3/5/0 | () 3/-3/-2/0 | 15 |
+| 7th place decider | () 15/6/1 | () 0/6/2 | () -1/6/1 | () -3 | () -3 | 30 |
 
 
-Total Points:  (%) +pts  
-Player:  (%)  
-Team:  (%)  
-Rol:  (%)  
-Boost:  (%)
+Total Points: 212 (81%) +0 pts  
+Player: 50 (88%)  
+Team: 90 (52%)  
+Rol: 32 (90%)  
+Boost: 40 (10%)
  
 ## Previous results
 
