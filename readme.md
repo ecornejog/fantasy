@@ -8,10 +8,10 @@ Equipo: Mzinho (HS), floppy (Noob), kauez (Leader), snow (support), heavyGod(att
 
 | Round\Player | Mzinho | floppy | kauez | snow | heavyGod |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (bait) | (assist) | (aim bot) | (avenger) | (top) |  |
-| Round 2 | (kobe) | (cannon) | (bottom) | (kast) | (pistol) |  |
-| Round 3 | (4k) | (carry) | (farmer) | (saver) | (clutch) |  |
-| Round 4 | () | () | () | () | () |  |
+| Round 1 | (bait) 28 | (assist) -3 | (aim bot) 25 | (avenger) 11 | (top) 12 | 73 |
+| Round 2 | (kobe) 28 | (cannon) -5 | (bottom) -1 | (kast) -7 | (pistol) 25 | 40 |
+| Round 3 | (4k) 41 | (carry) 18 | (farmer) 10 | (saver) 13 | (clutch) -4 | 78 |
+| Round 4 | () 29 | (rambo) | () | () | (flash) |  |
 | Round 5 | () | () | () | () | () |  |
 
 
