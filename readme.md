@@ -1,6 +1,25 @@
 # Fantasy
 
-Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.  
+Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv. 
+
+## Elimination stage Major Shangai 2024
+
+Equipo: Blitz (attack), techno (HS), JKS (eco), insani (entry), mezii (supp)
+
+| Round\Player | blitz | techno | jks | insani | mezii |  |
+|--------------|---------|-----------|------|------|------|--------|
+| Round 1 | (assist) | (bottom) | (avenger) | (top) | (bait) |  |
+| Round 2 | (kobe) | (farmer) | (cannon) | (4k) | (pistol) |  |
+| Round 3 | (clutch) | (aim) | (kast) | (carry) | (saver) |  |
+| Round 4 | () | () | () | () | () |  |
+| Round 5 | () | () | () | () | () |  |
+
+
+Total Points: 295 (30%) +10 pts  
+Player: 139 (36%)  
+Team: 69 (44%)  
+Rol: 62 (19%)  
+Boost: 25 (16%)
 
 ## Opening stage Major Shangai 2024
 
