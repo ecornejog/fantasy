@@ -23,5 +23,3 @@ Boost:
 
 | Event | Total Points | Points to leaderboard | Player | Team | Rol | Booster |
 |-------|--------------|----|------|------|-----|---------|
-
-!
