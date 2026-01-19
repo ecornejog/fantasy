@@ -4,13 +4,13 @@ Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
 ## Blast Bounty 2026 - 1
 
-Equipo: apex(noob), ropz(multi), fallen(leader), yuri(support), nucleonz(attacker)
+Equipo: zywoo(multi), kscerato(attacker), kyxsan(support), jame(awp), hypex(hypex)
 
-| Round\Player | apex | ropz | fallen | yuri | nucleonz |  |
+| Round\Player | zywoo | kscerato | kyxsan | jame | hypex |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (bait)  | (avenger)  | (bottom) | (asist)  | (hellcase)  |  |
-| Round 2 | ()  | ()  | ()  | ()  | ()  |  |
-| Round 3 | ()  | ()  | () | ()  | ()  |  |
+| Round 1 | (avenger)  | (assist)  | (bait) | (carry)  | (clutch)  |  |
+| Round 2 | (top)  | (kast)  | (bottom)  | (saver)  | (4k)  |  |
+| Round 3 | (pistol)  | (kobe)  | (cannon) | ()  | ()  |  |
 
 
 Total Points:   

@@ -1,58 +1,110 @@
 import csv
-from itertools import permutations
+import math
 
-# Función para leer el archivo CSV
-def leer_boosters(archivo_csv):
+#TODO - IMPORTANTE: cambiar el numero de partidos y equipos si es necesario
+
+# ----------------------------------
+# FUNCIONES
+# ----------------------------------
+def leer_boosters(path):
+    """
+    Lee boosters CSV:
+    booster,jugador1,jugador2,...,jugadorN
+    """
     boosters = []
-    with open(archivo_csv, newline='') as csvfile:
-        reader = csv.reader(csvfile)
-        headers = next(reader)  # Leer los encabezados
+    with open(path, newline="", encoding="utf-8") as f:
+        reader = csv.reader(f)
+        headers = next(reader)
         for row in reader:
-            booster = {
-                'nombre': row[0],
-                'jugadores': [int(val) for val in row[1:]]
-            }
-            boosters.append(booster)
+            booster_name = row[0]
+            probs = [int(x) for x in row[1:]]  # porcentaje
+            boosters.append({
+                "nombre": booster_name,
+                "probs": probs
+            })
     return boosters
 
-# Función para calcular la puntuación esperada de un jugador dado un booster
-def calcular_puntuacion(probabilidad):
-    return (probabilidad * 5) / 100  # Puntos si se cumple la misión
 
-# Función para calcular la mejor asignación de boosters
-def mejor_asignacion(boosters):
-    mejor_puntuacion_total = float('-inf')
-    mejor_asignacion_boosters = None
-    
-    # Obtener el número de jugadores (asumiendo que todos los boosters tienen el mismo número de jugadores)
-    num_jugadores = len(boosters[0]['jugadores'])
-    
-    # Generar todas las permutaciones de asignación de boosters a jugadores
-    for asignacion in permutations(range(len(boosters)), num_jugadores):  # Permutaciones de boosters
-        puntuacion_total = 0
-        
-        # Iterar sobre los jugadores y asignar un booster
-        for jugador_index in range(num_jugadores):
-            booster_index = asignacion[jugador_index]
-            probabilidad = boosters[booster_index]['jugadores'][jugador_index]
-            puntuacion_total += calcular_puntuacion(probabilidad)
-        
-        # Guardar la asignación con la mejor puntuación total
-        if puntuacion_total > mejor_puntuacion_total:
-            mejor_puntuacion_total = puntuacion_total
-            mejor_asignacion_boosters = asignacion
-    
-    return mejor_asignacion_boosters, mejor_puntuacion_total
+def calcular_partidos_esperados(ranking_equipo, total_equipos=8, min_partidos=1, opt_partidos=3):
+    """
+    Misma formula de FASE A
+    """
+    p = max(0.05, 1 - ranking_equipo / total_equipos)
+    return p * opt_partidos + (1 - p) * min_partidos
 
-# Código principal
-archivo_csv = 'boosters.csv'
-boosters = leer_boosters(archivo_csv)
-mejor_asig, puntuacion = mejor_asignacion(boosters)
 
-# Mostrar el resultado de la mejor asignación
-print("Mejor asignación de boosters:")
-for i, booster_index in enumerate(mejor_asig):
-    booster = boosters[booster_index]
-    print(f"Jugador {i+1} asignado a {booster['nombre']}")
+def ev_booster(p_exito):
+    """
+    EV máximo por booster = 5
+    """
+    ev = 5 * p_exito
+    return min(ev, 5)
 
-print(f"Puntuación total esperada: {puntuacion}")
+
+def asignar_boosters_por_jugador(jugadores, boosters):
+    """
+    Asigna boosters a jugadores según partidos esperados.
+    Cada booster solo puede asignarse a un jugador.
+    """
+    # 1️⃣ Calculamos partidos esperados
+    for j in jugadores:
+        j["partidos_esperados"] = calcular_partidos_esperados(j["ranking_equipo"])
+
+    # 2️⃣ Preparamos lista de posibles asignaciones (EV, jugador, booster)
+    posibles = []
+    for idx_j, jugador in enumerate(jugadores):
+        for booster in boosters:
+            p_exito = booster["probs"][idx_j] / 100
+            ev = ev_booster(p_exito)
+            posibles.append({
+                "ev": ev,
+                "jugador": jugador["nombre"],
+                "booster": booster["nombre"]
+            })
+
+    # 3️⃣ Ordenamos por EV descendente
+    posibles.sort(key=lambda x: x["ev"], reverse=True)
+
+    # 4️⃣ Asignación respetando:
+    # - boosters únicos
+    # - número máximo de boosters por jugador = partidos esperados
+    asignaciones = {j["nombre"]: [] for j in jugadores}
+    boosters_usados = set()
+
+    for item in posibles:
+        jugador = item["jugador"]
+        booster = item["booster"]
+        max_boosters = math.ceil(
+            next(j["partidos_esperados"] for j in jugadores if j["nombre"] == jugador)
+        )
+
+        if booster in boosters_usados:
+            continue
+        if len(asignaciones[jugador]) >= max_boosters:
+            continue
+
+        asignaciones[jugador].append((booster, item["ev"]))
+        boosters_usados.add(booster)
+
+    return asignaciones
+
+# ------------------------
+# EJEMPLO DE USO
+# ------------------------
+jugadores = [
+    {"nombre": "zywoo", "ranking_equipo": 1},
+    {"nombre": "KScerato", "ranking_equipo": 2},
+    {"nombre": "kyxsan", "ranking_equipo": 3},
+    {"nombre": "jame", "ranking_equipo": 6},
+    {"nombre": "hyoex", "ranking_equipo": 7}
+]
+
+boosters = leer_boosters("boosters.csv")
+asignaciones = asignar_boosters_por_jugador(jugadores, boosters)
+
+# ----------------------------------
+# VISUALIZACION CLARA
+# ----------------------------------
+for jugador, boosts in asignaciones.items():
+    boosts_str = ", ".join([f"{b[0]} ({b[1]:.2f})" for b in boosts])
+    print(f"{jugador} → {boosts_str}")
