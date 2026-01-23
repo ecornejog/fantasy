@@ -8,7 +8,7 @@ Equipo: zywoo(multi), kscerato(attacker), kyxsan(support), jame(awp), hypex(hype
 
 | Round\Player | zywoo | kscerato | kyxsan | jame | hypex |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (avenger)  | (assist)  | (bait) | (carry)  | (clutch)  |  |
+| Round 1 | (avenger)  | (assist) 11  | (bait) 16 | (carry)  | (clutch)  |  |
 | Round 2 | (top)  | (kast)  | (bottom)  | (saver)  | (4k)  |  |
 | Round 3 | (pistol)  | (kobe)  | (cannon) | ()  | ()  |  |
 
