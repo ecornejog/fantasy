@@ -6,9 +6,9 @@ from collections import Counter
 # CONFIG TORNEO
 # -----------------------------
 TORNEO = {
-    "partidos_min": 1,
-    "partidos_opt": 3,
-    "total_equipos": 8
+    "partidos_min": 2,
+    "partidos_opt": 2,
+    "total_equipos": 16
 }
 
 PRESUPUESTO = 1000
