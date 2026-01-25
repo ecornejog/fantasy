@@ -26,15 +26,15 @@ Equipo: zywoo(multi), kscerato(attacker), kyxsan(support), jame(awp), hypex(hype
 | Round\Player | zywoo | kscerato | kyxsan | jame | hypex |  |
 |--------------|---------|-----------|------|------|------|--------|
 | Round 1 | (avenger) 29 | (assist) 11  | (bait) 16 | (carry) 16 | (clutch) -1 | 71 |
-| Round 2 | (top) -9 | (kast)  | (hellcase) 24 | (saver)  | () -3 |  |
-| Round 3 | (pistol)  | (kobe)  | (cannon) | ()  | ()  |  |
+| Round 2 | (top) -9 | (kast) -4 | (hellcase) 24 | (saver) 26 | () -3 | 34 |
+| Round 3 | () -3 | () -3 | (bottom) -4 | (pistol) 18 | () -3 | 5 |
 
 
-Total Points:   
-Player:   
-Team:   
-Rol:   
-Boost: 
+Total Points: 110 (top 11%) +12  
+Player: 35 (22%)  
+Team: 18 (10%)  
+Rol: 27 (10%)  
+Boost: 30 (18%)
  
 ## Previous results
 
