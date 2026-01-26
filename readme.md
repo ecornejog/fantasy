@@ -4,12 +4,12 @@ Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
 ## IEM Krakow Play In 26
 
-Equipo: vsm(stathunter), piriajr(multi), dziugss(HS), xKacpersky(defender), cairne(attacker)
+Equipo: nota(HS), vsm(stathunter), piriajr(multi), xKacpersky(attacker), sonic(entry)
 
-| Round\Player | vsm | piriajr | dziugss | xKacpersky | cairne |  |
+| Round\Player | nota | vsm | piriajr | xKacpersky | sonic |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (top) | (kast) | (assist) | (Pistol) | (Bait) |  |
-| Round 2 | (carry)  | (4k)  | (avenger)  | (aimbot)  | (cannon) |  |
+| Round 1 | (avenger) | (top) | (4k) | (bait) | (assist) |  |
+| Round 2 | (kast)  | (carry)  | (kobe)  | (cannon)  | (pistol) |  |
 | Round 3 | ()  | ()  | () | ()  | ()  |  |
 
 

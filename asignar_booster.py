@@ -92,11 +92,11 @@ def asignar_boosters_por_jugador(jugadores, boosters):
 # EJEMPLO DE USO
 # ------------------------
 jugadores = [
-    {"nombre": "vsm", "ranking_equipo": 6},
-    {"nombre": "piri", "ranking_equipo": 6},
-    {"nombre": "dziugs", "ranking_equipo": 13},
+    {"nombre": "nota", "ranking_equipo": 1},
+    {"nombre": "vsm", "ranking_equipo": 7},
+    {"nombre": "piri", "ranking_equipo": 7},
     {"nombre": "karp", "ranking_equipo": 14},
-    {"nombre": "cairne", "ranking_equipo": 14}
+    {"nombre": "sonic", "ranking_equipo": 15}
 ]
 
 boosters = leer_boosters("boosters.csv")
