@@ -8,7 +8,7 @@ Equipo: nota(HS), vsm(stathunter), piriajr(multi), xKacpersky(attacker), sonic(e
 
 | Round\Player | nota | vsm | piriajr | xKacpersky | sonic |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (avenger) 34 | (top) 9 | (4k) -2 | (bait) | (assist) 6 |  |
+| Round 1 | (avenger) 34 | (top) 9 | (4k) -2 | (bait) -13 | (assist) 6 | 34 |
 | Round 2 | (kast)  | (carry)  | (hellcase)  | (cannon)  | (pistol) |  |
 | Round 3 | ()  | ()  | () | ()  | ()  |  |
 
@@ -18,25 +18,9 @@ Player:
 Team:   
 Rol:   
 Boost: 
-
-## Blast Bounty 2026 - 1
-
-Equipo: zywoo(multi), kscerato(attacker), kyxsan(support), jame(awp), hypex(hypex)
-
-| Round\Player | zywoo | kscerato | kyxsan | jame | hypex |  |
-|--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (avenger) 29 | (assist) 11  | (bait) 16 | (carry) 16 | (clutch) -1 | 71 |
-| Round 2 | (top) -9 | (kast) -4 | (hellcase) 24 | (saver) 26 | () -3 | 34 |
-| Round 3 | () -3 | () -3 | (bottom) -4 | (pistol) 18 | () -3 | 5 |
-
-
-Total Points: 110 (top 11%) +12  
-Player: 35 (22%)  
-Team: 18 (10%)  
-Rol: 27 (10%)  
-Boost: 30 (18%)
  
 ## Previous results
 
 | Event | Total Points | Points to leaderboard | Player | Team | Rol | Booster |
 |-------|--------------|----|------|------|-----|---------|
+|Blast Bounty 2026 - 1 | 110 (11%) | 12 | 35 (22%) | 18 (10%) | 27 (10%) | 30 (18%) |
