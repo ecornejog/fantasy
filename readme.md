@@ -9,7 +9,7 @@ Equipo: nota(HS), vsm(stathunter), piriajr(multi), xKacpersky(attacker), sonic(e
 | Round\Player | nota | vsm | piriajr | xKacpersky | sonic |  |
 |--------------|---------|-----------|------|------|------|--------|
 | Round 1 | (avenger) 34 | (top) 9 | (4k) -2 | (bait) -13 | (assist) 6 | 34 |
-| Round 2 | (kast)  | (carry)  | (hellcase)  | (cannon)  | (pistol) |  |
+| Round 2 | (kast) 18  | (carry) 32 | (hellcase) 10 | (cannon)  | (pistol) |  |
 | Round 3 | ()  | ()  | () | ()  | ()  |  |
 
 
