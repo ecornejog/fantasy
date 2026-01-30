@@ -7,7 +7,7 @@ from collections import Counter
 # -----------------------------
 TORNEO = {
     "partidos_min": 2,
-    "partidos_opt": 2,
+    "partidos_opt": 3,
     "total_equipos": 16
 }
 
