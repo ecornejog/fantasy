@@ -4,13 +4,13 @@ Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
 ## IEM Krakow Stage 2 26
 
-Equipo: 
+Equipo: zywoo(multi), monesy(attacker), dziugss(HS), nitro (support), sonic (entry)
 
-| Round\Player |  |  |  |  |  |  |
+| Round\Player | zywoo | monesy | dziugss | nitro | sonic |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | ()  | ()  | ()  | ()  | () |  |
-| Round 2 | ()   | ()  | ()  | ()  | () |  |
-| Round 3 | ()  | ()  | () | ()  | ()  |  |
+| Round 1 | (avenger)  | (kast)  | (bait)  | (bottom)  | (assist) |  |
+| Round 2 | (top)   | (saver)  | (kobe)  | (flash)  | (cannon) |  |
+| Round 3 | (pistol)  | (rambo)  | (clutch) | (4k)  | (carry)  |  |
 
 
 Total Points:   
