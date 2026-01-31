@@ -8,9 +8,10 @@ Equipo: zywoo(multi), monesy(attacker), dziugss(HS), nitro (support), sonic (ent
 
 | Round\Player | zywoo | monesy | dziugss | nitro | sonic |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (avenger)  | (kast)  | (bait)  | (bottom)  | (assist) |  |
+| Round 1 | (avenger)  | (kast)  | (bait) 26 | (bottom)  | (assist) |  |
 | Round 2 | (top)   | (saver)  | (kobe)  | (flash)  | (cannon) |  |
 | Round 3 | (pistol)  | (rambo)  | (clutch) | (4k)  | (carry)  |  |
+| Round 4 | ()  | ()  | () | ()  | ()  |  |
 
 
 Total Points:   
@@ -26,15 +27,15 @@ Equipo: nota(HS), vsm(stathunter), piriajr(multi), xKacpersky(attacker), sonic(e
 | Round\Player | nota | vsm | piriajr | xKacpersky | sonic |  |
 |--------------|---------|-----------|------|------|------|--------|
 | Round 1 | (avenger) 34 | (top) 9 | (4k) -2 | (bait) -13 | (assist) 6 | 34 |
-| Round 2 | (kast) 18  | (carry) 32 | (hellcase) 10 | (cannon) 27 | (pistol) |  |
-| Round 3 | (-)  | (AIM)  | (Clutch) | (Kobe)  | ()  |  |
+| Round 2 | (kast) 18  | (carry) 32 | (hellcase) 10 | (cannon) 27 | (pistol) 8 | 95 |
+| Round 3 | (-) 20 | (AIM) -7 | (Clutch) 0 | (Kobe) 3 | () 2 | 18 |
 
 
-Total Points:   
-Player:   
-Team:   
-Rol:   
-Boost: 
+Total Points: 147 (%58) +4  
+Player: 40 (72%)  
+Team: 36 (%51)  
+Rol:  11 (89%) 
+Boost: 60 (1%)
  
 ## Previous results
 
