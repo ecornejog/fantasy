@@ -8,10 +8,10 @@ Equipo: zywoo(multi), monesy(attacker), dziugss(HS), nitro (support), sonic (ent
 
 | Round\Player | zywoo | monesy | dziugss | nitro | sonic |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (avenger) 22 | (kast) 5 | (bait) 26 | (bottom) -21 | (assist) 4 |  |
-| Round 2 | (top)   | (saver)  | (kobe) 1 | (hellcase)  | (cannon) |  |
-| Round 3 | (pistol)  | (rambo)  | (clutch) | (4k)  | (carry)  |  |
-| Round 4 | ()  | ()  | () | ()  | ()  |  |
+| Round 1 | (avenger) 22 | (kast) 5 | (bait) 26 | (bottom) -21 | (assist) 4 | 36 |
+| Round 2 | (top) 46 | (saver) 30 | (kobe) 1 | (hellcase) 1 | (cannon) -8 | 70 |
+| Round 3 | (-) 29 | (carry)  | (clutch) -2 | (-) -3 | (-) -3 |  |
+| Round 4 | (pistol)  | ()  | () -3 | () -3 | () -3 |  |
 
 
 Total Points:   
