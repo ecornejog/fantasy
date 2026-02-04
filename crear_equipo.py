@@ -1,70 +1,106 @@
 import csv
 from itertools import combinations
+from collections import Counter
 
-# Función para leer el archivo CSV
-def leer_jugadores(archivo_csv):
+# -----------------------------
+# CONFIG TORNEO
+# -----------------------------
+TORNEO = {
+    "partidos_min": 2,
+    "partidos_opt": 3,
+    "total_equipos": 16
+}
+
+PRESUPUESTO = 1000
+NUM_JUGADORES = 5
+MAX_POR_EQUIPO = 2
+
+
+# -----------------------------
+# UTILIDADES
+# -----------------------------
+def puntos_base(rating):
+    return (rating - 100) / 2
+
+
+def probabilidad_avance(ranking, total_equipos):
+    return max(0.05, 1 - ranking / total_equipos)
+
+
+def partidos_esperados(ranking):
+    p = probabilidad_avance(ranking, TORNEO["total_equipos"])
+    return (
+        p * TORNEO["partidos_opt"]
+        + (1 - p) * TORNEO["partidos_min"]
+    )
+
+
+def puntos_team(ranking):
+    p = probabilidad_avance(ranking, TORNEO["total_equipos"])
+    return 6 * p - 3 * (1 - p)
+
+
+# -----------------------------
+# LECTURA CSV
+# -----------------------------
+def leer_jugadores(path):
     jugadores = []
-    with open(archivo_csv, newline='') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
+    with open(path, newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for r in reader:
             jugadores.append({
-                'jugador': row['jugador'],
-                'equipo': row['equipo'],
-                'precio': int(row['precio']),
-                'rating': float(row['rating']),
-                'ranking_equipo': int(row['ranking_equipo'])  # Nueva columna de ranking
+                "nombre": r["jugador"],
+                "equipo": r["equipo"],
+                "precio": int(r["precio"]),
+                "rating": float(r["rating"]),
+                "ranking": int(r["ranking_equipo"])
             })
     return jugadores
 
-# Función para obtener el "peso de ranking" del equipo
-def obtener_peso_ranking(ranking_equipo):
-    # Agrupación de rangos: de 1 a 5 -> 1, de 6 a 10 -> 2, y así sucesivamente
-    return (ranking_equipo - 1) // 5 + 1
 
-# Función para calcular el mejor equipo
-def mejor_equipo(jugadores, presupuesto, num_jugadores=5, max_por_equipo=2):
-    mejor_puntuacion_relativa = float('-inf')
-    mejor_combinacion = None
-    
-    # Generar todas las combinaciones posibles de equipos de 'num_jugadores' jugadores
-    for equipo in combinations(jugadores, num_jugadores):
-        if sum(j['precio'] for j in equipo) > presupuesto:
-            continue  # Saltar si el equipo excede el presupuesto
-        
-        # Contar jugadores por equipo
-        equipos_conteo = {}
-        for j in equipo:
-            equipos_conteo[j['equipo']] = equipos_conteo.get(j['equipo'], 0) + 1
-        
-        # Verificar la restricción de máximo de jugadores por equipo
-        if any(c > max_por_equipo for c in equipos_conteo.values()):
-            continue  # Saltar si algún equipo excede el límite permitido
-        
-        # Calcular rating total y peso total del ranking
-        rating_total = sum(j['rating'] for j in equipo)
-        peso_ranking_total = sum(obtener_peso_ranking(j['ranking_equipo']) for j in equipo)
-        
-        # Calcular el rating relativo (rating total dividido por el peso del ranking total)
-        puntuacion_relativa = rating_total / peso_ranking_total
-        
-        # Guardar la mejor combinación
-        if puntuacion_relativa > mejor_puntuacion_relativa:
-            mejor_puntuacion_relativa = puntuacion_relativa
-            mejor_combinacion = equipo
-    
-    return mejor_combinacion, mejor_puntuacion_relativa
+# -----------------------------
+# EV POR JUGADOR
+# -----------------------------
+def ev_jugador(j):
+    pe = partidos_esperados(j["ranking"])
+    return pe * (
+        puntos_base(j["rating"])
+        + puntos_team(j["ranking"])
+    )
 
-# Código principal
-archivo_csv = 'jugadores.csv'
-jugadores = leer_jugadores(archivo_csv)
-presupuesto = 1000
 
-# Obtener el mejor equipo
-mejor_equipo_seleccionado, mejor_puntuacion_relativa = mejor_equipo(jugadores, presupuesto)
+# -----------------------------
+# BUSQUEDA MEJORES EQUIPOS
+# -----------------------------
+def mejores_equipos(jugadores, top_n=10):
+    equipos_validos = []
 
-# Mostrar el equipo seleccionado y la puntuación relativa
-print("Mejor equipo seleccionado:")
-for j in mejor_equipo_seleccionado:
-    print(f"Jugador: {j['jugador']}, Equipo: {j['equipo']}, Precio: {j['precio']}, Rating: {j['rating']}, Ranking Equipo: {j['ranking_equipo']}")
+    for team in combinations(jugadores, NUM_JUGADORES):
+        if sum(j["precio"] for j in team) > PRESUPUESTO:
+            continue
 
-print(f"Puntuación relativa del equipo: {mejor_puntuacion_relativa}")
+        conteo = Counter(j["equipo"] for j in team)
+        if any(v > MAX_POR_EQUIPO for v in conteo.values()):
+            continue
+
+        ev_total = sum(ev_jugador(j) for j in team)
+
+        equipos_validos.append((ev_total, team))
+
+    equipos_validos.sort(reverse=True, key=lambda x: x[0])
+    return equipos_validos[:top_n]
+
+
+# -----------------------------
+# MAIN
+# -----------------------------
+jugadores = leer_jugadores("jugadores.csv")
+top_equipos = mejores_equipos(jugadores)
+
+for i, (ev, team) in enumerate(top_equipos, 1):
+    print(f"\nEquipo #{i} | EV total: {ev:.2f}")
+    for j in team:
+        print(
+            f"  {j['nombre']:10s} | {j['equipo']:8s} | "
+            f"€{j['precio']:3d} | rating {j['rating']}"
+        )
