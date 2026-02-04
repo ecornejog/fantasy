@@ -14,31 +14,16 @@ Equipo: zywoo(multi), monesy(attacker), dziugss(HS), nitro (support), sonic (ent
 | Round 4 | (pistol)  | ()  | () -3 | () -3 | () -3 |  |
 
 
-Total Points:   
-Player:   
-Team:   
-Rol:   
-Boost: 
-
-## IEM Krakow Play In 26
-
-Equipo: nota(HS), vsm(stathunter), piriajr(multi), xKacpersky(attacker), sonic(entry)
-
-| Round\Player | nota | vsm | piriajr | xKacpersky | sonic |  |
-|--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (avenger) 34 | (top) 9 | (4k) -2 | (bait) -13 | (assist) 6 | 34 |
-| Round 2 | (kast) 18  | (carry) 32 | (hellcase) 10 | (cannon) 27 | (pistol) 8 | 95 |
-| Round 3 | (-) 20 | (AIM) -7 | (Clutch) 0 | (Kobe) 3 | () 2 | 18 |
-
-
-Total Points: 147 (%58) +4  
-Player: 40 (72%)  
-Team: 36 (%51)  
-Rol:  11 (89%) 
-Boost: 60 (1%)
+Total Points: 189 (%50) +6  
+Player: 109 (24%)  
+Team: 3 (84%)  
+Rol: 37 (66%)  
+Boost: 40 (32%)
  
 ## Previous results
 
 | Event | Total Points | Points to leaderboard | Player | Team | Rol | Booster |
 |-------|--------------|----|------|------|-----|---------|
 |Blast Bounty 2026 - 1 | 110 (11%) | 12 | 35 (22%) | 18 (10%) | 27 (10%) | 30 (18%) |
+|IEM Krakow Play In 26 | 147 (72%) | 4 | 40 (72%) | 36 (%51) | 11 (89%)  | 60 (1%) |
+|IEM Krakow Stage 2 26 | 189 (%50) | 6 | 109 (24%) | 3 (84%) | 37 (66%) | 40 (32%) |
