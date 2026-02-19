@@ -2,15 +2,15 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.  
 
-## PGL Cluj-Napoca 2026 - Group Stage
+## PGL Cluj-Napoca 2026 - Playoffs
 
-Equipo: zywoo (stathunter), krabeny (entry), dziugss(HS), xfloud(multi), nilo (attack)
+Equipo: Zywoo (Stat), teses (HS), kyosuke (multi), zweih (support), majer (noob)
 
-| Round\Player | Zywoo | Krabeni | dziuigs | xfloud | nilo |  |
+| Round\Player | zywoo | teses | kyosuke | zweih | majer |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (top) | (4k) | (bottom) | (assist) | (avenger) |  |
-| Round 2 | (pistol) | (clutch) | (kobe) | (bait) | (saver) |  |
-| Round 3 | (carry) | (aim) | (kast) | (cannon) | (farmer) |  |
+| Round 1 | (top) | (bottom) | (avenger) | (cannon) | (assist) |  |
+| Round 2 | (pistol) | (aim) | (carry) | (kobe) | (bait) |  |
+| Round 3 | (kast) | (clutch) | (4k) | () | () |  |
 | Round 4 | () | () | () | () | () |  |
 | Round 5 | () | () | () | () | () |  |
 
