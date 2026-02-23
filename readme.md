@@ -2,15 +2,15 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.  
 
-## PGL Cluj-Napoca 2026 - Playoffs
+## ESL Pro League S23 Stage 1
 
-Equipo: apex (noob), zywoo(multi), fallen(leader), jimmy(support), zweih (HS)
+Equipo: 
 
-| Round\Player | apex | zywoo | fallen | jimmy | zweih |  |
+| Round\Player |  |  |  |  |  |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (assist) | (avenger) | (bottom) | (kast) | (bait) |  |
-| Round 2 | (flash) | (top) | (farmer) | (saver) | (cannon) |  |
-| Round 3 | (kobe) | (pistol) | (pistol) | () | () |  |
+| Round 1 | () | () | () | () | () |  |
+| Round 2 | () | () | () | () | () |  |
+| Round 3 | () | () | () | () | () |  |
 | Round 4 | () | () | () | () | () |  |
 | Round 5 | () | () | () | () | () |  |
 
@@ -31,3 +31,4 @@ Boost:
 |IEM Krakow Stage 2 26 | 189 (%50) | 6 | 109 (24%) | 3 (84%) | 37 (66%) | 40 (32%) |
 |IEM Krakow Playoffs 26 | 137 (%24) | 10 | 55 (24%) | 27 (41%) | 30 (24%) | 25 (31%) |
 |PGL Cluj-Napoca 26 - Group Stage | 261 (%45) | 6 | 140 (18%) | 24 (95%) | 47 (75%) | 50 (12%) |
+|PGL Cluj-Napoca 26 - Playoffs | 172 (%17) | 12 | 58 (31%) | 45 (6%) | 29 (47%) | 40 (11%) |
