@@ -1,39 +1,39 @@
 jugador,equipo,precio,rating,ranking_equipo
-Hunter,G2,198,86,1
-Malbs,G2,217,102,1
-Sunpa,G2,218,102,1
-Heavy,G2,228,111,1
-Matys,G2,220,104,1
+Hunter,G2,198,86,2,11,229,10,1593,,
+Malbs,G2,217,102,2,11,229,10,1593,,
+Sunpa,G2,218,102,2,11,229,10,1593,,
+Heavy,G2,228,111,2,11,229,10,1593,,
+Matys,G2,220,104,2,11,229,10,1593,,
 
-NAF,LIQUID,215,110,3
-ELIGE,LIQUID,212,105,3
-NERTZ,LIQUID,210,109,3
-SIUHY,LIQUID,192,91,3
-ULTI,LIQUID,205,102,3
+NAF,LIQUID,215,110,7,15,96,20,1422,,
+ELIGE,LIQUID,212,105,7,15,96,20,1422,,
+NERTZ,LIQUID,210,109,7,15,96,20,1422,,
+SIUHY,LIQUID,192,91,7,15,96,20,1422,,
+ULTI,LIQUID,205,102,7,15,96,20,1422,,
 
-body,3DMAX,210,105,4
-maka,3DMAX,215,102,4
-lucky,3DMAX,204,99,4
-exercice,3DMAX,207,99,4
-gravity,3DMAX,205,96,4
+maka,3DMAX,210,105,8,14,106,22,1403,,
+lucky,3DMAX,215,102,8,14,106,22,1403,,
+misutaaa,3DMAX,204,99,8,14,106,22,1403,,
+exercice,3DMAX,207,99,8,14,106,22,1403,,
+gravity,3DMAX,205,96,8,14,106,22,1403,,
 
-hooxi,Astralis,188,94,5
-phzy,Astralis,206,100,5
-jabi,Astralis,197,103,5
-staer,Astralis,205,105,5
-ryu,Astralis,208,117,5
+hooxi,Astralis,188,94,3,12,158,11,1592,,
+phzy,Astralis,206,100,3,12,158,11,1592,,
+jabi,Astralis,197,103,3,12,158,11,1592,,
+staer,Astralis,205,105,3,12,158,11,1592,,
+ryu,Astralis,208,117,3,12,158,11,1592,,
 
-vsm,Pain,196,119,6
-bigu,Pain,198,106,6
-piri,Pain,216,137,6
-nqz,Pain,197,103,6
-snow,Pain,195,101,6
+vsm,Pain,196,119,13,17,76,32,1326,,
+bigu,Pain,198,106,13,17,76,32,1326,,
+piri,Pain,216,137,13,17,76,32,1326,,
+nqz,Pain,197,103,13,17,76,32,1326,,
+snow,Pain,195,101,13,17,76,32,1326,,
 
-jt,PUA,199,106,7
-hallzerk,PUA,197,98,7
-grim,PUA,207,101,7
-kvem,PUA,207,107,7
-nicx,PUA,195,103,7
+jt,PUA,199,106,14,20,66,34,1301,,
+grim,PUA,197,98,14,20,66,34,1301,,
+try,PUA,207,101,14,20,66,34,1301,,
+kvem,PUA,207,107,14,20,66,34,1301,,
+nicx,PUA,195,103,14,20,66,34,1301,,
 
 alex666,b8,190,98,8
 npl,b8,208,107,8
@@ -41,11 +41,11 @@ kensizor,b8,205,111,8
 esenthial,b8,195,102,8
 s1zzi,b8,190,0,8
 
-duma,legacy,198,109,10
-lato,legacy,205,115,10
-nisim,legacy,191,102,10
-lux,legacy,183,97,10
-saadz,legacy,194,109,10
+arT,legacy,198,109,9,27,42,25,1365,,
+duma,legacy,205,115,9,27,42,25,1365,,
+lato,legacy,191,102,9,27,42,25,1365,,
+nisim,legacy,183,97,9,27,42,25,1365,,
+saadz,legacy,194,109,9,27,42,25,1365,,
 
 SNAX,GL,175,92,11
 REZ,GL,197,112,11
@@ -53,29 +53,29 @@ TAUSON,GL,201,113,11
 PR,GL,204,121,11
 HYPEX,GL,184,100,11
 
-XFLOUD,HEROIC,195,116,12
-NILO,HEROIC,192,115,12
-SUSP,HEROIC,194,112,12
-CRHIZ,HEROIC,178,99,12
-alkaren,HEROIC,191,109,12
+XFLOUD,HEROIC,200,100,11,21,65,27,1346,,
+NILO,HEROIC,200,100,11,21,65,27,1346,,
+SUSP,HEROIC,194,112,11,21,65,27,1346,,
+CRHIZ,HEROIC,178,99,11,21,65,27,1346,,
+alkaren,HEROIC,191,109,11,21,65,27,1346,,
 
-demon,fut,189,114,13
-launx,fut,187,114,13
-krabeni,fut,182,110,13
-cmtry,fut,180,106,13
-dziuigs,fut,194,121,13
+demon,fut,189,114,4,13,110,13,1532,,
+launx,fut,187,114,4,13,110,13,1532,,
+krabeni,fut,182,110,4,13,110,13,1532,,
+cmtry,fut,180,106,4,13,110,13,1532,,
+dziuigs,fut,194,121,4,13,110,13,1532,,
 
-snapi,nip,170,98,14
-sjuush,nip,181,110,14
-rinkle,nip,182,112,14
-karpers,nip,194,124,14
-cairne,nip,195,123,14
+snapi,nip,170,98,12,25,42,29,1344,,
+sjuush,nip,181,110,12,25,42,29,1344,,
+rinkle,nip,182,112,12,25,42,29,1344,,
+karpers,nip,194,124,12,25,42,29,1344,,
+cairne,nip,195,123,12,25,42,29,1344,,
 
-nitro,nrg,173,105,15
-sonic,nrg,184,117,15
-osee,nrg,188,114,15
-bro,nrg,183,116,15
-jeorge,nrg,178,111,15
+nitro,nrg,173,105,5,19,68,16,1450,,
+sonic,nrg,184,117,5,19,68,16,1450,,
+osee,nrg,188,114,5,19,68,16,1450,,
+bro,nrg,183,116,5,19,68,16,1450,,
+jeorge,nrg,178,111,5,19,68,16,1450,,
 
 mutiris,bc,178,103,16
 simple,bc,195,101,16
@@ -142,3 +142,27 @@ xanta,Aurora,203,112,8,11,230,8,1749,1,
 woxic,Aurora,187,106,8,11,230,8,1749,1,
 soulfly,Aurora,184,102,8,11,230,8,1749,1,
 wicadia,Aurora,193,111,8,11,230,8,1749,1,
+
+rainwaker,monte,200,100,6,30,34,18,1431,,
+bymas,monte,200,100,6,30,34,18,1431,,
+afro,monte,200,100,6,30,34,18,1431,,
+gizmy,monte,200,100,6,30,34,18,1431,,
+AZUWU,monte,200,100,6,30,34,18,1431,,
+
+slaxz,M80,200,100,10,29,38,26,1359,,
+swisher,M80,200,100,10,29,38,26,1359,,
+s1n,M80,200,100,10,29,38,26,1359,,
+JBa,M80,200,100,10,29,38,26,1359,,
+Lake,M80,200,100,10,29,38,26,1359,,
+
+HEN1,Gaimin ,200,100,15,66,12,63,1097,,
+felps,Gaimin ,200,100,15,66,12,63,1097,,
+NEKIZ,Gaimin ,200,100,15,66,12,63,1097,,
+Luken,Gaimin ,200,100,15,66,12,63,1097,,
+Jota,Gaimin ,200,100,15,66,12,63,1097,,
+
+hazr,SemperFi,200,100,16,141,5,117,887,,
+keen,SemperFi,200,100,16,141,5,117,887,,
+shadiy,SemperFi,200,100,16,141,5,117,887,,
+addict,SemperFi,200,100,16,141,5,117,887,,
+savage,SemperFi,200,100,16,141,5,117,887,,
