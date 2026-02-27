@@ -106,6 +106,110 @@ def detect_format_token(format_string):
     # por defecto tomamos single elimination si menciona "single" o no se detecta
     return "single"
 
+def expected_matches_swiss(p):
+    """
+    Expected number of matches in Swiss stage where teams play until
+    someone reaches 3 wins or 3 losses (i.e., best of up to 5 matches,
+    but stopping when someone gets 3).
+    p = per-match win probability (0..1)
+    Returns E[N] where N in {3,4,5}.
+    """
+    q = 1.0 - p
+
+    # Probabilities of finishing in exactly n matches
+    P3 = p**3 + q**3
+    P4 = 3 * (p**3 * q) + 3 * (q**3 * p)
+    P5 = 6 * (p**3 * q**2) + 6 * (q**3 * p**2)
+
+    # numeric safety: normalize if tiny numerical drift
+    total = P3 + P4 + P5
+    if total <= 0:
+        return 3.0
+    if abs(total - 1.0) > 1e-8:
+        P3 /= total
+        P4 /= total
+        P5 /= total
+
+    expected = 3.0 * P3 + 4.0 * P4 + 5.0 * P5
+    return expected
+
+def expected_points_swiss(p, B, m_max=5):
+    """
+    p: per-match win probability (0..1)
+    B: base points per match for the player (rating based), scalar
+    m_max: maximum swiss rounds (default 5)
+    Returns: (E_matches, E_points_total)
+    """
+    q = 1.0 - p
+
+    # scenario probabilities (separate win/lose outcomes)
+    P3_win = p**3
+    P3_loss = q**3
+    P4_win = 3 * (p**3 * q)
+    P4_loss = 3 * (q**3 * p)
+    P5_win = 6 * (p**3 * q**2)
+    P5_loss = 6 * (q**3 * p**2)
+
+    # sanity normalize
+    total_prob = P3_win + P3_loss + P4_win + P4_loss + P5_win + P5_loss
+    if total_prob <= 0:
+        # fallback
+        return expected_matches_swiss(p), B * m_max
+    # normalize to avoid tiny rounding issues
+    P3_win /= total_prob
+    P3_loss /= total_prob
+    P4_win /= total_prob
+    P4_loss /= total_prob
+    P5_win /= total_prob
+    P5_loss /= total_prob
+
+    # helper: team points for played rounds
+    # for finish-with-3-wins at N: teamPts_played = 27 - 3*N
+    # for finish-with-3-losses at N: teamPts_played = 6*N - 27
+    def total_points_played_win(N):
+        team_pts = 27.0 - 3.0 * N
+        return B * N + team_pts
+
+    def total_points_played_loss(N):
+        team_pts = 6.0 * N - 27.0
+        return B * N + team_pts
+
+    # compute scenario totals
+    # win cases:
+    tp3w = total_points_played_win(3)          # played 3 rounds, 3 wins
+    total3w = tp3w * (m_max / 3.0)              # padding multiplies by m_max / N
+
+    tp4w = total_points_played_win(4)
+    total4w = tp4w * (m_max / 4.0)
+
+    tp5w = total_points_played_win(5)
+    total5w = tp5w * (m_max / 5.0)              # usually just tp5w (no padding) but keep formula
+
+    # loss cases:
+    tp3l = total_points_played_loss(3)
+    total3l = tp3l - 3.0 * (m_max - 3.0)
+
+    tp4l = total_points_played_loss(4)
+    total4l = tp4l - 3.0 * (m_max - 4.0)
+
+    tp5l = total_points_played_loss(5)
+    total5l = tp5l - 3.0 * (m_max - 5.0)        # zero extra rounds => same as tp5l
+
+    # expected total points
+    E_points = (
+        P3_win * total3w +
+        P4_win * total4w +
+        P5_win * total5w +
+        P3_loss * total3l +
+        P4_loss * total4l +
+        P5_loss * total5l
+    )
+
+    # expected matches (exact formula)
+    E_matches = 3.0 * (P3_win + P3_loss) + 4.0 * (P4_win + P4_loss) + 5.0 * (P5_win + P5_loss)
+
+    return E_matches, E_points
+
 def get_rounds_from_teams(n_teams, format_token):
     """
     Estima número de rondas (mapas) esperables para formato.
@@ -114,6 +218,7 @@ def get_rounds_from_teams(n_teams, format_token):
     - swiss: 3..5; usamos 3 como mínimo
     - group_playoff: aproximamos como single con +1
     """
+    print(f"Detectado formato: {format_token}, con {n_teams} equipos.")
     if format_token == "single":
         return ceil(log2(max(n_teams,2)))
     if format_token == "double":
@@ -165,33 +270,99 @@ def compute_scores_and_expected_points(df, format_string, profile="consistent", 
 
     first_win_probs = []
     expected_matches_list = []
+    expected_points_total_list = []
+    expected_points_base_list = []
+    expected_team_points_total_list = []
+
     for _, row in df.iterrows():
         seed = int(row["seed"])
         opp_seed = int(row.get("opp_seed_first_match", seed))
+
         team_pts = seed_pts_map.get(seed, row["team_points_abs"])
         opp_pts = seed_pts_map.get(opp_seed, team_pts)
+
+        # per-match win prob (ELO-style)
         p_win_first = elo_win_prob(team_pts, opp_pts, scale=ELO_SCALE)
         p_win = p_win_first
-        expected_matches = expected_matches_for_player(p_win, rounds) * format_mult
+
+        # Base points per match (rating-based)
+        B = (row["rating"] - 100.0) / 2.0
+
+        if format_token == "swiss":
+            # Use the exact Swiss model (includes padding/elimination)
+            E_matches, E_points_total = expected_points_swiss(p_win, B, m_max=5)
+
+            # Derive expected base / team components for diagnostics:
+            # For Swiss we compute expected base as:
+            #   E_base = sum_over_scenarios(base_points_scenario * P_scenario)
+            # where base_points_scenario = B*m_max for win scenarios (because padded to m_max),
+            # and = B*N for loss scenarios (no base for padded rounds).
+            q = 1.0 - p_win
+            P3w = p_win**3
+            P4w = 3 * (p_win**3 * q)
+            P5w = 6 * (p_win**3 * q**2)
+            P3l = q**3
+            P4l = 3 * (q**3 * p_win)
+            P5l = 6 * (q**3 * p_win**2)
+            # normalize tiny drift
+            total_prob = P3w + P4w + P5w + P3l + P4l + P5l
+            if total_prob <= 0:
+                total_prob = 1.0
+            P3w /= total_prob; P4w /= total_prob; P5w /= total_prob
+            P3l /= total_prob; P4l /= total_prob; P5l /= total_prob
+
+            # base totals per scenario
+            base_3w = B * 5.0   # winners padded to m_max => base = B * m_max
+            base_4w = B * 5.0
+            base_5w = B * 5.0
+            base_3l = B * 3.0   # losers: base only for played rounds
+            base_4l = B * 4.0
+            base_5l = B * 5.0
+
+            E_base = (P3w * base_3w + P4w * base_4w + P5w * base_5w +
+                      P3l * base_3l + P4l * base_4l + P5l * base_5l)
+
+            # team component is remainder
+            E_team = E_points_total - E_base
+
+            expected_matches = E_matches
+            expected_points_total = E_points_total
+            expected_points_base = E_base
+            expected_team = E_team
+
+        else:
+            # Non-Swiss (geometric approx)
+            expected_matches = expected_matches_for_player(p_win, rounds) * format_mult
+
+            # Base and team parts computed separately as before:
+            expected_points_base = B * expected_matches
+            team_points_per_match = 9.0 * p_win - 3.0
+            expected_team = team_points_per_match * expected_matches
+            expected_points_total = expected_points_base + expected_team
+
+        # append lists
         first_win_probs.append(p_win_first)
         expected_matches_list.append(expected_matches)
+        expected_points_total_list.append(expected_points_total)
+        expected_points_base_list.append(expected_points_base)
+        expected_team_points_total_list.append(expected_team)
 
     df["first_win_prob"] = first_win_probs
     df["expected_matches"] = expected_matches_list
+    df["expected_points_total"] = expected_points_total_list
+    df["expected_points_base"] = expected_points_base_list
+    df["expected_team_points_total"] = expected_team_points_total_list
+
+    # keep also points_base_per_match for diagnostics
+    df["points_base_per_match"] = (df["rating"] - 100.0) / 2.0
+
+    df["first_win_prob"] = first_win_probs
     df["bo5_bonus"] = df["team_power"] * (bo5_multiplier - 1.0) * (df["seed"] <= 4)
     df["rating_norm"] = df["rating"] / max(df["rating"].max(), 1.0)
 
-    # puntos base por partido y esperados
-    df["points_base_per_match"] = (df["rating"] - 100.0) / 2.0
-    df["expected_points_base"] = df["points_base_per_match"] * df["expected_matches"]
-
-    # puntos de equipo por partido y total esperado
+     # puntos de equipo por partido y total esperado
     # team points per match = 6*p - 3*(1-p) = 9*p - 3
     df["team_points_per_match"] = 9.0 * df["first_win_prob"] - 3.0
-    df["expected_team_points_total"] = df["team_points_per_match"] * df["expected_matches"]
-
-    # total esperado sin roles/boosters
-    df["expected_points_total"] = df["expected_points_base"] + df["expected_team_points_total"]
 
     # penalidad popularidad: multiplicativa
     if pop_lambda is None:
@@ -296,7 +467,7 @@ if __name__ == "__main__":
             print_team(team, adj_sum, final_sum)
     scored_sorted = scored_df.sort_values(by="adj_expected_points", ascending=False)
 print("\nTop 20 jugadores por adj_expected_points (diagnóstico):\n")
-cols = ["jugador","equipo","precio","rating","seed","first_win_prob","expected_matches",
+cols = ["jugador","equipo","first_win_prob","expected_matches",
         "points_base_per_match","expected_points_base","team_points_per_match",
         "expected_team_points_total","expected_points_total","popularity_penalty_factor",
         "adj_expected_points","final_score"]
