@@ -2,15 +2,15 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.  
 
-## ESL Pro League S23 Stage 1
+## ESL Pro League S23 Stage 1 (not official)
 
-Equipo: 
+Equipo: osee, xfloud, swisher, afro, luken
 
-| Round\Player |  |  |  |  |  |  |
+| Round\Player | osee | xfloud | swisher | afro | luken |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | () | () | () | () | () |  |
-| Round 2 | () | () | () | () | () |  |
-| Round 3 | () | () | () | () | () |  |
+| Round 1 | (avenger) | (assist) | (pistol) | (flash) | (top) |  |
+| Round 2 | (carry) | (bait) | (bottom) | (clutch) | (kast) |  |
+| Round 3 | (kobe) | (cannon) | (farmer) | (saver) | (4k) |  |
 | Round 4 | () | () | () | () | () |  |
 | Round 5 | () | () | () | () | () |  |
 
