@@ -8,9 +8,9 @@ Equipo: donc, wicadia, krabeni, art, dumau
 
 | Round\Player | donk | wicadia | krabeni | art | dumau |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | () | () | () | () | () |  |
-| Round 2 | () | () | () | () | () |  |
-| Round 3 | () | () | () | () | () |  |
+| Round 1 | (top) | (bait) | (pistol) | (assist) | (carry) |  |
+| Round 2 | (avenger) | (cannon) | (aim bot) | (bottom) | (kobe) |  |
+| Round 3 | (4k) | () | () | () | () |  |
 | Round 4 | () | () | () | () | () |  |
 | Round 5 | () | () | () | () | () |  |
 
