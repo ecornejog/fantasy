@@ -2,15 +2,15 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.  
 
-## ESL Pro League S23 Stage 1
+## ESL Pro League S23 Stage 1 (not official)
 
-Equipo: 
+Equipo: magixx, donk, jabbi, staehr, arT
 
-| Round\Player |  |  |  |  |  |  |
+| Round\Player | magixx | donk | jabbi | staehr | art |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | () | () | () | () | () |  |
-| Round 2 | () | () | () | () | () |  |
-| Round 3 | () | () | () | () | () |  |
+| Round 1 | (farmer) | (top) | (aim) | (cannon) | (assist) |  |
+| Round 2 | (flash) | (avenger) | (kast) | (pistol) | (bait) |  |
+| Round 3 | (rambo) | (4k) | (kobe) | (carry) | (bottom) |  |
 | Round 4 | () | () | () | () | () |  |
 | Round 5 | () | () | () | () | () |  |
 
