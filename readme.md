@@ -2,15 +2,15 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.  
 
-## ESL Pro League S23 Stage 1 (not official)
+## ESL Pro League S23 Playoffs
 
-Equipo: magixx, donk, jabbi, staehr, arT
+Equipo: donc, wicadia, krabeni, art, dumau
 
-| Round\Player | magixx | donk | jabbi | staehr | art |  |
+| Round\Player | donk | wicadia | krabeni | art | dumau |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (farmer) | (top) | (aim) | (cannon) | (assist) |  |
-| Round 2 | (flash) | (avenger) | (kast) | (pistol) | (bait) |  |
-| Round 3 | (rambo) | (4k) | (kobe) | (carry) | (bottom) |  |
+| Round 1 | (top) | (bait) | (pistol) | (assist) | (carry) |  |
+| Round 2 | (avenger) | (cannon) | (aim bot) | (bottom) | (kobe) |  |
+| Round 3 | (4k) | () | () | () | () |  |
 | Round 4 | () | () | () | () | () |  |
 | Round 5 | () | () | () | () | () |  |
 
@@ -32,3 +32,5 @@ Boost:
 |IEM Krakow Playoffs 26 | 137 (%24) | 10 | 55 (24%) | 27 (41%) | 30 (24%) | 25 (31%) |
 |PGL Cluj-Napoca 26 - Group Stage | 261 (%45) | 6 | 140 (18%) | 24 (95%) | 47 (75%) | 50 (12%) |
 |PGL Cluj-Napoca 26 - Playoffs | 172 (%17) | 12 | 58 (31%) | 45 (6%) | 29 (47%) | 40 (11%) |
+|EPL S23 Stage 2 | 483 (%2) | 18 | 266 (1%) | 105 (15%) | 87 (7%) | 25 (67%) |
+|EPL S23 Playoffs | 25 (%35) | 8 | -8 (42%) | -18 (40%) | 26 (15%) | 25 (20%) |
