@@ -2,15 +2,15 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.  
 
-## ESL Pro League S23 Playoffs
+## Group Stage - Blast Open Rotterdam
 
-Equipo: donc, wicadia, krabeni, art, dumau
+Equipo: 
 
-| Round\Player | donk | wicadia | krabeni | art | dumau |  |
+| Round\Player |  |  |  |  |  |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (top) | (bait) | (pistol) | (assist) | (carry) |  |
-| Round 2 | (avenger) | (cannon) | (aim bot) | (bottom) | (kobe) |  |
-| Round 3 | (4k) | () | () | () | () |  |
+| Round 1 | () | () | () | () | () |  |
+| Round 2 | () | () | () | () | () |  |
+| Round 3 | () | () | () | () | () |  |
 | Round 4 | () | () | () | () | () |  |
 | Round 5 | () | () | () | () | () |  |
 
