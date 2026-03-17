@@ -4,13 +4,13 @@ Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
 ## Group Stage - Blast Open Rotterdam
 
-Equipo: 
+Equipo: shiro, donk, dgt, jee, zero
 
-| Round\Player |  |  |  |  |  |  |
+| Round\Player | shiro | donk | dgt | jee | zero |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | () | () | () | () | () |  |
-| Round 2 | () | () | () | () | () |  |
-| Round 3 | () | () | () | () | () |  |
+| Round 1 | (carry) | (assist) | (cannon) | (avenger) | (bait) |  |
+| Round 2 | (kobe) | (top) | (clutch) | (flash) | (bottom) |  |
+| Round 3 | (kast) | (4k) | (saver) | (pistol) | (aimbot) |  |
 | Round 4 | () | () | () | () | () |  |
 | Round 5 | () | () | () | () | () |  |
 

@@ -25,7 +25,7 @@ def leer_boosters(path):
     return boosters
 
 
-def calcular_partidos_esperados(ranking_equipo, total_equipos=8, min_partidos=1, opt_partidos=3):
+def calcular_partidos_esperados(ranking_equipo, total_equipos=16, min_partidos=2, opt_partidos=3):
     """
     Misma formula de FASE A
     """
@@ -92,11 +92,11 @@ def asignar_boosters_por_jugador(jugadores, boosters):
 # EJEMPLO DE USO
 # ------------------------
 jugadores = [
-    {"nombre": "donk", "ranking_equipo": 2},
-    {"nombre": "wica", "ranking_equipo": 4},
-    {"nombre": "krabeni", "ranking_equipo": 7},
-    {"nombre": "art", "ranking_equipo": 8},
-    {"nombre": "dumau", "ranking_equipo": 8}
+    {"nombre": "shiro", "ranking_equipo": 8},
+    {"nombre": "donk", "ranking_equipo": 8},
+    {"nombre": "dgt", "ranking_equipo": 15},
+    {"nombre": "jee", "ranking_equipo": 16},
+    {"nombre": "zero", "ranking_equipo": 16}
 ]
 
 boosters = leer_boosters("boosters.csv")

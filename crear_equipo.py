@@ -329,6 +329,18 @@ def compute_scores_and_expected_points(df, format_string, profile="consistent", 
             expected_points_total = E_points_total
             expected_points_base = E_base
             expected_team = E_team
+        
+        elif format_token == "group_playoff":
+            p = max(0.0, min(1.0, p_win))
+
+            # NEW realistic model
+            expected_matches = 2.0 + p + 2.0 * (1.0 - abs(2.0 * p - 1.0))
+
+            # Points
+            expected_points_base = B * expected_matches
+            team_points_per_match = 9.0 * p - 3.0
+            expected_team = team_points_per_match * expected_matches
+            expected_points_total = expected_points_base + expected_team
 
         else:
             # Non-Swiss (geometric approx)
