@@ -2,15 +2,15 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.  
 
-## Group Stage - Blast Open Rotterdam
+## Playoffs - Blast Open Rotterdam
 
-Equipo: shiro, donk, dgt, jee, zero
+Equipo: apex, flamez, woxic, soulfly, 910
 
-| Round\Player | shiro | donk | dgt | jee | zero |  |
+| Round\Player | apex | flamez | woxic | soulfly | 910 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (carry) | (assist) | (cannon) | (avenger) | (bait) |  |
-| Round 2 | (kobe) | (top) | (clutch) | (flash) | (bottom) |  |
-| Round 3 | (kast) | (4k) | (saver) | (pistol) | (aimbot) |  |
+| Round 1 | () | () | () | () | () |  |
+| Round 2 | () | () | () | () | () |  |
+| Round 3 | () | () | () | () | () |  |
 | Round 4 | () | () | () | () | () |  |
 | Round 5 | () | () | () | () | () |  |
 
@@ -34,3 +34,4 @@ Boost:
 |PGL Cluj-Napoca 26 - Playoffs | 172 (%17) | 12 | 58 (31%) | 45 (6%) | 29 (47%) | 40 (11%) |
 |EPL S23 Stage 2 | 483 (%2) | 18 | 266 (1%) | 105 (15%) | 87 (7%) | 25 (67%) |
 |EPL S23 Playoffs | 25 (%35) | 8 | -8 (42%) | -18 (40%) | 26 (15%) | 25 (20%) |
+|Group Stage - Blast Open Rotterdam 26 | 179 (%72) | 1 | 114 (34%) | 3 (95%) | 22 (91%) | 40 (30%) |
