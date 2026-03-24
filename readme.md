@@ -8,8 +8,8 @@ Equipo: apex, flamez, woxic, soulfly, 910
 
 | Round\Player | apex | flamez | woxic | soulfly | 910 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | () | () | () | () | () |  |
-| Round 2 | () | () | () | () | () |  |
+| Round 1 | (assist) | (bait) | (pistol) | (cannon) | (avenger) |  |
+| Round 2 | (bottom) | (farmer) | (carry) | (4k) | (top) |  |
 | Round 3 | () | () | () | () | () |  |
 | Round 4 | () | () | () | () | () |  |
 | Round 5 | () | () | () | () | () |  |
