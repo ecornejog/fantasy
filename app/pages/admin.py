@@ -123,7 +123,7 @@ def admin_page():
                 label="Format"
             )
             num_teams_input = ui.number(label="Number of teams", value=16)
-            bo5_input = ui.checkbox(label="Has BO5 final")
+            bo5_input = ui.checkbox("Has BO5 final")
 
             def add_tournament():
                 tournament_name = (name_input.value or "").strip()
