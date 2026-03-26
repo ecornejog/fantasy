@@ -1,4 +1,5 @@
 from nicegui import ui
+from math import ceil
 
 #from app.services.utils import load_tournaments, refresh_table, generate_lineups_action, prev_page, next_page, state
 from sqlalchemy import select
