@@ -10,160 +10,80 @@ import asyncio
 def admin_page():
     ui.label("Admin Panel").classes("text-2xl font-bold mb-4")
 
-    with ui.tabs() as tabs:
-        tab_teams = ui.tab('Teams')
-        tab_players = ui.tab('Players')
-        tab_tournaments = ui.tab('Tournaments')
+    with ui.tab_panel(tab_teams):
+    ui.label("Teams Management")
 
-    with ui.tab_panels(tabs, value=tab_teams):
+    # ========================
+    # DIALOG (MODAL)
+    # ========================
+    with ui.dialog() as dialog, ui.card():
+        ui.label("Add Team with Players").classes("text-xl font-bold")
 
-        # ========================
-        # TEAMS
-        # ========================
-        with ui.tab_panel(tab_teams):
-            ui.label("Add Team")
+        team_name_input = ui.input(label="Team name")
 
-            name_input = ui.input(label="Team name", value="")
+        player_inputs = []
+        for i in range(5):
+            player_inputs.append(ui.input(label=f"Player {i+1} name"))
 
-            async def add_team():
-                await asyncio.sleep(0)
-                team_name = (name_input.value or "").strip()
-                if not team_name:
-                    ui.notify("Team name cannot be empty", type="negative")
-                    return
+        async def submit_team_with_players():
+            await asyncio.sleep(0)
 
-                with SessionLocal() as session:
-                    team = Team(name=team_name)
-                    session.add(team)
-                    session.commit()
+            team_name = (team_name_input.value or "").strip()
+            player_names = [(p.value or "").strip() for p in player_inputs]
 
-                ui.notify("Team added", type="positive")
-                refresh_teams()
+            # Validation
+            if not team_name:
+                ui.notify("Team name cannot be empty", type="negative")
+                return
 
-            ui.button("Add Team", on_click=add_team)
-
-            team_table = ui.table(columns=[
-                {"name": "id", "label": "ID", "field": "id"},
-                {"name": "name", "label": "Name", "field": "name"},
-            ], rows=[])
-
-            def refresh_teams():
-                with SessionLocal() as session:
-                    teams = session.scalars(select(Team)).all()
-                    team_table.rows = [{"id": t.id, "name": t.name} for t in teams]
-
-            refresh_teams()
-
-        # ========================
-        # PLAYERS
-        # ========================
-        with ui.tab_panel(tab_players):
-            ui.label("Add Player")
+            if any(not name for name in player_names):
+                ui.notify("All 5 player names are required", type="negative")
+                return
 
             with SessionLocal() as session:
-                teams = session.scalars(select(Team)).all()
+                # Create team
+                team = Team(name=team_name)
+                session.add(team)
+                session.flush()  # get team.id before commit
 
-            team_options = {t.name: t.id for t in teams}
-
-            name_input = ui.input(label="Player name")
-            team_select = ui.select(options=list(team_options.keys()), label="Team")
-            rating_input = ui.number(label="Rating", value=100)
-            price_input = ui.number(label="Price", value=200)
-
-            def add_player():
-                player_name = (name_input.value or "").strip()
-                if not player_name:
-                    ui.notify("Player name cannot be empty", type="negative")
-                    return
-                with SessionLocal() as session:
-                    team_id = team_options.get(team_select.value)
-
+                # Create players
+                for name in player_names:
                     player = Player(
-                        name=player_name,
-                        team_id=team_id,
-                        rating=rating_input.value,
-                        price=price_input.value,
+                        name=name,
+                        team_id=team.id,
+                        rating=0,
+                        price=0,
                     )
                     session.add(player)
-                    session.commit()
 
-                ui.notify("Player added")
-                refresh_players()
+                session.commit()
 
-            ui.button("Add Player", on_click=add_player)
+            ui.notify("Team and players added!", type="positive")
 
-            player_table = ui.table(columns=[
-                {"name": "name", "label": "Name", "field": "name"},
-                {"name": "team", "label": "Team", "field": "team"},
-                {"name": "rating", "label": "Rating", "field": "rating"},
-                {"name": "price", "label": "Price", "field": "price"},
-            ], rows=[])
-
-            def refresh_players():
-                with SessionLocal() as session:
-                    players = session.scalars(select(Player)).all()
-                    rows = []
-                    for p in players:
-                        rows.append({
-                            "name": p.name,
-                            "team": p.team.name if p.team else "",
-                            "rating": p.rating,
-                            "price": p.price
-                        })
-                    player_table.rows = rows
-
+            dialog.close()
+            refresh_teams()
             refresh_players()
 
-        # ========================
-        # TOURNAMENTS
-        # ========================
-        with ui.tab_panel(tab_tournaments):
-            ui.label("Add Tournament")
+        with ui.row():
+            ui.button("Cancel", on_click=dialog.close)
+            ui.button("Create", on_click=submit_team_with_players)
 
-            name_input = ui.input(label="Tournament name")
-            format_input = ui.select(
-                ["swiss", "single", "double", "group_double"],
-                label="Format"
-            )
-            num_teams_input = ui.number(label="Number of teams", value=16)
-            bo5_input = ui.checkbox("Has BO5 final")
+    # ========================
+    # BUTTON TO OPEN DIALOG
+    # ========================
+    ui.button("Add Team (with players)", on_click=dialog.open)
 
-            def add_tournament():
-                tournament_name = (name_input.value or "").strip()
-                if not tournament_name:
-                    ui.notify("Tournament name cannot be empty", type="negative")
-                    return
-                with SessionLocal() as session:
-                    tournament = Tournament(
-                        name=tournament_name,
-                        format_type=format_input.value,
-                        num_teams=num_teams_input.value,
-                        has_bo5_final=bo5_input.value,
-                    )
-                    session.add(tournament)
-                    session.commit()
+    # ========================
+    # EXISTING TABLE
+    # ========================
+    team_table = ui.table(columns=[
+        {"name": "id", "label": "ID", "field": "id"},
+        {"name": "name", "label": "Name", "field": "name"},
+    ], rows=[])
 
-                ui.notify("Tournament added", type="positive")
-                refresh_tournaments()
+    def refresh_teams():
+        with SessionLocal() as session:
+            teams = session.scalars(select(Team)).all()
+            team_table.rows = [{"id": t.id, "name": t.name} for t in teams]
 
-            ui.button("Add Tournament", on_click=add_tournament)
-
-            tournament_table = ui.table(columns=[
-                {"name": "name", "label": "Name", "field": "name"},
-                {"name": "format", "label": "Format", "field": "format"},
-                {"name": "teams", "label": "Teams", "field": "teams"},
-            ], rows=[])
-
-            def refresh_tournaments():
-                with SessionLocal() as session:
-                    tournaments = session.scalars(select(Tournament)).all()
-                    rows = []
-                    for t in tournaments:
-                        rows.append({
-                            "name": t.name,
-                            "format": t.format_type,
-                            "teams": t.num_teams
-                        })
-                    tournament_table.rows = rows
-
-            refresh_tournaments()
+    refresh_teams()

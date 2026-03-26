@@ -25,8 +25,8 @@ class Player(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, nullable=False, index=True)
     team_id = Column(Integer, ForeignKey("teams.id"), nullable=False, index=True)
-    rating = Column(Float, nullable=False)
-    price = Column(Integer, nullable=False)
+    rating = Column(Float, nullable=False, default=100)
+    price = Column(Integer, nullable=False, default=200)
 
     team = relationship("Team", back_populates="players")
 
@@ -36,9 +36,9 @@ class Tournament(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, unique=True, nullable=False, index=True)
-    format_type = Column(String, nullable=False)
-    num_teams = Column(Integer, nullable=False)
-    has_bo5_final = Column(Boolean, default=False)
+    #format_type = Column(String, nullable=False)
+    #num_teams = Column(Integer, nullable=False)
+    #has_bo5_final = Column(Boolean, default=False)
     created_at = Column(DateTime, default=datetime.utcnow)
 
     tournament_teams = relationship("TournamentTeam", back_populates="tournament")
