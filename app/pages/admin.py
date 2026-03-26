@@ -4,6 +4,8 @@ from sqlalchemy import select
 from app.db import SessionLocal
 from app.models import Team, Player, Tournament
 
+import asyncio
+
 @ui.page('/admin')
 def admin_page():
     ui.label("Admin Panel").classes("text-2xl font-bold mb-4")
@@ -21,9 +23,10 @@ def admin_page():
         with ui.tab_panel(tab_teams):
             ui.label("Add Team")
 
-            name_input = ui.input(label="Team name")
+            name_input = ui.input(label="Team name", value="")
 
-            def add_team():
+            async def add_team():
+                await asyncio.sleep(0)
                 team_name = (name_input.value or "").strip()
                 if not team_name:
                     ui.notify("Team name cannot be empty", type="negative")
