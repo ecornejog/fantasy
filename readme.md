@@ -2,15 +2,15 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.  
 
-## ESL Pro League S23 Playoffs
+## Playoffs - Blast Open Rotterdam
 
-Equipo: donc, wicadia, krabeni, art, dumau
+Equipo: apex, flamez, woxic, soulfly, 910
 
-| Round\Player | donk | wicadia | krabeni | art | dumau |  |
+| Round\Player | apex | flamez | woxic | soulfly | 910 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (top) | (bait) | (pistol) | (assist) | (carry) |  |
-| Round 2 | (avenger) | (cannon) | (aim bot) | (bottom) | (kobe) |  |
-| Round 3 | (4k) | () | () | () | () |  |
+| Round 1 | (assist) | (bait) | (pistol) | (cannon) | (avenger) |  |
+| Round 2 | (bottom) | (farmer) | (carry) | (4k) | (top) |  |
+| Round 3 | () | () | () | () | () |  |
 | Round 4 | () | () | () | () | () |  |
 | Round 5 | () | () | () | () | () |  |
 
@@ -34,3 +34,5 @@ Boost:
 |PGL Cluj-Napoca 26 - Playoffs | 172 (%17) | 12 | 58 (31%) | 45 (6%) | 29 (47%) | 40 (11%) |
 |EPL S23 Stage 2 | 483 (%2) | 18 | 266 (1%) | 105 (15%) | 87 (7%) | 25 (67%) |
 |EPL S23 Playoffs | 25 (%35) | 8 | -8 (42%) | -18 (40%) | 26 (15%) | 25 (20%) |
+|Group Stage - Blast Open Rotterdam 26 | 179 (%72) | 1 | 114 (34%) | 3 (95%) | 22 (91%) | 40 (30%) |
+|Playoffs - Blast Open Rotterdam 26 | 75 (%75) | 1 | 8 (85%) | 27 (39%) | 10 (87%) | 30 (21%) |
