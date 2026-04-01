@@ -10,6 +10,7 @@ import pandas as pd
 MAX_BUDGET = 1000
 TEAM_SIZE = 5
 MAX_PER_TEAM = 2
+TOP_N = 100
 
 
 def compute_player_points(df: pd.DataFrame) -> pd.DataFrame:
@@ -85,8 +86,6 @@ def generate_valid_teams(df: pd.DataFrame) -> pd.DataFrame:
 
         for i, p in enumerate(combo_sorted, start=1):
             row[f"player_{i}"] = p["jugador"]
-            row[f"player_{i}_team"] = p["equipo"]
-            row[f"player_{i}_price"] = p["precio"]
             row[f"player_{i}_points"] = p["player_points"]
 
         valid_teams.append(row)
@@ -99,7 +98,10 @@ def generate_valid_teams(df: pd.DataFrame) -> pd.DataFrame:
             ascending=[False, True],
         ).reset_index(drop=True)
 
-        result.insert(0, "rank", result.index + 1)
+        result = result.head(TOP_N).copy()
+
+        result.insert(0, "rank", range(1, len(result) + 1))
+
 
     return result
 
