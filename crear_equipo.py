@@ -25,22 +25,22 @@ def compute_player_points(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
 
     # Make sure numeric columns are numeric
-    numeric_cols = ["precio", "rating", "win_rounds", "loss_rounds", "padding_rounds"]
+    numeric_cols = ["precio", "rating", "win_rounds", "loss_rounds", "padding_rounds", "elim_rounds"]
     for col in numeric_cols:
         df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0)
 
-    df["total_rounds"] = df["win_rounds"] + df["loss_rounds"]
+    df["total_rounds_played"] = df["win_rounds"] + df["loss_rounds"]
 
     # Base points
-    df["base_points"] = ((df["rating"] - 100) / 2.0) * df["total_rounds"]
+    df["base_points"] = ((df["rating"] - 100) / 2.0) * df["total_rounds_played"]
 
     # Team points
-    df["team_points"] = (6 * df["win_rounds"]) + (-3 * df["loss_rounds"])
+    df["team_points"] = (6 * df["win_rounds"]) + (-3 * df["loss_rounds"]) + (-3 * df["elim_rounds"])
 
     # Padding points per round
     df["padding_points"] = df.apply(
-        lambda row: ((row["base_points"] + row["team_points"]) / row["total_rounds"])
-        if row["total_rounds"] > 0
+        lambda row: ((row["base_points"] + row["team_points"]) / row["total_rounds_played"])
+        if row["total_rounds_played"] > 0
         else 0,
         axis=1,
     )
