@@ -2,17 +2,17 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.  
 
-## Playoffs - Blast Open Rotterdam
+## Swiss - PGL Bucharest
 
-Equipo: apex, flamez, woxic, soulfly, 910
+Equipo: insani, kl1m, dumau, matheos, ztr
 
-| Round\Player | apex | flamez | woxic | soulfly | 910 |  |
+| Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (assist) | (bait) | (pistol) | (cannon) | (avenger) |  |
-| Round 2 | (bottom) | (farmer) | (carry) | (4k) | (top) |  |
-| Round 3 | () | () | () | () | () |  |
-| Round 4 | () | () | () | () | () |  |
-| Round 5 | () | () | () | () | () |  |
+| Round 1 | (bait) | (pistol) | (assist) | (cannon) | (bottom) |  |
+| Round 2 | (saver) | (carry) | (top) | (aim bot) | (farmer) |  |
+| Round 3 | (kobe) | (4k) | (avenger) | () | () |  |
+| Round 4 | (kast) | (clutch) | (rambo) | () | () |  |
+| Round 5 | () | (flash) | () | () | () |  |
 
 
 
