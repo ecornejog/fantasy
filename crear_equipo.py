@@ -26,14 +26,14 @@ def compute_player_points(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
 
     # Make sure numeric columns are numeric
-    numeric_cols = ["precio", "rating", "win_rounds", "loss_rounds", "padding_rounds", "elim_rounds"]
+    numeric_cols = ["precio", "rating", "win_rounds", "loss_rounds", "padding_rounds", "elim_rounds", "rat_multiplier"]
     for col in numeric_cols:
         df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0)
 
     df["total_rounds_played"] = df["win_rounds"] + df["loss_rounds"]
 
     # Base points
-    df["base_points"] = ((df["rating"] - 100) / 2.0) * df["total_rounds_played"]
+    df["base_points"] = (((df["rating"]* df["rat_multiplier"]) - 100) / 2.0) * df["total_rounds_played"]
 
     # Team points
     df["team_points"] = (6 * df["win_rounds"]) + (-3 * df["loss_rounds"]) + (-3 * df["elim_rounds"])
