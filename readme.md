@@ -2,17 +2,17 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.  
 
-## Swiss - PGL Bucharest
+## Group stage IEM RIO 26
 
-Equipo: insani, kl1m, dumau, matheos, ztr
+Equipo: flamez, apex, iM, Aleksib, tAk
 
 | Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (bait) | (pistol) | (assist) | (cannon) | (bottom) |  |
-| Round 2 | (saver) | (carry) | (top) | (aim bot) | (farmer) |  |
-| Round 3 | (kobe) | (4k) | (avenger) | () | () |  |
-| Round 4 | (kast) | (clutch) | (rambo) | () | () |  |
-| Round 5 | () | (flash) | () | () | () |  |
+| Round 1 | (bait) | (assist) | (top) | (bottom) | (avenger) |  |
+| Round 2 | (farmer) | (kobe) | (pistol) | (aim) | (cannon) |  |
+| Round 3 | (kast) | (flash) | (4k) | (clutch) | (carry) |  |
+| Round 4 | () | () | () | () | () |  |
+| Round 5 | () | () | () | () | () |  |
 
 
 
@@ -36,3 +36,4 @@ Boost:
 |EPL S23 Playoffs | 25 (%35) | 8 | -8 (42%) | -18 (40%) | 26 (15%) | 25 (20%) |
 |Group Stage - Blast Open Rotterdam 26 | 179 (%72) | 1 | 114 (34%) | 3 (95%) | 22 (91%) | 40 (30%) |
 |Playoffs - Blast Open Rotterdam 26 | 75 (%75) | 1 | 8 (85%) | 27 (39%) | 10 (87%) | 30 (21%) |
+|PGL Bucharest 26 |  | | |  |  |  |
