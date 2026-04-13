@@ -36,4 +36,4 @@ Boost:
 |EPL S23 Playoffs | 25 (%35) | 8 | -8 (42%) | -18 (40%) | 26 (15%) | 25 (20%) |
 |Group Stage - Blast Open Rotterdam 26 | 179 (%72) | 1 | 114 (34%) | 3 (95%) | 22 (91%) | 40 (30%) |
 |Playoffs - Blast Open Rotterdam 26 | 75 (%75) | 1 | 8 (85%) | 27 (39%) | 10 (87%) | 30 (21%) |
-|PGL Bucharest 26 |  | | |  |  |  |
+|PGL Bucharest 26 | 283 (64%) | 2 | 169 (42%) | 6 (92%) | 68 (63%) | 40 (28%) |
