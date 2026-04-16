@@ -2,15 +2,15 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.  
 
-## Group stage IEM RIO 26
+## Playoffs IEM RIO 26
 
-Equipo: flamez, apex, iM, Aleksib, tAk
+Equipo: zywoo, flamez, jimmy, brollan, aleksib
 
 | Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (bait) | (assist) | (top) | (bottom) | (avenger) |  |
-| Round 2 | (farmer) | (kobe) | (pistol) | (aim) | (cannon) |  |
-| Round 3 | (kast) | (flash) | (4k) | (clutch) | (carry) |  |
+| Round 1 | (avenger) | (assist) | (kast) | (cannon) | (bottom) |  |
+| Round 2 | (top) | (bait) | (saver) | (kobe) | () |  |
+| Round 3 | (pistol) | (farmer) | (clutch) | (4k) | () |  |
 | Round 4 | () | () | () | () | () |  |
 | Round 5 | () | () | () | () | () |  |
 
@@ -37,3 +37,4 @@ Boost:
 |Group Stage - Blast Open Rotterdam 26 | 179 (%72) | 1 | 114 (34%) | 3 (95%) | 22 (91%) | 40 (30%) |
 |Playoffs - Blast Open Rotterdam 26 | 75 (%75) | 1 | 8 (85%) | 27 (39%) | 10 (87%) | 30 (21%) |
 |PGL Bucharest 26 | 283 (64%) | 2 | 169 (42%) | 6 (92%) | 68 (63%) | 40 (28%) |
+|Group stage IEM Rio 26 | 236 (32%) | 8 | 65 (59%) | 66 (36%) | 50 (29%) | 55 (1%) |
