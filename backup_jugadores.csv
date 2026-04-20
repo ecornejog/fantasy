@@ -1,4 +1,4 @@
-jugador,equipo,precio,rating,ranking_equipo
+jugador,equipo,precio,rating,win_rounds,loss_rounds, padding_rounds, elim_rounds,rat_multiplier
 
 alex,gentleMates,195,103,14,20,66,34,1301
 mopoz,gentleMates,195,103,14,20,66,34,1301
@@ -78,158 +78,158 @@ Senzu,PassionUA,207,101,14,20,66,34,1301
 kvem,PassionUA,207,107,14,20,66,34,1301
 nicx,PassionUA,195,103,14,20,66,34,1301
 
-JAME,PARI,225,107,3,1,1,0
-BELCHO,PARI,215,98,3,1,1,0
-XIELO,PARI,220,100,3,1,1,0
-NOTA,PARI,217,97,3,1,1,0
-ZWEI,PARI,223,108,3,1,1,0
+JAME,PARI,225,107,3,1,1,0,
+BELCHO,PARI,215,98,3,1,1,0,
+XIELO,PARI,220,100,3,1,1,0,
+NOTA,PARI,217,97,3,1,1,0,
+ZWEI,PARI,223,108,3,1,1,0,
 
-Blitz,Mongolz,203,89,3,0,2,0
-techno,Mongolz,208,93,3,0,2,0
-mzinho,Mongolz,222,104,3,0,2,0
-910,Mongolz,226,109,3,0,2,0
-cobrazera,Mongolz,219,100,3,0,2,0
+Blitz,Mongolz,203,89,3,0,2,0,
+techno,Mongolz,208,93,3,0,2,0,
+mzinho,Mongolz,222,104,3,0,2,0,
+910,Mongolz,226,109,3,0,2,0,
+cobrazera,Mongolz,219,100,3,0,2,0,
 
-hooxi,Astralis,181,84,3,1,1,0
-phzy,Astralis,219,112,3,1,1,0
-jabi,Astralis,209,108,3,1,1,0
-staer,Astralis,220,117,3,1,1,0
-ryu,Astralis,212,103,3,1,1,0
+hooxi,Astralis,181,84,3,1,1,0,
+phzy,Astralis,219,112,3,1,1,0,
+jabi,Astralis,209,108,3,1,1,0,
+staer,Astralis,220,117,3,1,1,0,
+ryu,Astralis,212,103,3,1,1,0,
 
-demon,fut,204,101,3,0,2,0
-launx,fut,213,112,3,0,2,0
-krabeni,fut,204,105,3,0,2,0
-cmtry,fut,199,97,3,0,2,0
-dziuigs,fut,211,107,3,0,2,0
+demon,fut,204,101,3,0,2,0,
+launx,fut,213,112,3,0,2,0,
+krabeni,fut,204,105,3,0,2,0,
+cmtry,fut,199,97,3,0,2,0,
+dziuigs,fut,211,107,3,0,2,0,
 
-arT,legacy,194,105,3,1,1,0
-duma,legacy,213,120,3,1,1,0
-lato,legacy,207,106,3,1,1,0
-nisim,legacy,201,108,3,1,1,0
-saadz,legacy,201,106,3,1,1,0
+arT,legacy,194,105,3,1,1,0,
+duma,legacy,213,120,3,1,1,0,
+lato,legacy,207,106,3,1,1,0,
+nisim,legacy,201,108,3,1,1,0,
+saadz,legacy,201,106,3,1,1,0,
 
-maka,3DMAX,202,102,2,3,0,0
-lucky,3DMAX,202,105,2,3,0,0
-misutaaa,3DMAX,211,108,2,3,0,0
-exercice,3DMAX,202,103,2,3,0,0
-gravity,3DMAX,195,95,2,3,0,0
+maka,3DMAX,202,102,2,3,0,0,
+lucky,3DMAX,202,105,2,3,0,0,
+misutaaa,3DMAX,211,108,2,3,0,0,
+exercice,3DMAX,202,103,2,3,0,0,
+gravity,3DMAX,195,95,2,3,0,0,
 
-alex666,b8,197,94,2,3,0,0
-npl,b8,212,103,2,3,0,0
-kensizor,b8,209,100,2,3,0,0
-esenthial,b8,205,100,2,3,0,0
-s1zzi,b8,183,87,2,3,0,0
+alex666,b8,197,94,2,3,0,0,
+npl,b8,212,103,2,3,0,0,
+kensizor,b8,209,100,2,3,0,0,
+esenthial,b8,205,100,2,3,0,0,
+s1zzi,b8,183,87,2,3,0,0,
 
-nitro,nrg,188,97,3,2,0,0
-sonic,nrg,200,104,3,2,0,0
-osee,nrg,204,112,3,2,0,0
-Grim,nrg,205,113,3,2,0,0
-bro,nrg,203,112,3,2,0,0
+nitro,nrg,188,97,3,2,0,0,
+sonic,nrg,200,104,3,2,0,0,
+osee,nrg,204,112,3,2,0,0,
+Grim,nrg,205,113,3,2,0,0,
+bro,nrg,203,112,3,2,0,0,
 
-JW,eyeballers,187,92,1,3,0,1
-maxster,eyeballers,207,110,1,3,0,1
-Ro1f,eyeballers,195,103,1,3,0,1
-bobeksde,eyeballers,204,106,1,3,0,1
-dex,eyeballers,188,95,1,3,0,1
+JW,eyeballers,187,92,1,3,0,1,
+maxster,eyeballers,207,110,1,3,0,1,
+Ro1f,eyeballers,195,103,1,3,0,1,
+bobeksde,eyeballers,204,106,1,3,0,1,
+dex,eyeballers,188,95,1,3,0,1,
 
-mutiris,bc,186,90,2,3,0,0
-simple,bc,210,118,2,3,0,0
-electronic,bc,200,108,2,3,0,0
-aragorn,bc,191,88,2,3,0,0
-krazy,bc,190,96,2,3,0,0
+mutiris,bc,186,90,2,3,0,0,
+simple,bc,210,118,2,3,0,0,
+electronic,bc,200,108,2,3,0,0,
+aragorn,bc,191,88,2,3,0,0,
+krazy,bc,190,96,2,3,0,0,
 
-LNZ,mibr,179,102,3,2,0,0
-brnz4n,mibr,183,104,3,2,0,0
-insani,mibr,207,126,3,2,0,0
-venomzera,mibr,191,108,3,2,0,0
-kl1m,mibr,209,126,3,2,0,0
+LNZ,mibr,179,102,3,2,0,0,
+brnz4n,mibr,183,104,3,2,0,0,
+insani,mibr,207,126,3,2,0,0,
+venomzera,mibr,191,108,3,2,0,0,
+kl1m,mibr,209,126,3,2,0,0,
 
-ztr,fokus,180,105,3,2,0,0
-volt,fokus,184,102,3,2,0,0
-Banjo,fokus,203,119,3,2,0,0
-Jorko,fokus,192,106,3,2,0,0
-Matheos,fokus,188,117,3,2,0,0
+ztr,fokus,180,105,3,2,0,0,
+volt,fokus,184,102,3,2,0,0,
+Banjo,fokus,203,119,3,2,0,0,
+Jorko,fokus,192,106,3,2,0,0,
+Matheos,fokus,188,117,3,2,0,0,
 
-junior,Voca,199,126,0,3,0,2
-Infinite,Voca,181,109,0,3,0,2
-nosraC,Voca,176,101,0,3,0,2
-snav,Voca,184,112,0,3,0,2
-Jeorge,Voca,186,114,0,3,0,2
+junior,Voca,199,126,0,3,0,2,
+Infinite,Voca,181,109,0,3,0,2,
+nosraC,Voca,176,101,0,3,0,2,
+snav,Voca,184,112,0,3,0,2,
+Jeorge,Voca,186,114,0,3,0,2,
 
-cptkurtka023,InnerCircle,196,105,1,3,0,1
-headtr1ck,InnerCircle,179,101,1,3,0,1
-zerRRoFIX,InnerCircle,189,105,1,3,0,1
-onic,InnerCircle,175,97,1,3,0,1
-Dawy,InnerCircle,200,113,1,3,0,1
+cptkurtka023,InnerCircle,196,105,1,3,0,1,
+headtr1ck,InnerCircle,179,101,1,3,0,1,
+zerRRoFIX,InnerCircle,189,105,1,3,0,1,
+onic,InnerCircle,175,97,1,3,0,1,
+Dawy,InnerCircle,200,113,1,3,0,1,
 
-nEMANHA,Wildcard,184,113,0,3,0,2
-mhL,Wildcard,188,117,0,3,0,2
-reck,Wildcard,175,100,0,3,0,2
-HexT,Wildcard,187,111,0,3,0,2
-peeping,Wildcard,177,107,0,3,0,2
+nEMANHA,Wildcard,184,113,0,3,0,2,
+mhL,Wildcard,188,117,0,3,0,2,
+reck,Wildcard,175,100,0,3,0,2,
+HexT,Wildcard,187,111,0,3,0,2,
+peeping,Wildcard,177,107,0,3,0,2,
 
-vsm,Pain,196,119,13,17,76,32,1326,,
-bigu,Pain,198,106,13,17,76,32,1326,,
-piri,Pain,216,137,13,17,76,32,1326,,
-nqz,Pain,197,103,13,17,76,32,1326,,
-snow,Pain,195,101,13,17,76,32,1326,,
+vsm,Pain,196,119,13,17,76,32,1326
+bigu,Pain,198,106,13,17,76,32,1326
+piri,Pain,216,137,13,17,76,32,1326
+nqz,Pain,197,103,13,17,76,32,1326
+snow,Pain,195,101,13,17,76,32,1326
 
-SNAX,GL,175,92,11
-REZ,GL,197,112,11
-TAUSON,GL,201,113,11
-PR,GL,204,121,11
-HYPEX,GL,184,100,11
+SNAX,GL,175,92,11,,,,
+REZ,GL,197,112,11,,,,
+TAUSON,GL,201,113,11,,,,
+PR,GL,204,121,11,,,,
+HYPEX,GL,184,100,11,,,,
 
-XFLOUD,HEROIC,200,100,11,21,65,27,1346,,
-NILO,HEROIC,200,100,11,21,65,27,1346,,
-SUSP,HEROIC,194,112,11,21,65,27,1346,,
-CRHIZ,HEROIC,178,99,11,21,65,27,1346,,
-alkaren,HEROIC,191,109,11,21,65,27,1346,,
+XFLOUD,HEROIC,200,100,11,21,65,27,1346
+NILO,HEROIC,200,100,11,21,65,27,1346
+SUSP,HEROIC,194,112,11,21,65,27,1346
+CRHIZ,HEROIC,178,99,11,21,65,27,1346
+yxngstxr,HEROIC,191,109,11,21,65,27,1346
 
-snapi,nip,170,98,12,25,42,29,1344,,
-sjuush,nip,181,110,12,25,42,29,1344,,
-rinkle,nip,182,112,12,25,42,29,1344,,
-karpers,nip,194,124,12,25,42,29,1344,,
-cairne,nip,195,123,12,25,42,29,1344,,
+snapi,nip,170,98,12,25,42,29,1344
+sjuush,nip,181,110,12,25,42,29,1344
+rinkle,nip,182,112,12,25,42,29,1344
+karpers,nip,194,124,12,25,42,29,1344
+cairne,nip,195,123,12,25,42,29,1344
 
-karrigan,faze,178,87,5,9,281,7,1761,4,
-frozen,faze,213,117,5,9,281,7,1761,4,
-twistzz,faze,215,114,5,9,281,7,1761,4,
-broky,faze,194,98,5,9,281,7,1761,4,
-jcobbb,faze,192,101,5,9,281,7,1761,4,
+karrigan,faze,178,87,5,9,281,7,1761
+frozen,faze,213,117,5,9,281,7,1761
+twistzz,faze,215,114,5,9,281,7,1761
+broky,faze,194,98,5,9,281,7,1761
+jcobbb,faze,192,101,5,9,281,7,1761
 
-rainwaker,monte,200,100,6,30,34,18,1431,,
-bymas,monte,200,100,6,30,34,18,1431,,
-afro,monte,200,100,6,30,34,18,1431,,
-gizmy,monte,200,100,6,30,34,18,1431,,
-AZUWU,monte,200,100,6,30,34,18,1431,,
+rainwaker,monte,200,100,6,30,34,18,1431
+bymas,monte,200,100,6,30,34,18,1431
+afro,monte,200,100,6,30,34,18,1431
+gizmy,monte,200,100,6,30,34,18,1431
+AZUWU,monte,200,100,6,30,34,18,1431
 
-slaxz,M80,200,100,10,29,38,26,1359,,
-swisher,M80,200,100,10,29,38,26,1359,,
-s1n,M80,200,100,10,29,38,26,1359,,
-JBa,M80,200,100,10,29,38,26,1359,,
-Lake,M80,200,100,10,29,38,26,1359,,
+slaxz,M80,200,100,10,29,38,26,1359
+swisher,M80,200,100,10,29,38,26,1359
+s1n,M80,200,100,10,29,38,26,1359
+JBa,M80,200,100,10,29,38,26,1359
+Lake,M80,200,100,10,29,38,26,1359
 
-HEN1,Gaimin ,200,100,15,66,12,63,1097,,
-felps,Gaimin ,200,100,15,66,12,63,1097,,
-NEKIZ,Gaimin ,200,100,15,66,12,63,1097,,
-Luken,Gaimin ,200,100,15,66,12,63,1097,,
-Jota,Gaimin ,200,100,15,66,12,63,1097,,
+HEN1,Gaimin ,200,100,15,66,12,63,1097
+felps,Gaimin ,200,100,15,66,12,63,1097
+NEKIZ,Gaimin ,200,100,15,66,12,63,1097
+Luken,Gaimin ,200,100,15,66,12,63,1097
+Jota,Gaimin ,200,100,15,66,12,63,1097
 
-hazr,SemperFi,200,100,16,141,5,117,887,,
-keen,SemperFi,200,100,16,141,5,117,887,,
-shadiy,SemperFi,200,100,16,141,5,117,887,,
-addict,SemperFi,200,100,16,141,5,117,887,,
-savage,SemperFi,200,100,16,141,5,117,887,,
+hazr,SemperFi,200,100,16,141,5,117,887
+keen,SemperFi,200,100,16,141,5,117,887
+shadiy,SemperFi,200,100,16,141,5,117,887
+addict,SemperFi,200,100,16,141,5,117,887
+savage,SemperFi,200,100,16,141,5,117,887
 
-max,9z,172,102,15,30,41,19,1459,,
-dgt,9z,184,122,15,30,41,19,1459,,
-meyern,9z,178,106,15,30,41,19,1459,,
-luchov,9z,188,122,15,30,41,19,1459,,
-huasopeek,9z,183,118,15,30,41,19,1459,,
+max,9z,172,102,15,30,41,19,1459
+dgt,9z,184,122,15,30,41,19,1459
+meyern,9z,178,106,15,30,41,19,1459
+luchov,9z,188,122,15,30,41,19,1459
+huasopeek,9z,183,118,15,30,41,19,1459
 
-JamYoung,TYLOO,191,130,16,34,31,105,971,,
-Jee,TYLOO,184,123,16,34,31,105,971,,
-Mercury,TYLOO,180,114,16,34,31,105,971,,
-Moseyuh,TYLOO,183,121,16,34,31,105,971,,
-Zero,TYLOO,177,115,16,34,31,105,971,,
+JamYoung,TYLOO,191,130,16,34,31,105,971
+Jee,TYLOO,184,123,16,34,31,105,971
+Mercury,TYLOO,180,114,16,34,31,105,971
+Moseyuh,TYLOO,183,121,16,34,31,105,971
+Zero,TYLOO,177,115,16,34,31,105,971
