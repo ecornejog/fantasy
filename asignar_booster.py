@@ -25,14 +25,6 @@ def leer_boosters(path):
     return boosters
 
 
-def calcular_partidos_esperados(ranking_equipo, total_equipos=6, min_partidos=1, opt_partidos=3):
-    """
-    Misma formula de FASE A
-    """
-    p = max(0.05, 1 - ranking_equipo / total_equipos)
-    return p * opt_partidos + (1 - p) * min_partidos
-
-
 def ev_booster(p_exito):
     """
     EV máximo por booster = 5
@@ -46,9 +38,6 @@ def asignar_boosters_por_jugador(jugadores, boosters):
     Asigna boosters a jugadores según partidos esperados.
     Cada booster solo puede asignarse a un jugador.
     """
-    # 1️⃣ Calculamos partidos esperados
-    for j in jugadores:
-        j["partidos_esperados"] = calcular_partidos_esperados(j["ranking_equipo"])
 
     # 2️⃣ Preparamos lista de posibles asignaciones (EV, jugador, booster)
     posibles = []
@@ -92,11 +81,11 @@ def asignar_boosters_por_jugador(jugadores, boosters):
 # EJEMPLO DE USO
 # ------------------------
 jugadores = [
-    {"nombre": "apex", "ranking_equipo": 1},
-    {"nombre": "flamez", "ranking_equipo": 1},
-    {"nombre": "woxic", "ranking_equipo": 5},
-    {"nombre": "soulfly", "ranking_equipo": 5},
-    {"nombre": "910", "ranking_equipo": 6}
+    {"nombre": "1", "partidos_esperados": 3},
+    {"nombre": "2", "partidos_esperados": 3},
+    {"nombre": "3", "partidos_esperados": 3},
+    {"nombre": "4", "partidos_esperados": 3},
+    {"nombre": "5", "partidos_esperados": 1}
 ]
 
 boosters = leer_boosters("boosters.csv")

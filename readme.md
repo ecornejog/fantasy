@@ -2,15 +2,15 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.  
 
-## Playoffs - Blast Open Rotterdam
+## Playoffs IEM RIO 26
 
-Equipo: apex, flamez, woxic, soulfly, 910
+Equipo: zywoo, flamez, jimmy, brollan, aleksib
 
-| Round\Player | apex | flamez | woxic | soulfly | 910 |  |
+| Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (assist) | (bait) | (pistol) | (cannon) | (avenger) |  |
-| Round 2 | (bottom) | (farmer) | (carry) | (4k) | (top) |  |
-| Round 3 | () | () | () | () | () |  |
+| Round 1 | (avenger) | (assist) | (kast) | (cannon) | (bottom) |  |
+| Round 2 | (top) | (bait) | (saver) | (kobe) | () |  |
+| Round 3 | (pistol) | (farmer) | (clutch) | (4k) | () |  |
 | Round 4 | () | () | () | () | () |  |
 | Round 5 | () | () | () | () | () |  |
 
@@ -36,3 +36,6 @@ Boost:
 |EPL S23 Playoffs | 25 (%35) | 8 | -8 (42%) | -18 (40%) | 26 (15%) | 25 (20%) |
 |Group Stage - Blast Open Rotterdam 26 | 179 (%72) | 1 | 114 (34%) | 3 (95%) | 22 (91%) | 40 (30%) |
 |Playoffs - Blast Open Rotterdam 26 | 75 (%75) | 1 | 8 (85%) | 27 (39%) | 10 (87%) | 30 (21%) |
+|PGL Bucharest 26 | 283 (64%) | 2 | 169 (42%) | 6 (92%) | 68 (63%) | 40 (28%) |
+|Group stage IEM Rio 26 | 236 (32%) | 8 | 65 (59%) | 66 (36%) | 50 (29%) | 55 (1%) |
+|playoffs IEM Rio 26 | 155 (52%) | 4 | 83 (39%) | 9 (81%) | 28 (55%) | 35 (4%) |
