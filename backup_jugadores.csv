@@ -1,5 +1,29 @@
 jugador,equipo,precio,rating,win_rounds,loss_rounds, padding_rounds, elim_rounds,rat_multiplier
 
+tabseN,big,200,100,6,30,34,18,1431
+JDC,big,200,100,6,30,34,18,1431
+faveN,big,200,100,6,30,34,18,1431
+blameF,big,200,100,6,30,34,18,1431
+gr1ks,big,200,100,6,30,34,18,1431
+
+device,100T,200,100,6,30,34,18,1431
+rain,100T,200,100,6,30,34,18,1431
+ag1l,100T,200,100,6,30,34,18,1431
+sirah,100T,200,100,6,30,34,18,1431
+poiii,100T,200,100,6,30,34,18,1431
+
+gafolo,Sharks,200,100,6,30,34,18,1431
+koala,Sharks,200,100,6,30,34,18,1431
+maxxkor,Sharks,200,100,6,30,34,18,1431
+rdnzao,Sharks,200,100,6,30,34,18,1431
+doc,Sharks,200,100,6,30,34,18,1431
+
+hades,Betclic,200,100,6,30,34,18,1431
+Demho,Betclic,200,100,6,30,34,18,1431
+Prism,Betclic,200,100,6,30,34,18,1431
+eskyy,Betclic,200,100,6,30,34,18,1431
+Dr3nquu,Betclic,200,100,6,30,34,18,1431
+
 alex,gentleMates,195,103,14,20,66,34,1301
 mopoz,gentleMates,195,103,14,20,66,34,1301
 sausol,gentleMates,195,103,14,20,66,34,1301
@@ -183,13 +207,13 @@ HYPEX,GL,184,100,11,,,,
 XFLOUD,HEROIC,200,100,11,21,65,27,1346
 NILO,HEROIC,200,100,11,21,65,27,1346
 SUSP,HEROIC,194,112,11,21,65,27,1346
-CRHIZ,HEROIC,178,99,11,21,65,27,1346
+CRHIZN,HEROIC,178,99,11,21,65,27,1346
 yxngstxr,HEROIC,191,109,11,21,65,27,1346
 
 snapi,nip,170,98,12,25,42,29,1344
+stavn,nip,170,98,12,25,42,29,1344
 sjuush,nip,181,110,12,25,42,29,1344
-rinkle,nip,182,112,12,25,42,29,1344
-karpers,nip,194,124,12,25,42,29,1344
+karpersky,nip,194,124,12,25,42,29,1344
 cairne,nip,195,123,12,25,42,29,1344
 
 karrigan,faze,178,87,5,9,281,7,1761

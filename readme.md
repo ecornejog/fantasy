@@ -2,17 +2,18 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.  
 
-## Playoffs IEM RIO 26
+## Unofficial CCT global finals 26
 
-Equipo: zywoo, flamez, jimmy, brollan, aleksib
+Equipo: JDC, yxngstxr, faven, Chrizn, gafolo
 
 | Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (avenger) | (assist) | (kast) | (cannon) | (bottom) |  |
-| Round 2 | (top) | (bait) | (saver) | (kobe) | () |  |
-| Round 3 | (pistol) | (farmer) | (clutch) | (4k) | () |  |
-| Round 4 | () | () | () | () | () |  |
-| Round 5 | () | () | () | () | () |  |
+| Round 1 | (top) | () | (avenger) | (cannon) | (assit) |  |
+| Round 2 | (4k) | (flash) | (kast) | (farmer) | (bait) |  |
+| Round 3 | (carry) | (saver) | (pistol) | (kobe) | () |  |
+| Round 4 | (rambo) | () | (bottom) | () | () |  |
+| Round 5 | () | () | (aim) | () | () |  |
+| Round 6 | () | () | (clutch) | () | () |  |
 
 
 
