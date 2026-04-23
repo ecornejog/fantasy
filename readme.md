@@ -22,6 +22,27 @@ Player:
 Team:   
 Rol:   
 Boost:
+
+## Unofficial NODWIN Clutch Series 7  
+
+Equipo: Mail09, faven, tabsen, upE, olimp
+
+| Round\Player | 1 | 2 | 3 | 4 | 5 |  |
+|--------------|---------|-----------|------|------|------|--------|
+| Round 1 | (kobe) | (avenger) | (assist) | (farmer) | () |  |
+| Round 2 | (pistol) | (kast) | (bait) | (clutch) | (cannon) |  |
+| Round 3 | (top) | (aim) | (bottom) | (saver) | () |  |
+| Round 4 | (carry) | (4k) | (flash) | (rambo) | () |  |
+| Round 5 | () | () | () | () | () |  |
+| Round 6 | () | () | () | () | () |  |
+
+
+
+Total Points:   
+Player:   
+Team:   
+Rol:   
+Boost:
  
 ## Previous results
 
