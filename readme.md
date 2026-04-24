@@ -2,6 +2,27 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.  
 
+## BLAST Rivals 2026 S1
+
+Equipo: zywoo, apex, dziugss, cmtry, hunter
+
+| Round\Player | 1 | 2 | 3 | 4 | 5 |  |
+|--------------|---------|-----------|------|------|------|--------|
+| Round 1 | (avenger) | (assist) | (kast) | (flash) | (farmer) |  |
+| Round 2 | (top) | (bottom) | (4k) | (cannon) | (rambo) |  |
+| Round 3 | (pistol) | (bait) | (aim) | (clutch) | () |  |
+| Round 4 | (carry) | (kobe) | () | (saver) | () |  |
+| Round 5 | () | () | () | () | () |  |
+| Round 6 | () | () | () | () | () |  |
+
+
+
+Total Points:   
+Player:   
+Team:   
+Rol:   
+Boost:
+
 ## Unofficial CCT global finals 26
 
 Equipo: JDC, yxngstxr, faven, Chrizn, gafolo
