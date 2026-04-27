@@ -22,48 +22,6 @@ Player:
 Team:   
 Rol:   
 Boost:
-
-## Unofficial CCT global finals 26
-
-Equipo: JDC, yxngstxr, faven, Chrizn, gafolo
-
-| Round\Player | 1 | 2 | 3 | 4 | 5 |  |
-|--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (top) | () | (avenger) | (cannon) | (assit) |  |
-| Round 2 | (4k) | (flash) | (kast) | (farmer) | (bait) |  |
-| Round 3 | (carry) | (saver) | (pistol) | (kobe) | () |  |
-| Round 4 | (rambo) | () | (bottom) | () | () |  |
-| Round 5 | () | () | (aim) | () | () |  |
-| Round 6 | () | () | (clutch) | () | () |  |
-
-
-
-Total Points:   
-Player:   
-Team:   
-Rol:   
-Boost:
-
-## Unofficial NODWIN Clutch Series 7  
-
-Equipo: Mail09, faven, tabsen, upE, olimp
-
-| Round\Player | 1 | 2 | 3 | 4 | 5 |  |
-|--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (kobe) | (avenger) | (assist) | (farmer) | () |  |
-| Round 2 | (pistol) | (kast) | (bait) | (clutch) | (cannon) |  |
-| Round 3 | (top) | (aim) | (bottom) | (saver) | () |  |
-| Round 4 | (carry) | (4k) | (flash) | (rambo) | () |  |
-| Round 5 | () | () | () | () | () |  |
-| Round 6 | () | () | () | () | () |  |
-
-
-
-Total Points:   
-Player:   
-Team:   
-Rol:   
-Boost:
  
 ## Previous results
 
