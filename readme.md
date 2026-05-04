@@ -2,17 +2,18 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.  
 
-## Playoffs IEM RIO 26
+## BLAST Rivals 2026 S1
 
-Equipo: zywoo, flamez, jimmy, brollan, aleksib
+Equipo: flameZ, makazze, apEX, huNter, Hooxy
 
 | Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (avenger) | (assist) | (kast) | (cannon) | (bottom) |  |
-| Round 2 | (top) | (bait) | (saver) | (kobe) | () |  |
-| Round 3 | (pistol) | (farmer) | (clutch) | (4k) | () |  |
-| Round 4 | () | () | () | () | () |  |
+| Round 1 | (farmer) | (bait) | (assist) | (avenger) | (bottom) |  |
+| Round 2 | (kast) | (cannon) | (kobe) | (saver) | (aim) |  |
+| Round 3 | (carry) | (pistol) | (flash) | () | (clutch) |  |
+| Round 4 | (4k) | (top) | (rambo) | () | () |  |
 | Round 5 | () | () | () | () | () |  |
+| Round 6 | () | () | () | () | () |  |
 
 
 
@@ -39,3 +40,4 @@ Boost:
 |PGL Bucharest 26 | 283 (64%) | 2 | 169 (42%) | 6 (92%) | 68 (63%) | 40 (28%) |
 |Group stage IEM Rio 26 | 236 (32%) | 8 | 65 (59%) | 66 (36%) | 50 (29%) | 55 (1%) |
 |playoffs IEM Rio 26 | 155 (52%) | 4 | 83 (39%) | 9 (81%) | 28 (55%) | 35 (4%) |
+|BLAST Rivals 2026 S1 | 328 (6%) | 15 | 144 (7%) | 69 (16%) | 75 (6%) | 40 (35%) |
