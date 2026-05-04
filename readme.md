@@ -2,16 +2,16 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.  
 
-## BLAST Rivals 2026 S1
+## PGL Astana 26 group stage
 
-Equipo: flameZ, makazze, apEX, huNter, Hooxy
+Equipo: sh1ro, xelex, zontix, torzsi, karrigan
 
 | Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (farmer) | (bait) | (assist) | (avenger) | (bottom) |  |
-| Round 2 | (kast) | (cannon) | (kobe) | (saver) | (aim) |  |
-| Round 3 | (carry) | (pistol) | (flash) | () | (clutch) |  |
-| Round 4 | (4k) | (top) | (rambo) | () | () |  |
+| Round 1 | (avenger) | (top) | (assist) | (flash) | (cannon) |  |
+| Round 2 | (carry) | (pistol) | (bottom) | (saver) | (bait) |  |
+| Round 3 | (4k) | (aim) | (kobe) | (kast) | (farmer) |  |
+| Round 4 | () | (rambo) | () | (clutch) | () |  |
 | Round 5 | () | () | () | () | () |  |
 | Round 6 | () | () | () | () | () |  |
 
