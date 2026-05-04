@@ -8,9 +8,9 @@ Equipo: sh1ro, xelex, zontix, torzsi, karrigan
 
 | Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (avenger) | (top) | (assist) | (flash) | (cannon) |  |
+| Round 1 | (avenger) | (~~top~~) | (assist) | (~~flash~~) | (cannon) |  |
 | Round 2 | (carry) | (pistol) | (bottom) | (saver) | (bait) |  |
-| Round 3 | (4k) | (aim) | (kobe) | (kast) | (farmer) |  |
+| Round 3 | (~~4k~~) | (aim) | (~~kobe~~) | (kast) | (~~farmer~~) |  |
 | Round 4 | () | (rambo) | () | (clutch) | () |  |
 | Round 5 | () | () | () | () | () |  |
 | Round 6 | () | () | () | () | () |  |
