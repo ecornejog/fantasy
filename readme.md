@@ -2,6 +2,27 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.  
 
+## IEM Atlanta 26
+
+Equipo: ropz, apex, launx, hooxi, snax
+
+| Round\Player | 1 | 2 | 3 | 4 | 5 |  |
+|--------------|---------|-----------|------|------|------|--------|
+| Round 1 | () | () | () | () | () |  |
+| Round 2 | () | () | () | () | () |  |
+| Round 3 | () | () | () | () | () |  |
+| Round 4 | () | () | () | () | () |  |
+| Round 5 | () | () | () | () | () |  |
+| Round 6 | () | () | () | () | () |  |
+
+
+
+Total Points:   
+Player:   
+Team:   
+Rol:   
+Boost:
+
 ## PGL Astana 26 group stage
 
 Equipo: sh1ro, xelex, zontix, torzsi, karrigan
