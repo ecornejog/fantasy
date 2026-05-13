@@ -24,9 +24,9 @@ Rol:
 Boost:
 
 
-## IEM Atlanta 26
+## PGL Astana 26 playoffs
 
-Equipo: ropz, apex, launx, hooxi, snax
+Equipo: Donk, xelex, spinx, zontix, sfade8
 
 | Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
@@ -45,6 +45,27 @@ Team:
 Rol:   
 Boost:
 
+
+## IEM Atlanta 26
+
+Equipo: ropz, apex, launx, hooxi, snax
+
+| Round\Player | 1 | 2 | 3 | 4 | 5 |  |
+|--------------|---------|-----------|------|------|------|--------|
+| Round 1 | (pistol) | (assist) | (avenger) | (bottom) | () |  |
+| Round 2 | (~~kast~~) | (~~kobe~~) | (bait) | (cannon) | () |  |
+| Round 3 | (clutch) | (flash) | (~~top~~) | (~~farmer~~) | () |  |
+| Round 4 | (4k) | (rambo) | (carry) | (aim) | () |  |
+| Round 5 | (saver) | () | () | () | () |  |
+| Round 6 | () | () | () | () | () |  |
+
+
+
+Total Points:   
+Player:   
+Team:   
+Rol:   
+Boost:
  
 ## Previous results
 
