@@ -2,6 +2,28 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.  
 
+## PGL Astana 26 playoffs
+
+Equipo: Donk, xelex, spinx, zontix, sfade8
+
+| Round\Player | 1 | 2 | 3 | 4 | 5 |  |
+|--------------|---------|-----------|------|------|------|--------|
+| Round 1 | (top) | (pistol) | (assist) | (bottom) | (bait) |  |
+| Round 2 | (avenger) | (carry) | (kast) | (kobe) | () |  |
+| Round 3 | (4k) | (cannon) | (saver) | (farmer) | () |  |
+| Round 4 | () | () | () | () | () |  |
+| Round 5 | () | () | () | () | () |  |
+| Round 6 | () | () | () | () | () |  |
+
+
+
+Total Points:   
+Player:   
+Team:   
+Rol:   
+Boost:
+
+
 ## IEM Atlanta 26
 
 Equipo: ropz, apex, launx, hooxi, snax
@@ -23,26 +45,6 @@ Team:
 Rol:   
 Boost:
 
-## PGL Astana 26 group stage
-
-Equipo: sh1ro, xelex, zontix, torzsi, karrigan
-
-| Round\Player | 1 | 2 | 3 | 4 | 5 |  |
-|--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (avenger) | (~~top~~) | (assist) | (~~flash~~) | (cannon) |  |
-| Round 2 | (carry) | (pistol) | (bottom) | (saver) | (bait) |  |
-| Round 3 | (~~4k~~) | (aim) | (~~kobe~~) | (kast) | (~~farmer~~) |  |
-| Round 4 | () | (rambo) | () | (clutch) | () |  |
-| Round 5 | () | () | () | () | () |  |
-| Round 6 | () | () | () | () | () |  |
-
-
-
-Total Points:   
-Player:   
-Team:   
-Rol:   
-Boost:
  
 ## Previous results
 
@@ -62,3 +64,4 @@ Boost:
 |Group stage IEM Rio 26 | 236 (32%) | 8 | 65 (59%) | 66 (36%) | 50 (29%) | 55 (1%) |
 |playoffs IEM Rio 26 | 155 (52%) | 4 | 83 (39%) | 9 (81%) | 28 (55%) | 35 (4%) |
 |BLAST Rivals 2026 S1 | 328 (6%) | 15 | 144 (7%) | 69 (16%) | 75 (6%) | 40 (35%) |
+|PGL Astana 26 Group Stage | 284 (28%) | 10 | 23 (79%) | 123 (1%) | 103 (1%) | 35 (39%) |
