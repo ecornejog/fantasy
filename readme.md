@@ -24,28 +24,6 @@ Rol:
 Boost:
 
 
-## PGL Astana 26 playoffs
-
-Equipo: Donk, xelex, spinx, zontix, sfade8
-
-| Round\Player | 1 | 2 | 3 | 4 | 5 |  |
-|--------------|---------|-----------|------|------|------|--------|
-| Round 1 | () | () | () | () | () |  |
-| Round 2 | () | () | () | () | () |  |
-| Round 3 | () | () | () | () | () |  |
-| Round 4 | () | () | () | () | () |  |
-| Round 5 | () | () | () | () | () |  |
-| Round 6 | () | () | () | () | () |  |
-
-
-
-Total Points:   
-Player:   
-Team:   
-Rol:   
-Boost:
-
-
 ## IEM Atlanta 26
 
 Equipo: ropz, apex, launx, hooxi, snax
