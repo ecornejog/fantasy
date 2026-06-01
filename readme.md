@@ -4,15 +4,15 @@ Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
 ## Cologne Major 26 Stage 1
 
-Equipo: insani, z4kr, jamyoung, westmelon, tjp
+Equipo: insani, kl1m, starry, callmesue, rdnzao
 
 | Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (avenger) | (carry) | (4k) | (bait) | (assist) |  |
-| Round 2 | (top) | (flash) | (kobe) | (pistol) | (bottom) |  |
-| Round 3 | (kast) | (clutch) | (aim) | () | (cannon) |  |
-| Round 4 | (saver) | () | (farmer) | () | () |  |
-| Round 5 | () | () | (rambo) | () | () |  |
+| Round 1 | (cannon) | (pistol) | (4k) | (bottom) | (assist) |  |
+| Round 2 | (clutch) | (top) | (aim) | (flash) | (avenger) |  |
+| Round 3 | (saver) | (carry) | (rambo) | (farmer) | (bait) |  |
+| Round 4 | () | (kast) | () | () | (kobe) |  |
+| Round 5 | () | () | () | () | () |  |
 | Round 6 | () | () | () | () | () |  |
 
 
