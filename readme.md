@@ -4,15 +4,15 @@ Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
 ## Cologne Major 26 Stage 2
 
-Equipo: donk, d1ledez, flamus, meyern, lnz 
+Equipo: donk, latto, dumau, huaso, meyern
 
 | Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (top) | (assist) | (cannon) | (bottom) | (kobe) |  |
-| Round 2 | (avenger) | (bait) | (aim) | (kast) | (flash) |  |
-| Round 3 | (4k) | (pistol) | (rambo) | (saver) | (farmer) |  |
-| Round 4 | () | (carry) | () | () | (clutch) |  |
-| Round 5 | () | () | () | () | () |  |
+| Round 1 | (top) | (assist) | (carry) | (bait) | (bottom) |  |
+| Round 2 | (avenger) | (kast) | (cannon) | (aim) | (flash) |  |
+| Round 3 | (4k) | (pistol) | (saver) | (farmer) | () |  |
+| Round 4 | () | (kobe) | (rambo) | () | () |  |
+| Round 5 | () | (clutch) | () | () | () |  |
 | Round 6 | () | () | () | () | () |  |
 
 
