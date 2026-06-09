@@ -2,7 +2,7 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
-## Cologne Major 26 Stage 2
+## Cologne Major 26 Stage 3
 
 Equipo: donk, latto, dumau, huaso, meyern
 
