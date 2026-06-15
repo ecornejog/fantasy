@@ -33,7 +33,7 @@ def compute_player_points(df: pd.DataFrame) -> pd.DataFrame:
     df["total_rounds_played"] = df["win_rounds"] + df["loss_rounds"]
 
     # Base points
-    df["base_points"] = (((df["rating"] - 100) / 2.0) * df["total_rounds_played"]
+    df["base_points"] = ((df["rating"] - 100) / 2.0) * df["total_rounds_played"]
 
     # Team points
     df["team_points"] = (6 * df["win_rounds"]) + (-3 * df["loss_rounds"]) + (-3 * df["elim_rounds"])
