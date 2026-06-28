@@ -1,19 +1,19 @@
 # Fantasy
 
-Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.  
+Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
-## CAC 26
+## Cologne Major 26 Playoffs
 
-Equipo: xelex, teses, jl, karrigan, art
+Equipo: donk, molodoy, tnir, meyern, max
 
 | Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (top) | (clutch) | (pistol) | (cannon) | (assist) |  |
-| Round 2 | (carry) | () | (avenger) | () | (bait) |  |
-| Round 3 | (4k) | () | (flash) | () | (bottom) |  |
-| Round 4 | (kobe) | () | (saver) | () | (farmer) |  |
-| Round 5 | (aim) | () | () | () | (rambo) |  |
-| Round 6 | (kast) | () | () | () | () |  |
+| Round 1 | (assist) | (carry) | (kast) | (bottom) | (bait) |  |
+| Round 2 | (top) | (pistol) | (cannon) | () | () |  |
+| Round 3 | (avenger) | (4k) | (kobe) | () | () |  |
+| Round 4 | () | () | () | () | () |  |
+| Round 5 | () | () | () | () | () |  |
+| Round 6 | () | () | () | () | () |  |
 
 
 
