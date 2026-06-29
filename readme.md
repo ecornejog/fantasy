@@ -8,10 +8,10 @@ Equipo: magnojez, jamyoung, jdc, resalt, magikey
 
 | Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | () | () | () | () | () |  |
-| Round 2 | () | () | () | () | () |  |
-| Round 3 | () | () | () | () | () |  |
-| Round 4 | () | () | () | () | () |  |
+| Round 1 | (assist) | (4k) | (kast) | (avenger) | (bottom) |  |
+| Round 2 | (top) | (kobe) | (carry) | (bait) | (flash) |  |
+| Round 3 | (cannon) | (aim) | () | (pistol) | (clutch) |  |
+| Round 4 | () | (rambo) | () | (farmer) | (saver) |  |
 | Round 5 | () | () | () | () | () |  |
 | Round 6 | () | () | () | () | () |  |
 
