@@ -4,14 +4,14 @@ Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
 ## XSE Pro league 2026
 
-Equipo: magnojez, jamyoung, jdc, resalt, magikey
+Equipo: magnojez, xielo, boombl4, Sdaim, tex1y
 
 | Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (assist) | (4k) | (kast) | (avenger) | (bottom) |  |
-| Round 2 | (top) | (kobe) | (carry) | (bait) | (flash) |  |
-| Round 3 | (cannon) | (aim) | () | (pistol) | (clutch) |  |
-| Round 4 | () | (rambo) | () | (farmer) | (saver) |  |
+| Round 1 | (assist) | (bait) | (bottom) | (kobe) | (avenger) |  |
+| Round 2 | (top) | (cannon) | (farmer) | () | () |  |
+| Round 3 | (pistol) | () | (kast) | () | () |  |
+| Round 4 | () | () | () | () | () |  |
 | Round 5 | () | () | () | () | () |  |
 | Round 6 | () | () | () | () | () |  |
 
