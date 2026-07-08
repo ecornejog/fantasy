@@ -2,6 +2,20 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
+## Res Showdown 4
+
+Equipo: 
+
+| Round\Player | 1 | 2 | 3 | 4 | 5 |  |
+|--------------|---------|-----------|------|------|------|--------|
+| Round 1 | (pistol) | (cannon) | (bait) | (assist) | (farmer) |  |
+| Round 2 | (top) | (kast) | (kobe) | (avenger) | (bottom) |  |
+| Round 3 | (carry) | (4k) | () | () | () |  |
+| Round 4 | () | () | () | () | () |  |
+| Round 5 | () | () | () | () | () |  |
+| Round 6 | () | () | () | () | () |  |
+
+
 ## XSE Pro league 2026
 
 Equipo: magnojez, xielo, boombl4, Sdaim, tex1y
