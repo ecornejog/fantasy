@@ -1,4 +1,52 @@
 jugador,equipo,precio,rating,win_rounds,loss_rounds, padding_rounds, elim_rounds
+alex666,B8,209,95,3,0,0,0
+npl,B8,225,107,3,0,0,0
+kensizor,B8,216,100,3,0,0,0
+esenthial,B8,213,93,3,0,0,0
+s1zzi,B8,215,103,3,0,0,0
+
+MaSvAl,magic,220,112,2,1,0,0
+sFade8,magic,197,96,2,1,0,0
+AW,magic,206,100,2,1,0,0
+mo0N,magic,210,99,2,1,0,0
+tenzy,magic,216,111,2,1,0,0
+
+Snappi,NinjasinPyjamas,182,89,1,1,0,1
+stavn,NinjasinPyjamas,205,106,1,1,0,1
+sjuush,NinjasinPyjamas,203,107,1,1,0,1
+n0te,NinjasinPyjamas,217,94,1,1,0,1
+xKacpersky,NinjasinPyjamas,215,106,1,1,0,1
+
+cptkurtka023,InnerCircle,199,102,1,1,0,1
+headtr1ck,InnerCircle,204,109,1,1,0,1
+zerRRoFIX,InnerCircle,194,102,1,1,0,1
+onic,InnerCircle,189,102,1,1,0,1
+Dawy,InnerCircle,212,111,1,1,0,1
+
+mir,Virtus.pro,190,0,0,1,0,2
+b1st,Virtus.pro,200,0,0,1,0,2
+F0R3VER,Virtus.pro,183,0,0,1,0,2
+AquaRS,Virtus.pro,184,0,0,1,0,2
+tO0R0,Virtus.pro,185,0,0,1,0,2
+
+Keoz,GenOne,185,0,0,1,0,2
+Djoko,GenOne,188,0,0,1,0,2
+Brooxsy,GenOne,189,0,0,1,0,2
+Chucky,GenOne,202,0,0,1,0,2
+bL4SEZ,GenOne,184,0,0,1,0,2
+
+n1Xen,EAC,189,0,0,1,0,2
+anber,EAC,184,0,0,1,0,2
+sSen,EAC,180,0,0,1,0,2
+bekker,EAC,182,0,0,1,0,2
+sh1Fu,EAC,171,0,0,1,0,2
+
+choiv7,Sangrija,180,0,0,1,0,2
+kdaN,Sangrija,177,0,0,1,0,2
+miwo,Sangrija,180,0,0,1,0,2
+VENO,Sangrija,170,0,0,1,0,2
+nopzy,Sangrija,180,0,0,1,0,2
+
 max,9z,194,91,2,1,0,0
 dgt,9z,217,108,2,1,0,0
 meyern,9z,200,95,2,1,0,0
@@ -47,12 +95,6 @@ mag1k3Y,Nemesis,177,103,0,1,0,2
 tex1y,Nemesis,178,104,0,1,0,2
 Sdaim,Nemesis,184,120,0,1,0,2
 
-alex666,B8,204,97,3,0,2,0
-npl,B8,219,111,3,0,2,0
-kensizor,B8,209,100,3,0,2,0
-esenthial,B8,205,97,3,0,2,0
-s1zzi,B8,206,101,3,0,2,0
-
 Rainwaker,Monte,213,112,3,2,0,0
 Bymas,Monte,194,94,3,2,0,0
 afro,Monte,217,115,3,2,0,0
@@ -64,12 +106,6 @@ nqz,MIBR,215,0,3,2,0,0
 brnz4n,MIBR,185,90,3,2,0,0
 insani,MIBR,220,120,3,2,0,0
 venomzera,MIBR,194,100,3,2,0,0
-
-Snappi,NinjasinPyjamas,173,88,2,3,0,0
-stavn,NinjasinPyjamas,201,111,2,3,0,0
-sjuush,NinjasinPyjamas,190,102,2,3,0,0
-n0te,NinjasinPyjamas,202,0,2,3,0,0
-xKacpersky,NinjasinPyjamas,205,109,2,3,0,0
 
 maka,3DMAX,191,97,1,3,0,1
 lucky,3DMAX,198,106,1,3,0,1
@@ -148,12 +184,6 @@ INS,FlyQuest,170,0,0,3,0,2
 Vexite,FlyQuest,187,0,0,3,0,2
 nettik,FlyQuest,178,0,0,3,0,2
 story,FlyQuest,177,0,0,3,0,2
-
-MaSvAl,magic,215,114,3,2,1,0
-sFade8,magic,188,98,3,2,1,0
-AW,magic,198,103,3,2,1,0
-mo0N,magic,204,108,3,2,1,0
-tenzy,magic,218,116,3,2,1,0
 
 xfl0ud,HEROIC,204,107,1,2,0,3
 nilo,HEROIC,213,115,1,2,0,3
@@ -364,12 +394,6 @@ Infinite,Voca,181,109,0,3,0,2
 nosraC,Voca,176,101,0,3,0,2
 snav,Voca,184,112,0,3,0,2
 Jeorge,Voca,186,114,0,3,0,2
-
-cptkurtka023,InnerCircle,196,105,1,3,0,1
-headtr1ck,InnerCircle,179,101,1,3,0,1
-zerRRoFIX,InnerCircle,189,105,1,3,0,1
-onic,InnerCircle,175,97,1,3,0,1
-Dawy,InnerCircle,200,113,1,3,0,1
 
 nEMANHA,Wildcard,184,113,0,3,0,2
 mhL,Wildcard,188,117,0,3,0,2
