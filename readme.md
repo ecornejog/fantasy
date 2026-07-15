@@ -2,30 +2,16 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
-## Res Showdown 4
+## Stake Ranked Episode 3
 
-Equipo: 
-
-| Round\Player | 1 | 2 | 3 | 4 | 5 |  |
-|--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (pistol) | (cannon) | (bait) | (assist) | (farmer) |  |
-| Round 2 | (top) | (kast) | (kobe) | (avenger) | (bottom) |  |
-| Round 3 | (carry) | (4k) | () | () | () |  |
-| Round 4 | () | () | () | () | () |  |
-| Round 5 | () | () | () | () | () |  |
-| Round 6 | () | () | () | () | () |  |
-
-
-## XSE Pro league 2026
-
-Equipo: magnojez, xielo, boombl4, Sdaim, tex1y
+Equipo: nEMANHA, piriajr, mhL, sjuush, dav1g
 
 | Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (assist) | (bait) | (bottom) | (kobe) | (avenger) |  |
-| Round 2 | (top) | (cannon) | (farmer) | () | () |  |
-| Round 3 | (pistol) | () | (kast) | () | () |  |
-| Round 4 | () | () | () | () | () |  |
+| Round 1 | (kobe) | (pistol) | (kast) | (bottom) | (assist) |  |
+| Round 2 | (farmer) | (top) | (flash) | (4k) | (bait) |  |
+| Round 3 | (rambo) | (cannon) | (saver) | (aim) | (avenger) |  |
+| Round 4 | () | (carry) | () | (clutch) | () |  |
 | Round 5 | () | () | () | () | () |  |
 | Round 6 | () | () | () | () | () |  |
 
