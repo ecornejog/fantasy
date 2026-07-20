@@ -2,16 +2,16 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
-## Cologne Major 26 Playoffs
+## Stake Ranked Episode 3
 
-Equipo: donk, molodoy, tnir, meyern, max
+Equipo: nEMANHA, piriajr, mhL, sjuush, dav1g
 
 | Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (assist) | (carry) | (kast) | (bottom) | (bait) |  |
-| Round 2 | (top) | (pistol) | (cannon) | () | () |  |
-| Round 3 | (avenger) | (4k) | (kobe) | () | () |  |
-| Round 4 | () | () | () | () | () |  |
+| Round 1 | (kobe) | (pistol) | (kast) | (bottom) | (assist) |  |
+| Round 2 | (farmer) | (top) | (flash) | (4k) | (bait) |  |
+| Round 3 | (rambo) | (cannon) | (saver) | (aim) | (avenger) |  |
+| Round 4 | () | (carry) | () | (clutch) | () |  |
 | Round 5 | () | () | () | () | () |  |
 | Round 6 | () | () | () | () | () |  |
 
