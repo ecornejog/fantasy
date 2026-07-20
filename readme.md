@@ -4,14 +4,14 @@ Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
 ## Starladder Starseries fall26 europe qualifier
 
-Equipo: 
+Equipo: stavn, flouzer,susp,sjuush, ayuki
 
 | Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | () | () | () | () | () |  |
-| Round 2 | () | () | () | () | () |  |
-| Round 3 | () | () | () | () | () |  |
-| Round 4 | () | () | () | () | () |  |
+| Round 1 | (top) | (assist) | (bait) | (bottom) | (avenger) |  |
+| Round 2 | (kobe) | (cannon) | (saver) | (aim) | (pistol) |  |
+| Round 3 | (carry) | (4k) | () | (flash) | (kast) |  |
+| Round 4 | (clutch) | (farmer) | () | (rambo) | () |  |
 | Round 5 | () | () | () | () | () |  |
 | Round 6 | () | () | () | () | () |  |
 
