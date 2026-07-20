@@ -2,26 +2,31 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
-## Stake Ranked Episode 3
+## Starladder Starseries fall26 europe qualifier
 
-Equipo: nEMANHA, piriajr, mhL, sjuush, dav1g
+Equipo: 
 
 | Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (kobe) | (pistol) | (kast) | (bottom) | (assist) |  |
-| Round 2 | (farmer) | (top) | (flash) | (4k) | (bait) |  |
-| Round 3 | (rambo) | (cannon) | (saver) | (aim) | (avenger) |  |
-| Round 4 | () | (carry) | () | (clutch) | () |  |
+| Round 1 | () | () | () | () | () |  |
+| Round 2 | () | () | () | () | () |  |
+| Round 3 | () | () | () | () | () |  |
+| Round 4 | () | () | () | () | () |  |
 | Round 5 | () | () | () | () | () |  |
 | Round 6 | () | () | () | () | () |  |
 
+## Blast bounty 2026 S2 Online
 
+Equipo: xertioN, demon, torzsi, bobeksde, avid
 
-Total Points:   
-Player:   
-Team:   
-Rol:   
-Boost:
+| Round\Player | 1 | 2 | 3 | 4 | 5 |  |
+|--------------|---------|-----------|------|------|------|--------|
+| Round 1 | (assist) | (avenger) | (bottom) | (cannon) | (hellcase) |  |
+| Round 2 | (top) | (bait) | (pistol) | (carry) | (farmer) |  |
+| Round 3 | () | () | () | () | () |  |
+| Round 4 | () | () | () | () | () |  |
+| Round 5 | () | () | () | () | () |  |
+| Round 6 | () | () | () | () | () |  |
  
 ## Previous results
 
