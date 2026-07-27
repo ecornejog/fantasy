@@ -1,15 +1,50 @@
 jugador,equipo,precio,rating,win_rounds,loss_rounds, padding_rounds, elim_rounds
+sh1ro,Spirit,225,122,3,0,0,0
+magixx,Spirit,209,100,3,0,0,0
+tN1R,Spirit,218,105,3,0,0,0
+zont1x,Spirit,206,100,3,0,0,0
+donk,Spirit,250,151,3,0,0,0
+torzsi,MOUZ,198,106,2,1,0,0
+Spinx,MOUZ,202,101,2,1,0,0
+xertioN,MOUZ,215,124,2,1,0,0
+PR,MOUZ,213,108,2,1,0,0
+xelex,MOUZ,211,104,2,1,0,0
+Blitz,TheMongolz,193,100,1,1,0,1
+techno,TheMongolz,190,89,1,1,0,1
+910,TheMongolz,216,115,1,1,0,1
+tikuak,TheMongolz,192,97,1,1,0,1
+DarkMeister,TheMongolz,195,115,1,1,0,1
+frozen,FaZe,215,118,1,1,0,1
+Twistzz,FaZe,207,110,1,1,0,1
+Neityu,FaZe,188,98,1,1,0,1
+jcobbb,FaZe,184,99,1,1,0,1
+JBOEN,FaZe,205,106,1,1,0,1
+HooXi,Astralis,174,87,0,1,0,2
+phzy,Astralis,199,89,0,1,0,2
+jabbi,Astralis,204,103,0,1,0,2
+Staehr,Astralis,215,111,0,1,0,2
+ryu,Astralis,193,94,0,1,0,2
+vsm,paiN,186,87,0,1,0,2
+biguzera,paiN,179,95,0,1,0,2
+piriajr,paiN,193,105,0,1,0,2
+saffee,paiN,184,98,0,1,0,2
+snow,paiN,194,103,0,1,0,2
+NAF,Liquid,190,109,0,1,0,2
+EliGE,Liquid,187,108,0,1,0,2
+malbsMd,Liquid,190,115,0,1,0,2
+JT,Liquid,181,104,0,1,0,2
+Jorko,Liquid,199,124,0,1,0,2
+maka,3DMAX,180,102,0,1,0,2
+lucky,3DMAX,190,98,0,1,0,2
+misutaaa,3DMAX,183,104,0,1,0,2
+Kursy,3DMAX,184,117,0,1,0,2
+gravity,3DMAX,175,90,0,1,0,2
+
 XANTARES,Aurora,230,107,4,0,1,0
 woxic,Aurora,222,103,4,0,1,0
 Jimpphat,Aurora,210,95,4,0,1,0
 kyxsan,Aurora,200,77,4,0,1,0
 wicadia,Aurora,235,119,4,0,1,0
-
-HooXi,Astralis,182,88,3,1,1,0
-phzy,Astralis,213,89,3,1,1,0
-jabbi,Astralis,217,102,3,1,1,0
-Staehr,Astralis,229,115,3,1,1,0
-ryu,Astralis,206,93,3,1,1,0
 
 MaSvAl,magic,219,112,4,0,1,0
 sFade8,magic,192,94,4,0,1,0
@@ -28,12 +63,6 @@ r3salt,Nemesis,210,117,2,2,0,1
 mag1k3Y,Nemesis,196,103,2,2,0,1
 tex1y,Nemesis,197,104,2,2,0,1
 Sdaim,Nemesis,205,115,2,2,0,1
-
-maka,3DMAX,197,99,2,2,0,1
-lucky,3DMAX,206,101,2,2,0,1
-misutaaa,3DMAX,203,97,2,2,0,1
-Kursy,3DMAX,201,103,2,2,0,1
-gravity,3DMAX,190,92,2,2,0,1
 
 Brollan,HEROIC,191,92,2,2,0,1
 nilo,HEROIC,212,118,2,2,0,1
@@ -101,12 +130,6 @@ ZywOo,Vitality,245,138,2,0,0,0
 flameZ,Vitality,220,109,2,0,0,0
 mezii,Vitality,204,100,2,0,0,0
 
-sh1ro,Spirit,223,119,2,0,0,0
-magixx,Spirit,199,101,2,0,0,0
-tN1R,Spirit,205,108,2,0,0,0
-zont1x,Spirit,197,101,2,0,0,0
-donk,Spirit,250,146,2,0,0,0
-
 Fallen,FURIA,194,90,2,0,0,0
 yuurih,FURIA,206,103,2,0,0,0
 YEKINDAR,FURIA,217,109,2,0,0,0
@@ -118,12 +141,6 @@ NertZ,G2,205,101,2,0,0,0
 r1nkle,G2,208,0,2,0,0,0
 HeavyGod,G2,218,118,2,0,0,0
 MATYS,G2,208,99,2,0,0,0
-
-torzsi,MOUZ,196,104,2,0,0,0
-Spinx,MOUZ,200,101,2,0,0,0
-xertioN,MOUZ,220,123,2,0,0,0
-PR,MOUZ,209,107,2,0,0,0
-xelex,MOUZ,200,104,2,0,0,0
 
 xfl0ud,FUT,196,100,2,0,0,0
 dem0n,FUT,206,110,2,0,0,0
@@ -137,24 +154,6 @@ Tauson,GamerLegion,203,102,1,1,0,0
 FL4MUS,GamerLegion,203,106,1,1,0,0
 hypex,GamerLegion,206,101,1,1,0,0
 
-Blitz,TheMongolz,186,99,1,1,0,0
-techno,TheMongolz,183,90,1,1,0,0
-910,TheMongolz,205,115,1,1,0,0
-tikuak,TheMongolz,190,0,1,1,0,0
-DarkMeister,TheMongolz,180,0,1,1,0,0
-
-frozen,FaZe,219,121,1,1,0,0
-Twistzz,FaZe,210,114,1,1,0,0
-Neityu,FaZe,195,97,1,1,0,0
-jcobbb,FaZe,191,100,1,1,0,0
-JBOEN,FaZe,215,118,1,1,0,0
-
-vsm,paiN,199,91,1,1,0,0
-biguzera,paiN,192,97,1,1,0,0
-piriajr,paiN,205,106,1,1,0,0
-saffee,paiN,197,100,1,1,0,0
-snow,paiN,206,105,1,1,0,0
-
 twist,Alliance,187,101,1,1,0,0
 eraa,Alliance,197,110,1,1,0,0
 bobeksde,Alliance,189,110,1,1,0,0
@@ -166,12 +165,6 @@ Swisher,M80,203,104,0,1,0,1
 s1n,M80,183,91,0,1,0,1
 jBa,M80,196,99,0,1,0,1
 Lake,M80,203,101,0,1,0,1
-
-NAF,Liquid,199,109,0,1,0,1
-EliGE,Liquid,197,103,0,1,0,1
-malbsMd,Liquid,201,110,0,1,0,1
-siuhy,Liquid,175,83,0,1,0,1
-Jorko,Liquid,191,103,0,1,0,1
 
 gafolo,Sharks,183,89,0,1,0,1
 koala,Sharks,205,109,0,1,0,1
