@@ -9,7 +9,7 @@ Equipo: Donk, xertion, Kursy, Gravity, HooXi
 | Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
 | Round 1 | (top) | (assist) | (hellcase) | (farmer) | (bottom) |  |
-| Round 2 | (avenger) | (bait) | () | () | () |  |
+| Round 2 | (avenger) | (bait) | () | () | (cannon) |  |
 | Round 3 | (carry) | (kobe) | () | () | () |  |
 | Round 4 | () | () | () | () | () |  |
 | Round 5 | () | () | () | () | () |  |
