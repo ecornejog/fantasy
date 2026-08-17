@@ -2,16 +2,16 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
-## EWC26 group stage
+## EWC26 playoofs
 
 Equipo: donk, latto, art, tabsen, faven
 
 | Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (top) | (kast) | (assist) | (bottom) | (hellcase) |  |
-| Round 2 | (avenger) | (pistol) | (bait) | (cannon) | (aim) |  |
-| Round 3 | () | () | () | (flash) | (4k) |  |
-| Round 4 | () | () | () | () | () |  |
+| Round 1 | (top) | (assist) | (hellcase) | (bait) | (bottom) |  |
+| Round 2 | (avenger) | (kast) | (kobe) | (cannon) | () |  |
+| Round 3 | (carry) | (clutch) | (farmer) | () | () |  |
+| Round 4 | (pistol) | (saver) | (4k) | () | () |  |
 | Round 5 | () | () | () | () | () |  |
 | Round 6 | () | () | () | () | () |  |
  
