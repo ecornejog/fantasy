@@ -4,7 +4,7 @@ Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
 ## EWC26 playoofs
 
-Equipo: donk, latto, art, tabsen, faven
+Equipo: donk, yuurih, zont1x, xfl0ud, Snax
 
 | Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
