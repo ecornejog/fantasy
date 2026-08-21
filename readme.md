@@ -10,8 +10,8 @@ Equipo: donk, yuurih, zont1x, xfl0ud, Snax
 |--------------|---------|-----------|------|------|------|--------|
 | Round 1 | (top) | (assist) | (hellcase) | (bait) | (bottom) |  |
 | Round 2 | (avenger) | (kast) | (kobe) | (cannon) | () |  |
-| Round 3 | (carry) | (clutch) | (farmer) | () | () |  |
-| Round 4 | (pistol) | (saver) | (4k) | () | () |  |
+| Round 3 | (carry) | (clutch) | (farmer) | (4k) | () |  |
+| Round 4 | (pistol) | (saver) | (flash) | (aim) | () |  |
 | Round 5 | () | () | () | () | () |  |
 | Round 6 | () | () | () | () | () |  |
  

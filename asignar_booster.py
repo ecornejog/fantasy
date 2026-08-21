@@ -84,7 +84,7 @@ jugadores = [
     {"nombre": "1", "partidos_esperados": 4},
     {"nombre": "2", "partidos_esperados": 4},
     {"nombre": "3", "partidos_esperados": 4},
-    {"nombre": "4", "partidos_esperados": 2},
+    {"nombre": "4", "partidos_esperados": 4},
     {"nombre": "5", "partidos_esperados": 1}
 ]
 
