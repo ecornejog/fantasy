@@ -81,11 +81,11 @@ def asignar_boosters_por_jugador(jugadores, boosters):
 # EJEMPLO DE USO
 # ------------------------
 jugadores = [
-    {"nombre": "1", "partidos_esperados": 4},
+    {"nombre": "1", "partidos_esperados": 3},
     {"nombre": "2", "partidos_esperados": 4},
     {"nombre": "3", "partidos_esperados": 4},
-    {"nombre": "4", "partidos_esperados": 4},
-    {"nombre": "5", "partidos_esperados": 1}
+    {"nombre": "4", "partidos_esperados": 3},
+    {"nombre": "5", "partidos_esperados": 4}
 ]
 
 boosters = leer_boosters("boosters.csv")
@@ -96,4 +96,5 @@ asignaciones = asignar_boosters_por_jugador(jugadores, boosters)
 # ----------------------------------
 for jugador, boosts in asignaciones.items():
     boosts_str = ", ".join([f"{b[0]} ({b[1]:.2f})" for b in boosts])
-    print(f"{jugador} → {boosts_str}")
+    promedio = sum(b[1] for b in boosts) / len(boosts) if boosts else 0.0
+    print(f"{jugador} → {boosts_str} | promedio = {promedio:.2f}")

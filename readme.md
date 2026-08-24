@@ -2,16 +2,16 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
-## EWC26 playoofs
+## Group Stage - BLAST Open Porto 2026
 
-Equipo: donk, yuurih, zont1x, xfl0ud, Snax
+Equipo: sh1ro, try, xfloud, yuurih, demon
 
 | Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (top) | (assist) | (hellcase) | (bait) | (bottom) |  |
-| Round 2 | (avenger) | (kast) | (kobe) | (cannon) | () |  |
-| Round 3 | (carry) | (clutch) | (farmer) | (4k) | () |  |
-| Round 4 | (pistol) | (saver) | (flash) | (aim) | () |  |
+| Round 1 | (pistol) | (carry) | (bait) | (assist) | (hellcase) |  |
+| Round 2 | (4k) | (top) | (cannon) | (avenger) | (aim) |  |
+| Round 3 | (clutch) | (saver) | (kobe) | (kast) | (bottom) |  |
+| Round 4 | () | (flash) | () | () | (farmer) |  |
 | Round 5 | () | () | () | () | () |  |
 | Round 6 | () | () | () | () | () |  |
  
