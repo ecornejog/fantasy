@@ -1,0 +1,71 @@
+name: Fantasy Pipeline
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'jugadores.csv'
+      - 'roles.csv'
+      - 'boosters.csv'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run-fantasy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pandas
+
+      - name: Detect changed file
+        id: changes
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            jugadores:
+              - 'jugadores.csv'
+            roles:
+              - 'roles.csv'
+            boosters:
+              - 'boosters.csv'
+
+      - name: Crear equipo
+        if: steps.changes.outputs.jugadores == 'true'
+        run: |
+          python crear_equipo.py jugadores.csv -o equipos_posibles.csv
+          echo "## Equipos posibles" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          cat equipos_posibles.csv >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Asignar roles
+        if: steps.changes.outputs.roles == 'true'
+        run: |
+          python asignar_roles.py | tee resultado_roles.txt
+          echo "## Asignación de roles" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          cat resultado_roles.txt >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Asignar boosters
+        if: steps.changes.outputs.boosters == 'true'
+        run: |
+          python asignar_booster.py | tee resultado_boosters.txt
+          echo "## Asignación de boosters" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          cat resultado_boosters.txt >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Commit results
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🤖 Actualiza resultados fantasy"
+          file_pattern: 'equipos_posibles.csv resultado_roles.txt resultado_boosters.txt'
