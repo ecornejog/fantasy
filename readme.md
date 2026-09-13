@@ -2,16 +2,16 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
-## Group Stage - BLAST Open Porto 2026
+## StarLadder StarSeries Fall 2026
 
-Equipo: sh1ro, try, xfloud, yuurih, demon
+Equipo: 
 
 | Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (pistol) | (carry) | (bait) | (assist) | (hellcase) |  |
-| Round 2 | (4k) | (top) | (cannon) | (avenger) | (aim) |  |
-| Round 3 | (clutch) | (saver) | (kobe) | (kast) | (bottom) |  |
-| Round 4 | () | (flash) | () | () | (farmer) |  |
+| Round 1 | () | () | () | () | () |  |
+| Round 2 | () | () | () | () | () |  |
+| Round 3 | () | () | () | () | () |  |
+| Round 4 | () | () | () | () | () |  |
 | Round 5 | () | () | () | () | () |  |
 | Round 6 | () | () | () | () | () |  |
  
