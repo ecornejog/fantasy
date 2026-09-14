@@ -4,15 +4,15 @@ Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
 ## StarLadder StarSeries Fall 2026
 
-Equipo: 
+Equipo: Zywoo, torzsi, nqz, venomzera, grim
 
 | Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | () | () | () | () | () |  |
-| Round 2 | () | () | () | () | () |  |
-| Round 3 | () | () | () | () | () |  |
-| Round 4 | () | () | () | () | () |  |
-| Round 5 | () | () | () | () | () |  |
+| Round 1 | (top) | (bottom) | (clutch) | (hellcase) | (assist) |  |
+| Round 2 | (avenger) | (kast) | (kobe) | (cannon) | (bait) |  |
+| Round 3 | (pistol) | (flash) | (rambo) | (aim) | () |  |
+| Round 4 | (carry) | (saver) | () | (farmer) | () |  |
+| Round 5 | (4k) | () | () | () | () |  |
 | Round 6 | () | () | () | () | () |  |
  
 ## Previous results
