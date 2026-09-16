@@ -14,6 +14,19 @@ Equipo: Zywoo, torzsi, nqz, venomzera, grim
 | Round 4 | (carry) | (saver) | () | (farmer) | () |  |
 | Round 5 | (4k) | () | () | () | () |  |
 | Round 6 | () | () | () | () | () |  |
+
+## Logitech G Play Connect 2026 (partner)
+
+Equipo: Elige, kensizor, headtr1ck, Mail09, salazar
+
+| Round\Player | 1 | 2 | 3 | 4 | 5 |  |
+|--------------|---------|-----------|------|------|------|--------|
+| Round 1 | (bait) | (assist) | (avenger) | (kobe) | (hellcase) |  |
+| Round 2 | (cannon) | (4k) | (saver) | (pistol) | (bottom) |  |
+| Round 3 | () | (aim) | () | (top) | (clutch) |  |
+| Round 4 | () | (farmer) | () | (carry) | (flash) |  |
+| Round 5 | () | (rambo) | () | (kast) | () |  |
+| Round 6 | () | () | () | () | () |  |
  
 ## Previous results
 

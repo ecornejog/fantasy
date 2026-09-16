@@ -20,6 +20,7 @@ HOW TO USE
 import random
 import csv
 from collections import defaultdict
+import itertools
 
 # ---------------------------------------------------------------------------
 # 1. CONFIGURE YOUR TEAMS HERE
@@ -28,15 +29,22 @@ from collections import defaultdict
 #    "rating" can be any skill metric on a comparable scale (e.g. an Elo-like
 #    rating, HLTV rating * 1000, etc.) - only the *differences* matter.
 # ---------------------------------------------------------------------------
-TEAMS = [
-    ("MOUZ", 1893),
-    ("Vitality", 1810),
-    ("Furia", 1761),
-    ("Aurora", 1540),
-    ("NAVI", 1534),
-    ("magic", 1464),
-    ("MIBR", 1522),
-    ("NRG", 1167),
+TEAMS_G_A = [
+    ("B8", 1478),
+    ("M80", 1373),
+    ("GamerLegion", 1296),
+    ("Luminosity", 1289),
+    ("NIP", 1259),
+    ("Metizport", 1110),
+]
+
+TEAMS_G_B = [
+    ("InnerCircle", 1429),
+    ("Liquid", 1414),
+    ("3DMAX", 1238),
+    ("EYEBALLERS", 1221),
+    ("BBL", 1158),
+    ("INFINITE", 950),
 ]
 
 N_SIMULATIONS = 100_000
@@ -89,10 +97,140 @@ def play_match(team_a, team_b):
     loser.loss_rounds += 1
     return winner, loser
 
+def simulate_bo1(team_a, team_b):
+    """
+    Simulates a single BO1 map round-by-round.
+    Each round, team_a's win probability is derived from the VRS rating gap
+    via win_probability(). First to 13 rounds wins; if the score reaches
+    12-12, the match ends in a draw (per this tournament's rules - no OT).
+
+    Returns (rounds_a, rounds_b).
+    """
+    rounds_a = 0
+    rounds_b = 0
+
+    while True:
+        p_a_round = win_probability(team_a.rating, team_b.rating)
+        if random.random() < p_a_round:
+            rounds_a += 1
+        else:
+            rounds_b += 1
+
+        if rounds_a == 13 or rounds_b == 13:
+            return rounds_a, rounds_b
+        if rounds_a == 12 and rounds_b == 12:
+            return rounds_a, rounds_b  # draw
+
+def generate_round_robin_schedule(teams):
+    """Returns a list of (team_a, team_b) pairs - one match per pair."""
+    return list(itertools.combinations(teams, 2))
 
 # ---------------------------------------------------------------------------
 # 4. BRACKET SIMULATION
 # ---------------------------------------------------------------------------
+def simulate_group_stage(teams):
+    """
+    Simulates every match in a single round robin group.
+    `teams` is a list of Team objects (need .name and .rating).
+
+    Returns:
+      stats: {team_name: {"points","wins","draws","losses",
+                           "rounds_won","rounds_lost"}}
+      match_log: list of (team_a_name, team_b_name, rounds_a, rounds_b)
+                 used for head-to-head tiebreaking
+    """
+    stats = {
+        team.name: {
+            "points": 0, "wins": 0, "draws": 0, "losses": 0,
+            "rounds_won": 0, "rounds_lost": 0,
+        }
+        for team in teams
+    }
+    match_log = []
+
+    schedule = generate_round_robin_schedule(teams)
+    for team_a, team_b in schedule:
+        rounds_a, rounds_b = simulate_bo1(team_a, team_b)
+        match_log.append((team_a.name, team_b.name, rounds_a, rounds_b))
+
+        stats[team_a.name]["rounds_won"] += rounds_a
+        stats[team_a.name]["rounds_lost"] += rounds_b
+        stats[team_b.name]["rounds_won"] += rounds_b
+        stats[team_b.name]["rounds_lost"] += rounds_a
+
+        if rounds_a > rounds_b:
+            stats[team_a.name]["points"] += 3
+            stats[team_a.name]["wins"] += 1
+            stats[team_b.name]["losses"] += 1
+        elif rounds_b > rounds_a:
+            stats[team_b.name]["points"] += 3
+            stats[team_b.name]["wins"] += 1
+            stats[team_a.name]["losses"] += 1
+        else:
+            stats[team_a.name]["points"] += 1
+            stats[team_b.name]["points"] += 1
+            stats[team_a.name]["draws"] += 1
+            stats[team_b.name]["draws"] += 1
+
+    return stats, match_log
+
+def rank_teams(teams, stats, match_log):
+    """
+    teams: list of Team objects (the same ones passed into simulate_group_stage)
+    Returns a list of Team objects, sorted best-to-worst, ready to feed
+    straight into the playoff bracket simulator (e.g. as the `t` list in
+    simulate_tournament()).
+    """
+    teams_by_name = {team.name: team for team in teams}
+    team_names = list(teams_by_name.keys())
+
+    def round_diff(name):
+        return stats[name]["rounds_won"] - stats[name]["rounds_lost"]
+
+    def head_to_head(name, group):
+        """(points, round_diff) earned only in matches against other teams in group."""
+        h2h_points = 0
+        h2h_rd = 0
+        for ta, tb, ra, rb in match_log:
+            if ta == name and tb in group:
+                h2h_points += 3 if ra > rb else (1 if ra == rb else 0)
+                h2h_rd += ra - rb
+            elif tb == name and ta in group:
+                h2h_points += 3 if rb > ra else (1 if rb == ra else 0)
+                h2h_rd += rb - ra
+        return h2h_points, h2h_rd
+
+    # Primary sort: points desc, then round diff desc
+    ordered = sorted(
+        team_names,
+        key=lambda t: (-stats[t]["points"], -round_diff(t)),
+    )
+
+    # Resolve groups tied on both points and round diff via head-to-head
+    final_order = []
+    i = 0
+    while i < len(ordered):
+        j = i
+        while (
+            j < len(ordered)
+            and stats[ordered[j]]["points"] == stats[ordered[i]]["points"]
+            and round_diff(ordered[j]) == round_diff(ordered[i])
+        ):
+            j += 1
+
+        group = ordered[i:j]
+        if len(group) == 1:
+            final_order.extend(group)
+        else:
+            group_sorted = sorted(
+                group, key=lambda t: head_to_head(t, group), reverse=True
+            )
+            final_order.extend(group_sorted)
+        i = j
+
+    # Map names back to the actual Team objects
+    return [teams_by_name[name] for name in final_order]
+
 def simulate_tournament(teams):
     """
     Runs one full simulation of the bracket and returns a dict:
@@ -102,9 +240,65 @@ def simulate_tournament(teams):
     for team in teams:
         team.reset_stats()
 
-    t = teams  # shorthand, list of 8 team names in seed order
+    # --- Group Stage ---
+    t_G_A = teams[:len(TEAMS_G_A)]
+    t_G_B = teams[len(TEAMS_G_A):]
 
+    stats_G_A, match_log_G_A = simulate_group_stage(t_G_A)
+    stats_G_B, match_log_G_B = simulate_group_stage(t_G_B)
+    standings_G_A = rank_teams(t_G_A, stats_G_A, match_log_G_A)
+    standings_G_B = rank_teams(t_G_B, stats_G_B, match_log_G_B)
+
+    for team in standings_G_A:
+        team.win_rounds = stats_G_A[team.name]["wins"]
+        team.loss_rounds = stats_G_A[team.name]["losses"]
+    for team in standings_G_B:
+        team.win_rounds = stats_G_B[team.name]["wins"]
+        team.loss_rounds = stats_G_B[team.name]["losses"]
+
+    standings_G_A[3].elim_rounds = 3
+    standings_G_B[3].elim_rounds = 3
+    standings_G_A[4].elim_rounds = 3
+    standings_G_B[4].elim_rounds = 3
+    standings_G_A[5].elim_rounds = 3
+    standings_G_B[5].elim_rounds = 3
+
+    # --- single elimination bracket ---
+    # --- quarterfinals ---
+    standings_G_A[0].padding_rounds += 1
+    standings_G_B[0].padding_rounds += 1
+    qf1_w, qf1_l = play_match(standings_G_B[1], standings_G_A[2])
+    qf2_w, qf2_l = play_match(standings_G_A[1], standings_G_B[2])
+    qf1_l.elim_rounds = 2
+    qf2_l.elim_rounds = 2
+
+    # --- semifinals ---
+    sf1_w, sf1_l = play_match(standings_G_A[0], qf1_w)
+    sf2_w, sf2_l = play_match(standings_G_B[0], qf2_w)
+    sf1_l.elim_rounds = 1
+    sf2_l.elim_rounds = 1
+
+    # --- finals ---
+    f_w, f_l = play_match(sf1_w, sf2_w)
+    
+    placements = {
+        f_w: "1st",
+        f_l: "2nd",
+        sf1_l: "3rd-4th",
+        sf2_l: "3rd-4th",
+        qf1_l: "5th-6th",
+        qf2_l: "5th-6th",
+        standings_G_A[3]: "7th-8th",
+        standings_G_B[3]: "7th-8th",
+        standings_G_A[4]: "9th-10th",
+        standings_G_B[4]: "9th-10th",
+        standings_G_A[5]: "11th-12th",
+        standings_G_B[5]: "11th-12th",
+    }
+
+    """
     # --- Double elimination bracket structure ---
+    t = teams  # shorthand, list of X team names in seed order
     # --- Opening Round ---
     ow1, ol1 = play_match(t[0], t[7])
     ow2, ol2 = play_match(t[4], t[3])
@@ -160,12 +354,13 @@ def simulate_tournament(teams):
         lr1l1: "7th-8th",
         lr1l2: "7th-8th",
     }
+    """
     return placements
 
 # ---------------------------------------------------------------------------
 # 5. MONTE CARLO LOOP
 # ---------------------------------------------------------------------------
-PLACEMENT_ORDER = ["1st", "2nd", "3rd", "4th", "5th-6th", "7th-8th"]
+PLACEMENT_ORDER = ["1st", "2nd","3rd-4th", "5th-6th", "7th-8th", "9th-10th", "11th-12th"]
 
 
 def run_simulations(teams, n_sims):
@@ -262,7 +457,7 @@ if __name__ == "__main__":
     if RANDOM_SEED is not None:
         random.seed(RANDOM_SEED)
 
-    teams = [Team(name, rating) for name, rating in TEAMS]
+    teams = [Team(name, rating) for name, rating in TEAMS_G_A + TEAMS_G_B]
     team_names = [team.name for team in teams]
 
     print(f"Simulating {N_SIMULATIONS:,} tournaments...\n")
