@@ -29,23 +29,25 @@ import itertools
 #    "rating" can be any skill metric on a comparable scale (e.g. an Elo-like
 #    rating, HLTV rating * 1000, etc.) - only the *differences* matter.
 # ---------------------------------------------------------------------------
-TEAMS_G_A = [
-    ("B8", 1478),
-    ("M80", 1373),
-    ("GamerLegion", 1296),
-    ("Luminosity", 1289),
-    ("NIP", 1259),
-    ("Metizport", 1110),
+TEAMS = [
+    ("Astralis", 1431),
+    ("JijieHao", 1252),
+    ("Heroic", 1344),
+    ("100 Thieves", 1270),
+    ("fnatic", 1264),
+    ("FOKUS", 1164),
+    ("Virtus.pro", 1283),
+    ("Betclic", 1237),
+    ("Eternal Fire", 1120),
+    ("BBL", 1233),
+    ("Sashi", 1156),
+    ("Johnny Speeds", 883),
+    ("EAC", 973),    
+    ("Phantom", 1065),
+    ("ASTRAL", 1020),
+    ("Sangal", 469),
 ]
 
-TEAMS_G_B = [
-    ("InnerCircle", 1429),
-    ("Liquid", 1414),
-    ("3DMAX", 1238),
-    ("EYEBALLERS", 1221),
-    ("BBL", 1158),
-    ("INFINITE", 950),
-]
 
 N_SIMULATIONS = 100_000
 RANDOM_SEED = 1  # set an integer here for reproducible results, or leave None
@@ -240,6 +242,97 @@ def simulate_tournament(teams):
     for team in teams:
         team.reset_stats()
 
+    # --- GSL BO3 ---
+    t = teams  # shorthand, list of X team names in seed order
+    # --- opening round ---
+    ow1A, ol1A = play_match(t[0], t[15])
+    ow2A, ol2A = play_match(t[10], t[5])
+
+    ow1B, ol1B = play_match(t[2], t[11])
+    ow2B, ol2B = play_match(t[6], t[9])
+
+    ow1C, ol1C = play_match(t[3], t[12])
+    ow2C, ol2C = play_match(t[4], t[13])
+
+    ow1D, ol1D = play_match(t[7], t[14])
+    ow2D, ol2D = play_match(t[1], t[8])
+
+    # --- winners round ---
+    wwA, wlA =  play_match(ow1A, ow2A)
+    wwB, wlB =  play_match(ow1B, ow2B)
+    wwC, wlC =  play_match(ow1C, ow2C)
+    wwD, wlD =  play_match(ow1D, ow2D)
+
+    wwA.padding_rounds +=1
+    wwB.padding_rounds +=1
+    wwC.padding_rounds +=1
+    wwD.padding_rounds +=1
+
+    # --- elimination match ---
+    ewA, elA =  play_match(ol1A, ol2A)
+    ewB, elB =  play_match(ol1B, ol2B)
+    ewC, elC =  play_match(ol1C, ol2C)
+    ewD, elD =  play_match(ol1D, ol2D)
+
+    elA.elim_rounds = 4
+    elB.elim_rounds = 4
+    elC.elim_rounds = 4
+    elD.elim_rounds = 4
+
+    # --- decider match ---
+    dwA, dlA =  play_match(wlA, ewA)
+    dwB, dlB =  play_match(wlB, ewB)
+    dwC, dlC =  play_match(wlC, ewC)
+    dwD, dlD =  play_match(wlD, ewD)
+
+    dlA.elim_rounds = 3
+    dlB.elim_rounds = 3
+    dlC.elim_rounds = 3
+    dlD.elim_rounds = 3
+    
+    # --- single elimination playoff bracket ---
+    # --- Quarter finals ---
+    qw1, ql1 = play_match(wwA,dwD)
+    qw2, ql2 = play_match(wwB,dwC)
+    qw3, ql3 = play_match(wwC,dwB)
+    qw4, ql4 = play_match(wwD,dwA)
+
+    ql1.elim_rounds = 2
+    ql2.elim_rounds = 2
+    ql3.elim_rounds = 2
+    ql4.elim_rounds = 2
+
+    # --- Semis ---
+    sw1, sl1 = play_match(qw1, qw2)
+    sw2, sl2 = play_match(qw3, qw4)
+
+    sl1.elim_rounds = 1
+    sl2.elim_rounds = 1
+
+    # ---finals ---
+    fw, fl = play_match(sw1, sw2)
+
+    placements = {
+            fw: "1st",
+            fl: "2nd",
+            sl1: "3rd-4th",
+            sl2: "3rd-4th",
+            ql1: "5th-8th",
+            ql2: "5th-8th",
+            ql3: "5th-8th",
+            ql4: "5th-8th",
+            dlA: "9th-12th",
+            dlB: "9th-12th",
+            dlC: "9th-12th",
+            dlD: "9th-12th",
+            elA: "13th-16th",
+            elB: "13th-16th",
+            elC: "13th-16th",
+            elD: "13th-16th",
+        }
+
+    """
+    # --- groups round robin ---
     # --- Group Stage ---
     t_G_A = teams[:len(TEAMS_G_A)]
     t_G_B = teams[len(TEAMS_G_A):]
@@ -295,7 +388,7 @@ def simulate_tournament(teams):
         standings_G_A[5]: "11th-12th",
         standings_G_B[5]: "11th-12th",
     }
-
+    """
     """
     # --- Double elimination bracket structure ---
     t = teams  # shorthand, list of X team names in seed order
@@ -360,7 +453,7 @@ def simulate_tournament(teams):
 # ---------------------------------------------------------------------------
 # 5. MONTE CARLO LOOP
 # ---------------------------------------------------------------------------
-PLACEMENT_ORDER = ["1st", "2nd","3rd-4th", "5th-6th", "7th-8th", "9th-10th", "11th-12th"]
+PLACEMENT_ORDER = ["1st", "2nd","3rd-4th", "5th-8th", "9th-12th", "13th-16th"]
 
 
 def run_simulations(teams, n_sims):
@@ -457,7 +550,7 @@ if __name__ == "__main__":
     if RANDOM_SEED is not None:
         random.seed(RANDOM_SEED)
 
-    teams = [Team(name, rating) for name, rating in TEAMS_G_A + TEAMS_G_B]
+    teams = [Team(name, rating) for name, rating in TEAMS]
     team_names = [team.name for team in teams]
 
     print(f"Simulating {N_SIMULATIONS:,} tournaments...\n")

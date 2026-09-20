@@ -2,30 +2,17 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
-## StarLadder StarSeries Fall 2026
+## Stake Pulse Beat II (partner)
 
-Equipo: Zywoo, torzsi, nqz, venomzera, grim
-
-| Round\Player | 1 | 2 | 3 | 4 | 5 |  |
-|--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (top) | (bottom) | (clutch) | (hellcase) | (assist) |  |
-| Round 2 | (avenger) | (kast) | (kobe) | (cannon) | (bait) |  |
-| Round 3 | (pistol) | (flash) | (rambo) | (aim) | () |  |
-| Round 4 | (carry) | (saver) | () | (farmer) | () |  |
-| Round 5 | (4k) | () | () | () | () |  |
-| Round 6 | () | () | () | () | () |  |
-
-## Logitech G Play Connect 2026 (partner)
-
-Equipo: Elige, kensizor, headtr1ck, Mail09, salazar
+Equipo: jackasmo, mazay, Chr1zn, Brollan, Anlelele
 
 | Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (bait) | (assist) | (avenger) | (kobe) | (hellcase) |  |
-| Round 2 | (cannon) | (4k) | (saver) | (pistol) | (bottom) |  |
-| Round 3 | () | (aim) | () | (top) | (clutch) |  |
-| Round 4 | () | (farmer) | () | (carry) | (flash) |  |
-| Round 5 | () | (rambo) | () | (kast) | () |  |
+| Round 1 | (assist) | (carry) | (bait) | (cannon) | (hellcase) |  |
+| Round 2 | (avenger) | (clutch) | (farmer) | (bottom) | (kast) |  |
+| Round 3 | (pistol) | (aim) | (flash) | (kobe) | (saver) |  |
+| Round 4 | (top) | (4k) | () | () | (rambo) |  |
+| Round 5 | () | () | () | () | () |  |
 | Round 6 | () | () | () | () | () |  |
  
 ## Previous results
