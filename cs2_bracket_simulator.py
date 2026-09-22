@@ -30,22 +30,14 @@ import itertools
 #    rating, HLTV rating * 1000, etc.) - only the *differences* matter.
 # ---------------------------------------------------------------------------
 TEAMS = [
-    ("Astralis", 1431),
-    ("JijieHao", 1252),
-    ("Heroic", 1344),
-    ("100 Thieves", 1270),
-    ("fnatic", 1264),
-    ("FOKUS", 1164),
-    ("Virtus.pro", 1283),
-    ("Betclic", 1237),
-    ("Eternal Fire", 1120),
-    ("BBL", 1233),
-    ("Sashi", 1156),
-    ("Johnny Speeds", 883),
-    ("EAC", 973),    
-    ("Phantom", 1065),
-    ("ASTRAL", 1020),
-    ("Sangal", 469),
+    ("magic", 1418),
+    ("GL", 1282),
+    ("Alliance", 1465),
+    ("3DMAX", 1324),
+    ("NIP", 1235),
+    ("K27", 1256),
+    ("Eyeballers", 1293),
+    ("Sinners", 1129),
 ]
 
 
@@ -242,6 +234,7 @@ def simulate_tournament(teams):
     for team in teams:
         team.reset_stats()
 
+    '''
     # --- GSL BO3 ---
     t = teams  # shorthand, list of X team names in seed order
     # --- opening round ---
@@ -330,6 +323,7 @@ def simulate_tournament(teams):
             elC: "13th-16th",
             elD: "13th-16th",
         }
+    '''
 
     """
     # --- groups round robin ---
@@ -389,14 +383,14 @@ def simulate_tournament(teams):
         standings_G_B[5]: "11th-12th",
     }
     """
-    """
+    
     # --- Double elimination bracket structure ---
     t = teams  # shorthand, list of X team names in seed order
     # --- Opening Round ---
-    ow1, ol1 = play_match(t[0], t[7])
+    ow1, ol1 = play_match(t[2], t[7])
     ow2, ol2 = play_match(t[4], t[3])
-    ow3, ol3 = play_match(t[1], t[5])
-    ow4, ol4 = play_match(t[2], t[6])
+    ow3, ol3 = play_match(t[0], t[6])
+    ow4, ol4 = play_match(t[1], t[5])
 
     # --- Upper Semis ---
     usw1, usl1 = play_match(ow1, ow2)
@@ -447,13 +441,13 @@ def simulate_tournament(teams):
         lr1l1: "7th-8th",
         lr1l2: "7th-8th",
     }
-    """
+
     return placements
 
 # ---------------------------------------------------------------------------
 # 5. MONTE CARLO LOOP
 # ---------------------------------------------------------------------------
-PLACEMENT_ORDER = ["1st", "2nd","3rd-4th", "5th-8th", "9th-12th", "13th-16th"]
+PLACEMENT_ORDER = ["1st", "2nd","3rd",  "4th", "5th-6th", "7th-8th"]
 
 
 def run_simulations(teams, n_sims):
