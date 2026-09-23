@@ -2,6 +2,19 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
+## iBUYPOWER Masters FML 2026 (partner)
+
+Equipo: elige, doc, malbsMd, kauez, snav
+
+| Round\Player | 1 | 2 | 3 | 4 | 5 |  |
+|--------------|---------|-----------|------|------|------|--------|
+| Round 1 | (bait) | (top) | (hellcase) | (bottom) | (assist) |  |
+| Round 2 | (cannon) | (4k) | (aimbot) | (carry) | (avenger) |  |
+| Round 3 | (kast) | (pistol) | (saver) | (farmer) | () |  |
+| Round 4 | (clutch) | (kobe) | (rambo) | () | () |  |
+| Round 5 | () | () | () | () | () |  |
+| Round 6 | () | () | () | () | () |  |
+
 ## 1win Private Club Season 1 (partner)
 
 Equipo: bobeksde, moon, tauson, kashlid, krimz

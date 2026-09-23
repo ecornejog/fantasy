@@ -1,4 +1,52 @@
 jugador,equipo,precio,rating,win_rounds,loss_rounds, padding_rounds, elim_rounds
+nitr0,NRG,196,98,2.52,1.79,0.30,0.39
+Sonic,NRG,220,97,2.52,1.79,0.30,0.39
+hallzerk,NRG,218,110,2.52,1.79,0.30,0.39
+Grim,NRG,208,106,2.52,1.79,0.30,0.39
+Jeorge,NRG,217,96,2.52,1.79,0.30,0.39
+
+slaxz-,M80,220,102,3.07,1.14,0.57,0.22
+Swisher,M80,213,92,3.07,1.14,0.57,0.22
+s1n,M80,194,99,3.07,1.14,0.57,0.22
+jBa,M80,210,99,3.07,1.14,0.57,0.22
+Lake,M80,215,102,3.07,1.14,0.57,0.22
+
+NAF,Liquid,211,104,3.03,1.18,0.65,0.14
+EliGE,Liquid,216,123,3.03,1.18,0.65,0.14
+malbsMd,Liquid,206,104,3.03,1.18,0.65,0.14
+JT,Liquid,196,95,3.03,1.18,0.65,0.14
+Jorko,Liquid,210,104,3.03,1.18,0.65,0.14
+
+gafolo,DENDELE,184,86,2.41,1.73,0.34,0.52
+koala,DENDELE,211,109,2.41,1.73,0.34,0.52
+maxxkor,DENDELE,193,93,2.41,1.73,0.34,0.52
+rdnzao,DENDELE,194,93,2.41,1.73,0.34,0.52
+doc,DENDELE,215,114,2.41,1.73,0.34,0.52
+
+nEMANHA,Wildcard,201,96,1.25,2.09,0.05,1.61
+Cxzi,Wildcard,191,97,1.25,2.09,0.05,1.61
+reck,Wildcard,190,86,1.25,2.09,0.05,1.61
+HexT,Wildcard,203,102,1.25,2.09,0.05,1.61
+fr3nd,Wildcard,199,113,1.25,2.09,0.05,1.61
+
+drop,BESTIA,183,81,1.16,2.04,0.07,1.73
+kauez,BESTIA,178,105,1.16,2.04,0.07,1.73
+cass1n,BESTIA,195,94,1.16,2.04,0.07,1.73
+buda,BESTIA,192,100,1.16,2.04,0.07,1.73
+timo,BESTIA,194,91,1.16,2.04,0.07,1.73
+
+MarKE,Voca,197,105,0.43,2.03,0.02,2.53
+junior,Voca,191,108,0.43,2.03,0.02,2.53
+nosraC,Voca,174,98,0.43,2.03,0.02,2.53
+dare,Voca,182,99,0.43,2.03,0.02,2.53
+snav,Voca,182,111,0.43,2.03,0.02,2.53
+
+WolfY,ChickenCoop,180,90,0.14,2.01,0.00,2.86
+Drop,ChickenCoop,183,106,0.14,2.01,0.00,2.86
+REKMEISTER,ChickenCoop,187,117,0.14,2.01,0.00,2.86
+jared,ChickenCoop,173,101,0.14,2.01,0.00,2.86
+Crisp,ChickenCoop,185,111,0.14,2.01,0.00,2.86
+
 MaSvAl,magic,225,108,2.64,1.48,0.71,1.16
 sFade8,magic,201,91,2.64,1.48,0.71,1.16
 AW,magic,213,105,2.64,1.48,0.71,1.16
@@ -149,23 +197,11 @@ kensizor,B8,218,110,5.93,0.66,0.96,0.38
 esenthial,B8,215,109,5.93,0.66,0.96,0.38
 s1zzi,B8,215,106,5.93,0.66,0.96,0.38
 
-NAF,Liquid,210,102,5.32,1.31,0.40,0.79
-EliGE,Liquid,216,122,5.32,1.31,0.40,0.79
-malbsMd,Liquid,207,104,5.32,1.31,0.40,0.79
-JT,Liquid,198,98,5.32,1.31,0.40,0.79
-Jorko,Liquid,210,102,5.32,1.31,0.40,0.79
-
 cptkurtka023,InnerCircle,211,106,5.52,1.09,0.60,0.62
 headtr1ck,InnerCircle,212,110,5.52,1.09,0.60,0.62
 zerRRoFIX,InnerCircle,200,96,5.52,1.09,0.60,0.62
 onic,InnerCircle,194,93,5.52,1.09,0.60,0.62
 Dawy,InnerCircle,220,113,5.52,1.09,0.60,0.62
-
-slaxz-,M80,209,97,4.64,1.98,0.04,1.07
-Swisher,M80,203,94,4.64,1.98,0.04,1.07
-s1n,M80,185,98,4.64,1.98,0.04,1.07
-jBa,M80,200,102,4.64,1.98,0.04,1.07
-Lake,M80,205,104,4.64,1.98,0.04,1.07
 
 Rainwaker,Luminosity,199,86,2.23,2.94,0.00,2.43
 afro,Luminosity,210,93,2.23,2.94,0.00,2.43
@@ -221,12 +257,6 @@ insani,MIBR,198,116,1,2,0,3
 venomzera,MIBR,182,103,1,2,0,3
 tomaszin,MIBR,186,98,1,2,0,3
 
-nitr0,NRG,167,88,0,2,0,4
-Sonic,NRG,180,95,0,2,0,4
-hallzerk,NRG,178,103,0,2,0,4
-Grim,NRG,173,101,0,2,0,4
-Jeorge,NRG,177,99,0,2,0,4
-
 karrigan,Falcons,176,72,3,0,1,0
 NiKo,Falcons,220,117,3,0,1,0
 TeSeS,Falcons,208,103,3,0,1,0
@@ -268,12 +298,6 @@ biguzera,paiN,187,96,1,2,0,1
 piriajr,paiN,198,101,1,2,0,1
 saffee,paiN,191,94,1,2,0,1
 snow,paiN,197,94,1,2,0,1
-
-gafolo,DENDELE,176,88,0,2,0,2
-koala,DENDELE,194,110,0,2,0,2
-maxxkor,DENDELE,180,94,0,2,0,2
-rdnzao,DENDELE,179,83,0,2,0,2
-doc,DENDELE,192,111,0,2,0,2
 
 Westmelon,LynnVision,187,98,0,2,0,2
 z4KR,LynnVision,197,90,0,2,0,2
@@ -334,12 +358,6 @@ bajmi,Walczaki,182,97,0,2,0,3
 sk1tt,Walczaki,188,99,0,2,0,3
 olimp,Walczaki,193,106,0,2,0,3
 moonwalk,Walczaki,181,100,0,2,0,3
-
-nEMANHA,Wildcard,196,119,0,1,0,1
-mhL,Wildcard,196,114,0,1,0,1
-Cxzi,Wildcard,184,96,0,1,0,1
-reck,Wildcard,190,106,0,1,0,1
-HexT,Wildcard,196,114,0,1,0,1
 
 CRUC1AL,GentleMates,190,99,0,1,0,1
 alex,GentleMates,188,104,0,1,0,1
@@ -466,12 +484,6 @@ drop,redCanids,195,103,14,20,66,34
 chayJESUS,redCanids,195,103,14,20,66,34
 kauez,redCanids,195,103,14,20,66,34
 reNTU,redCanids,195,103,14,20,66,34
-
-junior,Voca,199,126,0,3,0,2
-Infinite,Voca,181,109,0,3,0,2
-nosraC,Voca,176,101,0,3,0,2
-snav,Voca,184,112,0,3,0,2
-Jeorge,Voca,186,114,0,3,0,2
 
 hazr,SemperFi,200,100,16,141,5,117
 keen,SemperFi,200,100,16,141,5,117
