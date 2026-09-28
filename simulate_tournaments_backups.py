@@ -7,6 +7,130 @@ def simulate_tournament(teams):
     for team in teams:
         team.reset_stats()
 
+    """
+    Simulates the whole Swiss stage (ESL Pro League format)
+
+    teams: list of Team objects IN SEED ORDER (index 0 = seed 1), unless you
+           pass initial_live_ratings, in which case seeds come from those.
+    initial_live_ratings: optional list (same order as `teams`) with ESL's
+           baseline ratings (e.g. 1.03, 2.70, ...). Lower = better.
+           Default: 1.0, 2.0, ... n (the seed positions).
+
+    Returns:
+      standings: list of ALL Team objects, best to worst
+                 (wins desc, losses asc, live rating as tiebreak).
+                 standings[:8] are the qualified teams, already seeded for
+                 the playoffs.
+      records:   {team_name: {"wins", "losses", "live_rating"}}
+      match_log: list of (round_number, winner_name, loser_name)
+
+    WINS_TO_ADVANCE = 3
+    LOSSES_TO_ELIMINATE = 3
+
+
+    n = len(teams)
+    initial_live_ratings = [1.00, 2.33, 3.15, 3.73,4.17,5.45,6.93,7.23,9.00,9.36,9.50,11.00,12.47,13.58,13.69,15.00]
+
+    if initial_live_ratings is None:
+        initial_live_ratings = [float(i + 1) for i in range(n)]
+
+    state = {
+        team.name: {
+            "team": team,
+            "live": float(live),
+            "wins": 0,
+            "losses": 0,
+            "opponents": set(),
+        }
+        for team, live in zip(teams, initial_live_ratings)
+    }
+    match_log = []
+
+    round_number = 0
+    while True:
+        active = [
+            name for name, s in state.items()
+            if s["wins"] < WINS_TO_ADVANCE and s["losses"] < LOSSES_TO_ELIMINATE
+        ]
+        if not active:
+            break
+        round_number += 1
+
+        # --- Build this round's matches (all pairings decided BEFORE playing) ---
+        if round_number == 1:
+            seeded = sorted(active, key=lambda nm: state[nm]["live"])
+            matches = [(seeded[i], seeded[-1 - i]) for i in range(len(seeded) // 2)]
+        else:
+            pools = defaultdict(list)
+            for name in active:
+                pools[(state[name]["wins"], state[name]["losses"])].append(name)
+
+            matches = []
+            for pool in pools.values():
+                pool.sort(key=lambda nm: state[nm]["live"])
+                matches.extend(pair_pool(pool, state))
+
+        # --- Play the round ---
+        for name_a, name_b in matches:
+            winner_team, loser_team = play_match(
+                state[name_a]["team"], state[name_b]["team"]
+            )
+            w = state[winner_team.name]
+            l = state[loser_team.name]
+
+            w["wins"] += 1
+            l["losses"] += 1
+            w["opponents"].add(loser_team.name)
+            l["opponents"].add(winner_team.name)
+            update_live_ratings(w, l)
+            match_log.append((round_number, winner_team.name, loser_team.name))
+
+    # --- Final standings ---
+    ordered_names = sorted(
+        state,
+        key=lambda nm: (-state[nm]["wins"], state[nm]["losses"], state[nm]["live"]),
+    )
+    standings = [state[nm]["team"] for nm in ordered_names]
+    records = {
+        nm: {
+            "wins": state[nm]["wins"],
+            "losses": state[nm]["losses"],
+            "live_rating": state[nm]["live"],
+        }
+        for nm in state
+    }
+
+    standings[0].padding_rounds = 2
+    standings[1].padding_rounds = 2
+    standings[2].padding_rounds = 1
+    standings[3].padding_rounds = 1
+    standings[4].padding_rounds = 1
+    standings[11].elim_rounds = 1
+    standings[12].elim_rounds = 1
+    standings[13].elim_rounds = 1
+    standings[14].elim_rounds = 2
+    standings[15].elim_rounds = 2
+        
+    placements = {
+        standings[0]: "3-0",
+        standings[1]: "3-0",
+        standings[2]: "3-1",
+        standings[3]: "3-1",
+        standings[4]: "3-1",
+        standings[5]: "3-2",
+        standings[6]: "3-2",
+        standings[7]: "3-2",
+        standings[8]: "2-3",
+        standings[9]: "2-3",
+        standings[10]: "2-3",
+        standings[11]: "1-3",
+        standings[12]: "1-3",
+        standings[13]: "1-3",
+        standings[14]: "0-3",
+        standings[15]: "0-3",
+    }
+    '''
+
     '''
     # --- GSL BO3 2 groups ---
     t = teams  # shorthand, list of X team names in seed order

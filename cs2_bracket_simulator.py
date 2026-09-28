@@ -21,6 +21,7 @@ import random
 import csv
 from collections import defaultdict
 import itertools
+from functools import lru_cache
 
 # ---------------------------------------------------------------------------
 # 1. CONFIGURE YOUR TEAMS HERE
@@ -30,22 +31,30 @@ import itertools
 #    rating, HLTV rating * 1000, etc.) - only the *differences* matter.
 # ---------------------------------------------------------------------------
 TEAMS = [
-    ("nrg", 1272),
-    ("m80", 1398),
-    ("liquid", 1355),
-    ("dendele", 1275),
-    ("wildcard", 1081),
-    ("bestia", 1144),
-    ("voca", 968),
-    ("chickencoop", 738),
+    ("Spirit", 2041),
+    ("vita", 1891),
+    ("falcons", 1837),
+    ("mouz", 1851),
+    ("legacy", 1905),
+    ("furia", 1811),
+    ("aurora", 1689),
+    ("G2", 1814),
+    ("navi", 1454),
+    ("9z", 1538),
+    ("BB", 1570),
+    ("PV", 1410),
+    ("M80", 1448),
+    ("tyloo", 1331),
+    ("1W", 1322),
+    ("shinden", 1107),
 ]
 
 
-N_SIMULATIONS = 100_000
+N_SIMULATIONS = 100_000  # set the number of simulations to run
 RANDOM_SEED = 1  # set an integer here for reproducible results, or leave None
 
 # ---------------------------------------------------------------------------
-# 3. TEAM OBJECT
+# 2. TEAM OBJECT
 # ---------------------------------------------------------------------------
 class Team:
     def __init__(self, name, rating):
@@ -91,6 +100,10 @@ def play_match(team_a, team_b):
     loser.loss_rounds += 1
     return winner, loser
 
+# ---------------------------------------------------------------------------
+# 3.1. ROUND ROBIN SCHEDULING
+# ---------------------------------------------------------------------------
+
 def simulate_bo1(team_a, team_b):
     """
     Simulates a single BO1 map round-by-round.
@@ -119,9 +132,6 @@ def generate_round_robin_schedule(teams):
     """Returns a list of (team_a, team_b) pairs - one match per pair."""
     return list(itertools.combinations(teams, 2))
 
-# ---------------------------------------------------------------------------
-# 4. BRACKET SIMULATION
-# ---------------------------------------------------------------------------
 def simulate_group_stage(teams):
     """
     Simulates every match in a single round robin group.
@@ -225,6 +235,94 @@ def rank_teams(teams, stats, match_log):
     # Map names back to the actual Team objects
     return [teams_by_name[name] for name in final_order]
 
+
+# ---------------------------------------------------------------------------
+# 3.2. LIVE RATING UPDATE (ESL SWISS STAGE)
+# ---------------------------------------------------------------------------
+def live_rating_adjustment(x):
+    """
+    ESL formula: 5 * (1 - 1 / (1 + 10^((X - 8) / 10)))
+    X = how much better (lower number) the OTHER team's live rating is than
+    yours. Result is between 0 and 5: the bigger the upset, the bigger the move.
+    """
+    return 5 * (1 - 1 / (1 + 10 ** ((x - 8) / 10)))
+
+
+def update_live_ratings(winner, loser):
+    """
+    winner / loser are entries of the `state` dict used in simulate_swiss_stage.
+
+    ASSUMPTION: ESL only publishes the formula from the point of view of the
+    team being adjusted, so here the same amount is applied in both
+    directions (winner improves, loser worsens). If you want a different
+    treatment for the loser, this is the only place to change.
+    """
+    x = winner["live"] - loser["live"]   # > 0 means the loser had the better rating
+    delta = live_rating_adjustment(x)
+    winner["live"] -= delta              # lower number = better
+    loser["live"] += delta
+
+@lru_cache(maxsize=None)
+def _index_pairings(n):
+    """
+    Every way to split indices 0..n-1 into n/2 pairs (n must be even).
+    n=8 -> 105 options, n=6 -> 15, n=4 -> 3. Cached because it's reused
+    thousands of times in a Monte Carlo run.
+    """
+    def build(items):
+        if not items:
+            return [()]
+        first, rest = items[0], items[1:]
+        result = []
+        for k, partner in enumerate(rest):
+            remaining = rest[:k] + rest[k + 1:]
+            for sub in build(remaining):
+                result.append(((first, partner),) + sub)
+        return result
+
+    return tuple(build(tuple(range(n))))
+
+
+def pair_pool(pool, state):
+    """
+    Pairs one result-pool (teams with the same W-L record) using ESL's rule:
+
+      - Ideal opponent of a team = the rating as far ABOVE the pool's average
+        live rating as the team is below it, i.e. 2*avg - live_rating.
+      - Deviation = ideal opponent rating - actual opponent rating, squared.
+      - The pairing with the lowest total wins; rematches are penalised.
+
+    For a match between A and B, both teams' deviations are identical
+    (2*avg - live_A - live_B), so ESL's per-team sum is just double the
+    per-match sum. Doubling doesn't change which pairing is best, so each
+    match is counted once here.
+    """
+    REMATCH_PENALTY = 1_000_000
+
+    if len(pool) % 2 != 0:
+        raise ValueError(f"Pool has an odd number of teams: {pool}")
+
+    avg = sum(state[name]["live"] for name in pool) / len(pool)
+
+    best_cost = None
+    best_pairing = None
+    for index_pairing in _index_pairings(len(pool)):
+        cost = 0.0
+        for i, j in index_pairing:
+            a, b = pool[i], pool[j]
+            if b in state[a]["opponents"]:
+                cost += REMATCH_PENALTY
+            cost += (2 * avg - state[a]["live"] - state[b]["live"]) ** 2
+        if best_cost is None or cost < best_cost:
+            best_cost = cost
+            best_pairing = index_pairing
+
+    return [(pool[i], pool[j]) for i, j in best_pairing]
+
+# ---------------------------------------------------------------------------
+# 4. BRACKET SIMULATION
+# ---------------------------------------------------------------------------
+
 def simulate_tournament(teams):
     """
     Runs one full simulation of the bracket and returns a dict:
@@ -234,63 +332,141 @@ def simulate_tournament(teams):
     for team in teams:
         team.reset_stats()
 
-    # --- GSL BO3 ---
-    t = teams  # shorthand, list of X team names in seed order
-    # --- opening round ---
-    ow1A, ol1A = play_match(t[2], t[7])
-    ow2A, ol2A = play_match(t[0], t[4])
+    """
+    Simulates the whole Swiss stage (ESL Pro League format)
 
-    ow1B, ol1B = play_match(t[1], t[5])
-    ow2B, ol2B = play_match(t[3], t[6])
+    teams: list of Team objects IN SEED ORDER (index 0 = seed 1), unless you
+           pass initial_live_ratings, in which case seeds come from those.
+    initial_live_ratings: optional list (same order as `teams`) with ESL's
+           baseline ratings (e.g. 1.03, 2.70, ...). Lower = better.
+           Default: 1.0, 2.0, ... n (the seed positions).
 
-    # --- winners round ---
-    wwA, wlA =  play_match(ow1A, ow2A)
-    wwB, wlB =  play_match(ow1B, ow2B)
+    Returns:
+      standings: list of ALL Team objects, best to worst
+                 (wins desc, losses asc, live rating as tiebreak).
+                 standings[:8] are the qualified teams, already seeded for
+                 the playoffs.
+      records:   {team_name: {"wins", "losses", "live_rating"}}
+      match_log: list of (round_number, winner_name, loser_name)
+    """
 
-    wwA.padding_rounds +=1
-    wwB.padding_rounds +=1
-    
-    # --- elimination match ---
-    ewA, elA =  play_match(ol1A, ol2A)
-    ewB, elB =  play_match(ol1B, ol2B)
-    
-    elA.elim_rounds = 3
-    elB.elim_rounds = 3
-    
-    # --- decider match ---
-    dwA, dlA =  play_match(wlA, ewA)
-    dwB, dlB =  play_match(wlB, ewB)
+    WINS_TO_ADVANCE = 3
+    LOSSES_TO_ELIMINATE = 3
 
-    dlA.elim_rounds = 2
-    dlB.elim_rounds = 2
-    
-    # --- single elimination playoff bracket ---
-    # --- Semis ---
-    sw1, sl1 = play_match(wwA, dwB)
-    sw2, sl2 = play_match(wwB, dwA)
 
-    # ---finals ---
-    fw, fl = play_match(sw1, sw2)
-    tpdmw, tpdml = play_match(sl1, sl2)
+    n = len(teams)
+    initial_live_ratings = [1.00, 2.33, 3.15, 3.73,4.17,5.45,6.93,7.23,9.00,9.36,9.50,11.00,12.47,13.58,13.69,15.00]
 
-    placements = {
-            fw: "1st",
-            fl: "2nd",
-            tpdmw: "3rd",
-            tpdml: "4th",
-            dlA: "5th-6th",
-            dlB: "5th-6th",
-            elA: "7th-8th",
-            elB: "7th-8th",
+    if initial_live_ratings is None:
+        initial_live_ratings = [float(i + 1) for i in range(n)]
+
+    state = {
+        team.name: {
+            "team": team,
+            "live": float(live),
+            "wins": 0,
+            "losses": 0,
+            "opponents": set(),
         }
-    
+        for team, live in zip(teams, initial_live_ratings)
+    }
+    match_log = []
+
+    round_number = 0
+    while True:
+        active = [
+            name for name, s in state.items()
+            if s["wins"] < WINS_TO_ADVANCE and s["losses"] < LOSSES_TO_ELIMINATE
+        ]
+        if not active:
+            break
+        round_number += 1
+
+        # --- Build this round's matches (all pairings decided BEFORE playing) ---
+        if round_number == 1:
+            seeded = sorted(active, key=lambda nm: state[nm]["live"])
+            matches = [(seeded[i], seeded[-1 - i]) for i in range(len(seeded) // 2)]
+        else:
+            pools = defaultdict(list)
+            for name in active:
+                pools[(state[name]["wins"], state[name]["losses"])].append(name)
+
+            matches = []
+            for pool in pools.values():
+                pool.sort(key=lambda nm: state[nm]["live"])
+                matches.extend(pair_pool(pool, state))
+
+        # --- Play the round ---
+        for name_a, name_b in matches:
+            winner_team, loser_team = play_match(
+                state[name_a]["team"], state[name_b]["team"]
+            )
+            w = state[winner_team.name]
+            l = state[loser_team.name]
+
+            w["wins"] += 1
+            l["losses"] += 1
+            w["opponents"].add(loser_team.name)
+            l["opponents"].add(winner_team.name)
+            update_live_ratings(w, l)
+            match_log.append((round_number, winner_team.name, loser_team.name))
+
+
+        # HOOK (optional): teams that just reached 3 wins (advanced) or
+        # 3 losses (eliminated) can be detected here to set your
+        # elim_rounds / padding_rounds values for this format.
+
+    # --- Final standings ---
+    ordered_names = sorted(
+        state,
+        key=lambda nm: (-state[nm]["wins"], state[nm]["losses"], state[nm]["live"]),
+    )
+    standings = [state[nm]["team"] for nm in ordered_names]
+    records = {
+        nm: {
+            "wins": state[nm]["wins"],
+            "losses": state[nm]["losses"],
+            "live_rating": state[nm]["live"],
+        }
+        for nm in state
+    }
+
+    standings[0].padding_rounds = 2
+    standings[1].padding_rounds = 2
+    standings[2].padding_rounds = 1
+    standings[3].padding_rounds = 1
+    standings[4].padding_rounds = 1
+    standings[11].elim_rounds = 1
+    standings[12].elim_rounds = 1
+    standings[13].elim_rounds = 1
+    standings[14].elim_rounds = 2
+    standings[15].elim_rounds = 2
+        
+    placements = {
+        standings[0]: "3-0",
+        standings[1]: "3-0",
+        standings[2]: "3-1",
+        standings[3]: "3-1",
+        standings[4]: "3-1",
+        standings[5]: "3-2",
+        standings[6]: "3-2",
+        standings[7]: "3-2",
+        standings[8]: "2-3",
+        standings[9]: "2-3",
+        standings[10]: "2-3",
+        standings[11]: "1-3",
+        standings[12]: "1-3",
+        standings[13]: "1-3",
+        standings[14]: "0-3",
+        standings[15]: "0-3",
+    }
 
     return placements
 
 # ---------------------------------------------------------------------------
 # 5. MONTE CARLO LOOP
 # ---------------------------------------------------------------------------
-PLACEMENT_ORDER = ["1st", "2nd","3rd",  "4th", "5th-6th", "7th-8th"]
+PLACEMENT_ORDER = ["3-0", "3-1", "3-2", "2-3", "1-3", "0-3"]
 
 
 def run_simulations(teams, n_sims):
@@ -327,7 +503,7 @@ def print_results(placement_counts, stat_sums, n_sims, team_names):
     print(header)
     print("-" * len(header))
 
-    sorted_teams = sorted(team_names, key=lambda tm: placement_counts[tm]["1st"], reverse=True)
+    sorted_teams = sorted(team_names, key=lambda tm: placement_counts[tm]["3-0"], reverse=True)
 
     for team in sorted_teams:
         row = team.ljust(col_width)
