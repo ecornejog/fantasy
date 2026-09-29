@@ -2,16 +2,16 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
-## 1win Private Club Season 1 (partner)
+## Stake Ranked Episode 4 (partner)
 
-Equipo: bobeksde, moon, tauson, kashlid, krimz
+Equipo: npl, blameF,sizzi, tabsen, azuwu
 
 | Round\Player | 1 | 2 | 3 | 4 | 5 |  |
 |--------------|---------|-----------|------|------|------|--------|
-| Round 1 | (cannon) | (pistol) | (hellcase) | (bottom) | (assist) |  |
-| Round 2 | (top) | (kobe) | (aim) | (flash) | (bait) |  |
-| Round 3 | (4k) | (carry) | (farmer) | (clutch) | (avenger) |  |
-| Round 4 | (kast) | (saver) | (rambo) | () | () |  |
+| Round 1 | (top) | (avenger) | (hellcase) | (assist) | (cannon) |  |
+| Round 2 | (carry) | (pistol) | (clutch) | (bait) | (aim) |  |
+| Round 3 | (4k) | (kobe) | (flash) | (bottom) | (rambo) |  |
+| Round 4 | (saver) | (kast) | () | (farmer) | () |  |
 | Round 5 | () | () | () | () | () |  |
 | Round 6 | () | () | () | () | () |  |
 

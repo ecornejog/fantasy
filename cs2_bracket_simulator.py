@@ -469,6 +469,7 @@ def simulate_tournament(teams):
 PLACEMENT_ORDER = ["3-0", "3-1", "3-2", "2-3", "1-3", "0-3"]
 
 
+
 def run_simulations(teams, n_sims):
     placement_counts = {team.name: defaultdict(int) for team in teams}
     stat_sums = {
@@ -503,7 +504,8 @@ def print_results(placement_counts, stat_sums, n_sims, team_names):
     print(header)
     print("-" * len(header))
 
-    sorted_teams = sorted(team_names, key=lambda tm: placement_counts[tm]["3-0"], reverse=True)
+ #   sorted_teams = sorted(team_names, key=lambda tm: placement_counts[tm]["3-0"], reverse=True)
+    sorted_teams = sorted(team_names, key=lambda tm: placement_counts[tm]["1st"], reverse=True)
 
     for team in sorted_teams:
         row = team.ljust(col_width)
