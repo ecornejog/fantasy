@@ -32,21 +32,21 @@ from functools import lru_cache
 # ---------------------------------------------------------------------------
 TEAMS = [
     ("Spirit", 2041),
-    ("vita", 1891),
-    ("falcons", 1837),
-    ("mouz", 1851),
-    ("legacy", 1905),
-    ("furia", 1811),
-    ("aurora", 1689),
-    ("G2", 1814),
-    ("navi", 1454),
-    ("9z", 1538),
-    ("BB", 1570),
-    ("PV", 1410),
-    ("M80", 1448),
-    ("tyloo", 1331),
-    ("1W", 1322),
-    ("shinden", 1107),
+    ("vita", 1895),
+    ("falcons", 1834),
+    ("mouz", 1854),
+    ("legacy", 1911),
+    ("furia", 1816),
+    ("aurora", 1694),
+    ("G2", 1817),
+    ("navi", 1447),
+    ("9z", 1536),
+    ("BB", 1572),
+    ("PV", 1407),
+    ("M80", 1454),
+    ("tyloo", 1332),
+    ("1W", 1336),
+    ("shinden", 1111),
 ]
 
 
@@ -504,8 +504,7 @@ def print_results(placement_counts, stat_sums, n_sims, team_names):
     print(header)
     print("-" * len(header))
 
- #   sorted_teams = sorted(team_names, key=lambda tm: placement_counts[tm]["3-0"], reverse=True)
-    sorted_teams = sorted(team_names, key=lambda tm: placement_counts[tm]["1st"], reverse=True)
+    sorted_teams = sorted(team_names, key=lambda tm: placement_counts[tm]["3-0"], reverse=True)
 
     for team in sorted_teams:
         row = team.ljust(col_width)
