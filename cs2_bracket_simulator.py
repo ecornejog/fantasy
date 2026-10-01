@@ -30,25 +30,41 @@ from functools import lru_cache
 #    "rating" can be any skill metric on a comparable scale (e.g. an Elo-like
 #    rating, HLTV rating * 1000, etc.) - only the *differences* matter.
 # ---------------------------------------------------------------------------
-TEAMS = [
-    ("Spirit", 2041),
-    ("vita", 1895),
-    ("falcons", 1834),
-    ("mouz", 1854),
-    ("legacy", 1911),
-    ("furia", 1816),
-    ("aurora", 1694),
-    ("G2", 1817),
-    ("navi", 1447),
-    ("9z", 1536),
-    ("BB", 1572),
-    ("PV", 1407),
-    ("M80", 1454),
-    ("tyloo", 1332),
-    ("1W", 1336),
-    ("shinden", 1111),
+TEAMS_G_A = [
+    ("Anteiku", 380),
+    ("100 Thieves", 1422),
+    ("Eternal fire", 1311),
+    ("sinners", 1255),
+    ("Nordic Partners", 888),
+    ("Lilmix", 767),
 ]
 
+TEAMS_G_B = [
+    ("XEPT", 380),
+    ("NIP", 1427),
+    ("BBL", 1317),
+    ("Sangal", 1250),
+    ("SportsBetExperts", 1186),
+    ("HAVU", 863),
+]
+
+TEAMS_G_C = [
+    ("EAC Extra", 380),
+    ("jijieHao", 1334),
+    ("FOKUS", 1215),
+    ("9INE", 1064),
+    ("Johnny Speeds", 978),
+    ("MTX", 501),
+]
+
+TEAMS_G_D = [
+    ("Prestige", 380),
+    ("Glitch", 380),
+    ("BCG", 1202),
+    ("Sashi", 1150),
+    ("Voca", 1037),
+    ("Basement Boys", 1011),
+]
 
 N_SIMULATIONS = 100_000  # set the number of simulations to run
 RANDOM_SEED = 1  # set an integer here for reproducible results, or leave None
@@ -329,136 +345,115 @@ def simulate_tournament(teams):
         {team_name: placement_label}
     placement_label is one of: "1st", "2nd", "3rd", "4th", "5th-6th", "7th-8th"
     """
+
     for team in teams:
         team.reset_stats()
 
-    """
-    Simulates the whole Swiss stage (ESL Pro League format)
+    # --- groups round robin 4 groups ---
+    # --- Group Stage ---
 
-    teams: list of Team objects IN SEED ORDER (index 0 = seed 1), unless you
-           pass initial_live_ratings, in which case seeds come from those.
-    initial_live_ratings: optional list (same order as `teams`) with ESL's
-           baseline ratings (e.g. 1.03, 2.70, ...). Lower = better.
-           Default: 1.0, 2.0, ... n (the seed positions).
-
-    Returns:
-      standings: list of ALL Team objects, best to worst
-                 (wins desc, losses asc, live rating as tiebreak).
-                 standings[:8] are the qualified teams, already seeded for
-                 the playoffs.
-      records:   {team_name: {"wins", "losses", "live_rating"}}
-      match_log: list of (round_number, winner_name, loser_name)
-    """
-
-    WINS_TO_ADVANCE = 3
-    LOSSES_TO_ELIMINATE = 3
+    T_G_A = [team for team in teams if team.name in dict(TEAMS_G_A)]
+    T_G_B = [team for team in teams if team.name in dict(TEAMS_G_B)]
+    T_G_C = [team for team in teams if team.name in dict(TEAMS_G_C)]
+    T_G_D = [team for team in teams if team.name in dict(TEAMS_G_D)]
 
 
-    n = len(teams)
-    initial_live_ratings = [1.00, 2.33, 3.15, 3.73,4.17,5.45,6.93,7.23,9.00,9.36,9.50,11.00,12.47,13.58,13.69,15.00]
+    stats_G_A, match_log_G_A = simulate_group_stage(T_G_A)
+    stats_G_B, match_log_G_B = simulate_group_stage(T_G_B)
+    stats_G_C, match_log_G_C = simulate_group_stage(T_G_C)
+    stats_G_D, match_log_G_D = simulate_group_stage(T_G_D)
+    standings_G_A = rank_teams(T_G_A, stats_G_A, match_log_G_A)
+    standings_G_B = rank_teams(T_G_B, stats_G_B, match_log_G_B)
+    standings_G_C = rank_teams(T_G_C, stats_G_C, match_log_G_C)
+    standings_G_D = rank_teams(T_G_D, stats_G_D, match_log_G_D)
 
-    if initial_live_ratings is None:
-        initial_live_ratings = [float(i + 1) for i in range(n)]
+    for team in standings_G_A:
+        team.win_rounds = stats_G_A[team.name]["wins"]
+        team.loss_rounds = stats_G_A[team.name]["losses"]
+    for team in standings_G_B:
+        team.win_rounds = stats_G_B[team.name]["wins"]
+        team.loss_rounds = stats_G_B[team.name]["losses"]
+    for team in standings_G_C:
+        team.win_rounds = stats_G_C[team.name]["wins"]
+        team.loss_rounds = stats_G_C[team.name]["losses"]
+    for team in standings_G_D:
+        team.win_rounds = stats_G_D[team.name]["wins"]
+        team.loss_rounds = stats_G_D[team.name]["losses"]
 
-    state = {
-        team.name: {
-            "team": team,
-            "live": float(live),
-            "wins": 0,
-            "losses": 0,
-            "opponents": set(),
-        }
-        for team, live in zip(teams, initial_live_ratings)
-    }
-    match_log = []
+    standings_G_A[3].elim_rounds = 4
+    standings_G_B[3].elim_rounds = 4
+    standings_G_C[3].elim_rounds = 4
+    standings_G_D[3].elim_rounds = 4
+    standings_G_A[4].elim_rounds = 4
+    standings_G_B[4].elim_rounds = 4
+    standings_G_C[4].elim_rounds = 4
+    standings_G_D[4].elim_rounds = 4
+    standings_G_A[5].elim_rounds = 4
+    standings_G_B[5].elim_rounds = 4
+    standings_G_C[5].elim_rounds = 4
+    standings_G_D[5].elim_rounds = 4
 
-    round_number = 0
-    while True:
-        active = [
-            name for name, s in state.items()
-            if s["wins"] < WINS_TO_ADVANCE and s["losses"] < LOSSES_TO_ELIMINATE
-        ]
-        if not active:
-            break
-        round_number += 1
+    # --- single elimination bracket ---
+    # --- Round 1 ---
+    standings_G_A[0].padding_rounds += 1
+    standings_G_B[0].padding_rounds += 1
+    standings_G_C[0].padding_rounds += 1
+    standings_G_D[0].padding_rounds += 1
 
-        # --- Build this round's matches (all pairings decided BEFORE playing) ---
-        if round_number == 1:
-            seeded = sorted(active, key=lambda nm: state[nm]["live"])
-            matches = [(seeded[i], seeded[-1 - i]) for i in range(len(seeded) // 2)]
-        else:
-            pools = defaultdict(list)
-            for name in active:
-                pools[(state[name]["wins"], state[name]["losses"])].append(name)
+    r11_w, r11_l = play_match(standings_G_B[1], standings_G_C[2])
+    r12_w, r12_l = play_match(standings_G_C[1], standings_G_B[2])
+    r13_w, r13_l = play_match(standings_G_D[1], standings_G_A[2])
+    r14_w, r14_l = play_match(standings_G_A[1], standings_G_D[2])
+    r11_l.elim_rounds = 3
+    r12_l.elim_rounds = 3
+    r13_l.elim_rounds = 3
+    r14_l.elim_rounds = 3
 
-            matches = []
-            for pool in pools.values():
-                pool.sort(key=lambda nm: state[nm]["live"])
-                matches.extend(pair_pool(pool, state))
+    # --- quarterfinals ---
+    
+    qf1_w, qf1_l = play_match(standings_G_A[0], r11_w)
+    qf2_w, qf2_l = play_match(standings_G_D[0], r12_w)
+    qf3_w, qf3_l = play_match(standings_G_C[0], r13_w)
+    qf4_w, qf4_l = play_match(standings_G_B[0], r14_w)
+    qf1_l.elim_rounds = 2
+    qf2_l.elim_rounds = 2
+    qf3_l.elim_rounds = 2
+    qf4_l.elim_rounds = 2
 
-        # --- Play the round ---
-        for name_a, name_b in matches:
-            winner_team, loser_team = play_match(
-                state[name_a]["team"], state[name_b]["team"]
-            )
-            w = state[winner_team.name]
-            l = state[loser_team.name]
+    # --- semifinals ---
+    sf1_w, sf1_l = play_match(qf1_w, qf2_w)
+    sf2_w, sf2_l = play_match(qf3_w, qf4_w)
+    sf1_l.elim_rounds = 1
+    sf2_l.elim_rounds = 1
 
-            w["wins"] += 1
-            l["losses"] += 1
-            w["opponents"].add(loser_team.name)
-            l["opponents"].add(winner_team.name)
-            update_live_ratings(w, l)
-            match_log.append((round_number, winner_team.name, loser_team.name))
-
-
-        # HOOK (optional): teams that just reached 3 wins (advanced) or
-        # 3 losses (eliminated) can be detected here to set your
-        # elim_rounds / padding_rounds values for this format.
-
-    # --- Final standings ---
-    ordered_names = sorted(
-        state,
-        key=lambda nm: (-state[nm]["wins"], state[nm]["losses"], state[nm]["live"]),
-    )
-    standings = [state[nm]["team"] for nm in ordered_names]
-    records = {
-        nm: {
-            "wins": state[nm]["wins"],
-            "losses": state[nm]["losses"],
-            "live_rating": state[nm]["live"],
-        }
-        for nm in state
-    }
-
-    standings[0].padding_rounds = 2
-    standings[1].padding_rounds = 2
-    standings[2].padding_rounds = 1
-    standings[3].padding_rounds = 1
-    standings[4].padding_rounds = 1
-    standings[11].elim_rounds = 1
-    standings[12].elim_rounds = 1
-    standings[13].elim_rounds = 1
-    standings[14].elim_rounds = 2
-    standings[15].elim_rounds = 2
-        
+    # --- finals ---
+    f_w, f_l = play_match(sf1_w, sf2_w)
+    
     placements = {
-        standings[0]: "3-0",
-        standings[1]: "3-0",
-        standings[2]: "3-1",
-        standings[3]: "3-1",
-        standings[4]: "3-1",
-        standings[5]: "3-2",
-        standings[6]: "3-2",
-        standings[7]: "3-2",
-        standings[8]: "2-3",
-        standings[9]: "2-3",
-        standings[10]: "2-3",
-        standings[11]: "1-3",
-        standings[12]: "1-3",
-        standings[13]: "1-3",
-        standings[14]: "0-3",
-        standings[15]: "0-3",
+        f_w: "1st",
+        f_l: "2nd",
+        sf1_l: "3rd-4th",
+        sf2_l: "3rd-4th",
+        qf1_l: "5th-8th",
+        qf2_l: "5th-8th",
+        qf3_l: "5th-8th",
+        qf4_l: "5th-8th",
+        r11_l: "9th-12th",
+        r12_l: "9th-12th",
+        r13_l: "9th-12th",
+        r14_l: "9th-12th",
+        standings_G_A[3]: "13th-16th",
+        standings_G_B[3]: "13th-16th",
+        standings_G_C[3]: "13th-16th",
+        standings_G_D[3]: "13th-16th",
+        standings_G_A[4]: "17th-20th",
+        standings_G_B[4]: "17th-20th",
+        standings_G_C[4]: "17th-20th",
+        standings_G_D[4]: "17th-20th",
+        standings_G_A[5]: "21st-24th",
+        standings_G_B[5]: "21st-24th",
+        standings_G_C[5]: "21st-24th",
+        standings_G_D[5]: "21st-24th",
     }
 
     return placements
@@ -466,7 +461,7 @@ def simulate_tournament(teams):
 # ---------------------------------------------------------------------------
 # 5. MONTE CARLO LOOP
 # ---------------------------------------------------------------------------
-PLACEMENT_ORDER = ["3-0", "3-1", "3-2", "2-3", "1-3", "0-3"]
+PLACEMENT_ORDER = ["1st", "2nd", "3rd-4th", "5th-8th", "9th-12th", "13th-16th", "17th-20th", "21st-24th"]
 
 
 
@@ -504,7 +499,7 @@ def print_results(placement_counts, stat_sums, n_sims, team_names):
     print(header)
     print("-" * len(header))
 
-    sorted_teams = sorted(team_names, key=lambda tm: placement_counts[tm]["3-0"], reverse=True)
+    sorted_teams = sorted(team_names, key=lambda tm: placement_counts[tm]["1st"], reverse=True)
 
     for team in sorted_teams:
         row = team.ljust(col_width)
@@ -564,7 +559,7 @@ if __name__ == "__main__":
     if RANDOM_SEED is not None:
         random.seed(RANDOM_SEED)
 
-    teams = [Team(name, rating) for name, rating in TEAMS]
+    teams = [Team(name, rating) for name, rating in TEAMS_G_A + TEAMS_G_B + TEAMS_G_C + TEAMS_G_D]
     team_names = [team.name for team in teams]
 
     print(f"Simulating {N_SIMULATIONS:,} tournaments...\n")

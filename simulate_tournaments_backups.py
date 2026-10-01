@@ -7,6 +7,115 @@ def simulate_tournament(teams):
     for team in teams:
         team.reset_stats()
 
+    '''
+    # --- groups round robin 4 groups ---
+    # --- Group Stage ---
+
+    T_G_A = [team for team in teams if team.name in dict(TEAMS_G_A)]
+    T_G_B = [team for team in teams if team.name in dict(TEAMS_G_B)]
+    T_G_C = [team for team in teams if team.name in dict(TEAMS_G_C)]
+    T_G_D = [team for team in teams if team.name in dict(TEAMS_G_D)]
+
+
+    stats_G_A, match_log_G_A = simulate_group_stage(T_G_A)
+    stats_G_B, match_log_G_B = simulate_group_stage(T_G_B)
+    stats_G_C, match_log_G_C = simulate_group_stage(T_G_C)
+    stats_G_D, match_log_G_D = simulate_group_stage(T_G_D)
+    standings_G_A = rank_teams(T_G_A, stats_G_A, match_log_G_A)
+    standings_G_B = rank_teams(T_G_B, stats_G_B, match_log_G_B)
+    standings_G_C = rank_teams(T_G_C, stats_G_C, match_log_G_C)
+    standings_G_D = rank_teams(T_G_D, stats_G_D, match_log_G_D)
+
+    for team in standings_G_A:
+        team.win_rounds = stats_G_A[team.name]["wins"]
+        team.loss_rounds = stats_G_A[team.name]["losses"]
+    for team in standings_G_B:
+        team.win_rounds = stats_G_B[team.name]["wins"]
+        team.loss_rounds = stats_G_B[team.name]["losses"]
+    for team in standings_G_C:
+        team.win_rounds = stats_G_C[team.name]["wins"]
+        team.loss_rounds = stats_G_C[team.name]["losses"]
+    for team in standings_G_D:
+        team.win_rounds = stats_G_D[team.name]["wins"]
+        team.loss_rounds = stats_G_D[team.name]["losses"]
+
+    standings_G_A[3].elim_rounds = 4
+    standings_G_B[3].elim_rounds = 4
+    standings_G_C[3].elim_rounds = 4
+    standings_G_D[3].elim_rounds = 4
+    standings_G_A[4].elim_rounds = 4
+    standings_G_B[4].elim_rounds = 4
+    standings_G_C[4].elim_rounds = 4
+    standings_G_D[4].elim_rounds = 4
+    standings_G_A[5].elim_rounds = 4
+    standings_G_B[5].elim_rounds = 4
+    standings_G_C[5].elim_rounds = 4
+    standings_G_D[5].elim_rounds = 4
+
+    # --- single elimination bracket ---
+    # --- Round 1 ---
+    standings_G_A[0].padding_rounds += 1
+    standings_G_B[0].padding_rounds += 1
+    standings_G_C[0].padding_rounds += 1
+    standings_G_D[0].padding_rounds += 1
+
+    r11_w, r11_l = play_match(standings_G_B[1], standings_G_C[2])
+    r12_w, r12_l = play_match(standings_G_C[1], standings_G_B[2])
+    r13_w, r13_l = play_match(standings_G_D[1], standings_G_A[2])
+    r14_w, r14_l = play_match(standings_G_A[1], standings_G_D[2])
+    r11_l.elim_rounds = 3
+    r12_l.elim_rounds = 3
+    r13_l.elim_rounds = 3
+    r14_l.elim_rounds = 3
+
+    # --- quarterfinals ---
+    
+    qf1_w, qf1_l = play_match(standings_G_A[0], r11_w)
+    qf2_w, qf2_l = play_match(standings_G_D[0], r12_w)
+    qf3_w, qf3_l = play_match(standings_G_C[0], r13_w)
+    qf4_w, qf4_l = play_match(standings_G_B[0], r14_w)
+    qf1_l.elim_rounds = 2
+    qf2_l.elim_rounds = 2
+    qf3_l.elim_rounds = 2
+    qf4_l.elim_rounds = 2
+
+    # --- semifinals ---
+    sf1_w, sf1_l = play_match(qf1_w, qf2_w)
+    sf2_w, sf2_l = play_match(qf3_w, qf4_w)
+    sf1_l.elim_rounds = 1
+    sf2_l.elim_rounds = 1
+
+    # --- finals ---
+    f_w, f_l = play_match(sf1_w, sf2_w)
+    
+    placements = {
+        f_w: "1st",
+        f_l: "2nd",
+        sf1_l: "3rd-4th",
+        sf2_l: "3rd-4th",
+        qf1_l: "5th-8th",
+        qf2_l: "5th-8th",
+        qf3_l: "5th-8th",
+        qf4_l: "5th-8th",
+        r11_l: "9th-12th",
+        r12_l: "9th-12th",
+        r13_l: "9th-12th",
+        r14_l: "9th-12th",
+        standings_G_A[3]: "13th-16th",
+        standings_G_B[3]: "13th-16th",
+        standings_G_C[3]: "13th-16th",
+        standings_G_D[3]: "13th-16th",
+        standings_G_A[4]: "17th-20th",
+        standings_G_B[4]: "17th-20th",
+        standings_G_C[4]: "17th-20th",
+        standings_G_D[4]: "17th-20th",
+        standings_G_A[5]: "21st-24th",
+        standings_G_B[5]: "21st-24th",
+        standings_G_C[5]: "21st-24th",
+        standings_G_D[5]: "21st-24th",
+    }
+    '''
+
     """
     Simulates the whole Swiss stage (ESL Pro League format)
 
@@ -275,7 +384,7 @@ def simulate_tournament(teams):
         }
     '''
 
-    """
+    '''
     # --- groups round robin ---
     # --- Group Stage ---
     t_G_A = teams[:len(TEAMS_G_A)]
@@ -332,7 +441,8 @@ def simulate_tournament(teams):
         standings_G_A[5]: "11th-12th",
         standings_G_B[5]: "11th-12th",
     }
-    """
+    '''
+    
     '''
     # --- Double elimination bracket structure ---
     t = teams  # shorthand, list of X team names in seed order

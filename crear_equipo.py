@@ -1,8 +1,8 @@
 # fantasy_teams.py
 
 import argparse
-from collections import Counter
-from itertools import combinations
+import heapq
+from collections import defaultdict
 
 import pandas as pd
 
@@ -16,7 +16,7 @@ TOP_N = 100
 def compute_player_points(df: pd.DataFrame) -> pd.DataFrame:
     """
     Adds:
-      - total_rounds
+      - total_rounds_played
       - base_points
       - team_points
       - padding_points
@@ -25,20 +25,16 @@ def compute_player_points(df: pd.DataFrame) -> pd.DataFrame:
 
     df = df.copy()
 
-    # Make sure numeric columns are numeric
     numeric_cols = ["precio", "rating", "win_rounds", "loss_rounds", "padding_rounds", "elim_rounds"]
     for col in numeric_cols:
         df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0)
 
     df["total_rounds_played"] = df["win_rounds"] + df["loss_rounds"]
 
-    # Base points
     df["base_points"] = ((df["rating"] - 100) / 2.0) * df["total_rounds_played"]
 
-    # Team points
     df["team_points"] = (6 * df["win_rounds"]) + (-3 * df["loss_rounds"]) + (-3 * df["elim_rounds"])
 
-    # Padding points per round
     df["padding_points"] = df.apply(
         lambda row: ((row["base_points"] + row["team_points"]) / row["total_rounds_played"])
         if row["total_rounds_played"] > 0
@@ -46,7 +42,6 @@ def compute_player_points(df: pd.DataFrame) -> pd.DataFrame:
         axis=1,
     )
 
-    # Final player score
     # If you do NOT want padding_rounds to multiply, change this line to:
     # df["player_points"] = df["base_points"] + df["team_points"] + df["padding_points"]
     df["player_points"] = (
@@ -58,56 +53,87 @@ def compute_player_points(df: pd.DataFrame) -> pd.DataFrame:
 
 def generate_valid_teams(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Generates all valid teams of size TEAM_SIZE,
-    respecting budget and max players from the same real team.
+    Finds the best TOP_N valid teams of size TEAM_SIZE (budget and max players
+    per real team respected) without storing all possible teams.
+
+    Uses a min-heap of size TOP_N: the root is always the worst team kept.
     """
 
-    players = df.to_dict("records")
-    valid_teams = []
+    # Sort by points (desc) so we can compute upper bounds for pruning
+    df = df.sort_values(
+        by=["player_points", "jugador"], ascending=[False, True], kind="mergesort"
+    ).reset_index(drop=True)
 
-    for combo in combinations(players, TEAM_SIZE):
-        total_price = sum(p["precio"] for p in combo)
-        if total_price > MAX_BUDGET:
-            continue
+    names = df["jugador"].tolist()
+    real_teams = df["equipo"].tolist()
+    prices = df["precio"].tolist()
+    points = df["player_points"].tolist()
+    n = len(df)
 
-        team_counter = Counter(p["equipo"] for p in combo)
-        if any(count > MAX_PER_TEAM for count in team_counter.values()):
-            continue
+    # prefix[i] = sum of points[:i]  -> best k players starting at i = prefix[i+k] - prefix[i]
+    prefix = [0.0]
+    for p in points:
+        prefix.append(prefix[-1] + p)
 
-        # Sort players inside the team for consistent output
-        combo_sorted = sorted(combo, key=lambda x: (-x["player_points"], x["jugador"]))
+    # Heap entries: (total_points, -total_price, chosen_indices)
+    # Smaller tuple = worse team (fewer points, or same points but higher price)
+    heap = []
+    team_count = defaultdict(int)
+    chosen = []
 
-        total_points = sum(p["player_points"] for p in combo_sorted)
+    def search(start: int, price: int, pts: float):
+        k = TEAM_SIZE - len(chosen)
 
+        if k == 0:
+            entry = (pts, -price, tuple(chosen))
+            if len(heap) < TOP_N:
+                heapq.heappush(heap, entry)
+            elif entry > heap[0]:
+                heapq.heapreplace(heap, entry)
+            return
+
+        for i in range(start, n - k + 1):
+            # Upper bound: best case is taking the next k best players from i onwards.
+            # It only decreases as i grows, so we can stop the whole loop.
+            if len(heap) == TOP_N:
+                bound = pts + prefix[i + k] - prefix[i]
+                if bound < heap[0][0]:
+                    break
+
+            if price + prices[i] > MAX_BUDGET:
+                continue
+            if team_count[real_teams[i]] >= MAX_PER_TEAM:
+                continue
+
+            chosen.append(i)
+            team_count[real_teams[i]] += 1
+            search(i + 1, price + prices[i], pts + points[i])
+            team_count[real_teams[i]] -= 1
+            chosen.pop()
+
+    search(0, 0, 0.0)
+
+    # Best first: more points, then lower price
+    best = sorted(heap, key=lambda e: (-e[0], -e[1]))
+
+    rows = []
+    for rank, (total_points, neg_price, idxs) in enumerate(best, start=1):
+        # idxs are already ordered by points desc (and name for ties)
         row = {
+            "rank": rank,
             "total_points": total_points,
-            "total_price": total_price,
+            "total_price": -neg_price,
         }
+        for j, i in enumerate(idxs, start=1):
+            row[f"player_{j}"] = names[i]
+            row[f"player_{j}_points"] = points[i]
+        rows.append(row)
 
-        for i, p in enumerate(combo_sorted, start=1):
-            row[f"player_{i}"] = p["jugador"]
-            row[f"player_{i}_points"] = p["player_points"]
-
-        valid_teams.append(row)
-
-    result = pd.DataFrame(valid_teams)
-
-    if not result.empty:
-        result = result.sort_values(
-            by=["total_points", "total_price"],
-            ascending=[False, True],
-        ).reset_index(drop=True)
-
-        result = result.head(TOP_N).copy()
-
-        result.insert(0, "rank", range(1, len(result) + 1))
-
-
-    return result
+    return pd.DataFrame(rows)
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Generate all valid fantasy teams from a CSV.")
+    parser = argparse.ArgumentParser(description="Generate the best valid fantasy teams from a CSV.")
     parser.add_argument("input_csv", help="Path to the input CSV")
     parser.add_argument(
         "-o",
@@ -117,7 +143,6 @@ def main():
     )
     args = parser.parse_args()
 
-    # Read and normalize column names
     df = pd.read_csv(args.input_csv)
     df.columns = [c.strip().lower() for c in df.columns]
 
@@ -129,23 +154,20 @@ def main():
         "win_rounds",
         "loss_rounds",
         "padding_rounds",
+        "elim_rounds",
     }
 
     missing = required_columns - set(df.columns)
     if missing:
         raise ValueError(f"Missing columns in CSV: {sorted(missing)}")
 
-    # Compute player scoring
     scored_df = compute_player_points(df)
-
-    # Generate teams
     teams_df = generate_valid_teams(scored_df)
 
     if teams_df.empty:
         print("No valid teams found with the current constraints.")
         return
 
-    # Save result
     teams_df.to_csv(args.output_csv, index=False, encoding="utf-8-sig")
 
     print(f"Saved {len(teams_df)} valid teams to: {args.output_csv}")

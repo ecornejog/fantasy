@@ -25,6 +25,15 @@ Equipo: npl, blameF,sizzi, tabsen, azuwu
 | Round 5 | () | () | () | () | () |  |
 | Round 6 | () | () | () | () | () |  |
 
+## ROG JOURNEY Autumn 2026 (partner)
+
+Equipo: Senzu, asap, soulfly, motm, peeping
+
+1 → (5)avenger (3.95), (4)top (3.45), (15)carry (2.25), (13)Aim bot (1.20), (7)rambo (0.50), (11)saver (0.35) | promedio = 1.95  
+2 → (12)assist (4.80), (6)bait (3.40), (10)kobe (2.30), (14)4k (2.30) | promedio = 3.20  
+3 → (1)Pistol (2.40), (2)Bottom (2.25), (17)farmer (2.25), (3)Clutch (1.60) | promedio = 2.12  
+4 → (18)Helcasse (5), (9)kast (2.50), (8)flash (1.10) | promedio = 1.80  
+5 → (16)cannon (2.70) | promedio = 2.70  
  
 ## Previous results
 
