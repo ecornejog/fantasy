@@ -30,41 +30,17 @@ from functools import lru_cache
 #    "rating" can be any skill metric on a comparable scale (e.g. an Elo-like
 #    rating, HLTV rating * 1000, etc.) - only the *differences* matter.
 # ---------------------------------------------------------------------------
-TEAMS_G_A = [
-    ("Anteiku", 380),
-    ("100 Thieves", 1422),
-    ("Eternal fire", 1311),
-    ("sinners", 1255),
-    ("Nordic Partners", 888),
-    ("Lilmix", 767),
+TEAMS = [
+    ("Spirit", 2004),
+    ("Vitality", 1961),
+    ("Furia", 1834),
+    ("Mouz", 1945),
+    ("Falcons", 1899),
+    ("Aurora", 1813),
+    ("Parivision", 1607),
+    ("1Win", 1555),
 ]
 
-TEAMS_G_B = [
-    ("XEPT", 380),
-    ("NIP", 1427),
-    ("BBL", 1317),
-    ("Sangal", 1250),
-    ("SportsBetExperts", 1186),
-    ("HAVU", 863),
-]
-
-TEAMS_G_C = [
-    ("EAC Extra", 380),
-    ("jijieHao", 1334),
-    ("FOKUS", 1215),
-    ("9INE", 1064),
-    ("Johnny Speeds", 978),
-    ("MTX", 501),
-]
-
-TEAMS_G_D = [
-    ("Prestige", 380),
-    ("Glitch", 380),
-    ("BCG", 1202),
-    ("Sashi", 1150),
-    ("Voca", 1037),
-    ("Basement Boys", 1011),
-]
 
 N_SIMULATIONS = 100_000  # set the number of simulations to run
 RANDOM_SEED = 1  # set an integer here for reproducible results, or leave None
@@ -349,72 +325,14 @@ def simulate_tournament(teams):
     for team in teams:
         team.reset_stats()
 
-    # --- groups round robin 4 groups ---
-    # --- Group Stage ---
-
-    T_G_A = [team for team in teams if team.name in dict(TEAMS_G_A)]
-    T_G_B = [team for team in teams if team.name in dict(TEAMS_G_B)]
-    T_G_C = [team for team in teams if team.name in dict(TEAMS_G_C)]
-    T_G_D = [team for team in teams if team.name in dict(TEAMS_G_D)]
-
-
-    stats_G_A, match_log_G_A = simulate_group_stage(T_G_A)
-    stats_G_B, match_log_G_B = simulate_group_stage(T_G_B)
-    stats_G_C, match_log_G_C = simulate_group_stage(T_G_C)
-    stats_G_D, match_log_G_D = simulate_group_stage(T_G_D)
-    standings_G_A = rank_teams(T_G_A, stats_G_A, match_log_G_A)
-    standings_G_B = rank_teams(T_G_B, stats_G_B, match_log_G_B)
-    standings_G_C = rank_teams(T_G_C, stats_G_C, match_log_G_C)
-    standings_G_D = rank_teams(T_G_D, stats_G_D, match_log_G_D)
-
-    for team in standings_G_A:
-        team.win_rounds = stats_G_A[team.name]["wins"]
-        team.loss_rounds = stats_G_A[team.name]["losses"]
-    for team in standings_G_B:
-        team.win_rounds = stats_G_B[team.name]["wins"]
-        team.loss_rounds = stats_G_B[team.name]["losses"]
-    for team in standings_G_C:
-        team.win_rounds = stats_G_C[team.name]["wins"]
-        team.loss_rounds = stats_G_C[team.name]["losses"]
-    for team in standings_G_D:
-        team.win_rounds = stats_G_D[team.name]["wins"]
-        team.loss_rounds = stats_G_D[team.name]["losses"]
-
-    standings_G_A[3].elim_rounds = 4
-    standings_G_B[3].elim_rounds = 4
-    standings_G_C[3].elim_rounds = 4
-    standings_G_D[3].elim_rounds = 4
-    standings_G_A[4].elim_rounds = 4
-    standings_G_B[4].elim_rounds = 4
-    standings_G_C[4].elim_rounds = 4
-    standings_G_D[4].elim_rounds = 4
-    standings_G_A[5].elim_rounds = 4
-    standings_G_B[5].elim_rounds = 4
-    standings_G_C[5].elim_rounds = 4
-    standings_G_D[5].elim_rounds = 4
-
-    # --- single elimination bracket ---
-    # --- Round 1 ---
-    standings_G_A[0].padding_rounds += 1
-    standings_G_B[0].padding_rounds += 1
-    standings_G_C[0].padding_rounds += 1
-    standings_G_D[0].padding_rounds += 1
-
-    r11_w, r11_l = play_match(standings_G_B[1], standings_G_C[2])
-    r12_w, r12_l = play_match(standings_G_C[1], standings_G_B[2])
-    r13_w, r13_l = play_match(standings_G_D[1], standings_G_A[2])
-    r14_w, r14_l = play_match(standings_G_A[1], standings_G_D[2])
-    r11_l.elim_rounds = 3
-    r12_l.elim_rounds = 3
-    r13_l.elim_rounds = 3
-    r14_l.elim_rounds = 3
-
+    t = teams  # shorthand, list of X team names in seed order
+    # --- playoff bracket ---
     # --- quarterfinals ---
     
-    qf1_w, qf1_l = play_match(standings_G_A[0], r11_w)
-    qf2_w, qf2_l = play_match(standings_G_D[0], r12_w)
-    qf3_w, qf3_l = play_match(standings_G_C[0], r13_w)
-    qf4_w, qf4_l = play_match(standings_G_B[0], r14_w)
+    qf1_w, qf1_l = play_match(t[1], t[6])
+    qf2_w, qf2_l = play_match(t[7], t[5])
+    qf3_w, qf3_l = play_match(t[4], t[0])
+    qf4_w, qf4_l = play_match(t[2], t[3])
     qf1_l.elim_rounds = 2
     qf2_l.elim_rounds = 2
     qf3_l.elim_rounds = 2
@@ -423,37 +341,20 @@ def simulate_tournament(teams):
     # --- semifinals ---
     sf1_w, sf1_l = play_match(qf1_w, qf2_w)
     sf2_w, sf2_l = play_match(qf3_w, qf4_w)
-    sf1_l.elim_rounds = 1
-    sf2_l.elim_rounds = 1
 
     # --- finals ---
+    tpd_w, tpd_l = play_match(sf1_l, sf2_l)  # 3rd place match
     f_w, f_l = play_match(sf1_w, sf2_w)
     
     placements = {
         f_w: "1st",
         f_l: "2nd",
-        sf1_l: "3rd-4th",
-        sf2_l: "3rd-4th",
+        tpd_w: "3rd",
+        tpd_l: "4th",
         qf1_l: "5th-8th",
         qf2_l: "5th-8th",
         qf3_l: "5th-8th",
         qf4_l: "5th-8th",
-        r11_l: "9th-12th",
-        r12_l: "9th-12th",
-        r13_l: "9th-12th",
-        r14_l: "9th-12th",
-        standings_G_A[3]: "13th-16th",
-        standings_G_B[3]: "13th-16th",
-        standings_G_C[3]: "13th-16th",
-        standings_G_D[3]: "13th-16th",
-        standings_G_A[4]: "17th-20th",
-        standings_G_B[4]: "17th-20th",
-        standings_G_C[4]: "17th-20th",
-        standings_G_D[4]: "17th-20th",
-        standings_G_A[5]: "21st-24th",
-        standings_G_B[5]: "21st-24th",
-        standings_G_C[5]: "21st-24th",
-        standings_G_D[5]: "21st-24th",
     }
 
     return placements
@@ -461,7 +362,7 @@ def simulate_tournament(teams):
 # ---------------------------------------------------------------------------
 # 5. MONTE CARLO LOOP
 # ---------------------------------------------------------------------------
-PLACEMENT_ORDER = ["1st", "2nd", "3rd-4th", "5th-8th", "9th-12th", "13th-16th", "17th-20th", "21st-24th"]
+PLACEMENT_ORDER = ["1st", "2nd", "3rd", "4th", "5th-8th"]
 
 
 
@@ -559,7 +460,7 @@ if __name__ == "__main__":
     if RANDOM_SEED is not None:
         random.seed(RANDOM_SEED)
 
-    teams = [Team(name, rating) for name, rating in TEAMS_G_A + TEAMS_G_B + TEAMS_G_C + TEAMS_G_D]
+    teams = [Team(name, rating) for name, rating in TEAMS]
     team_names = [team.name for team in teams]
 
     print(f"Simulating {N_SIMULATIONS:,} tournaments...\n")
