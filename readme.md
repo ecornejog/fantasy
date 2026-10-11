@@ -2,15 +2,15 @@
 
 Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
-## Playoffs - ESL Pro League Season 24
+## Thunderpick
 
-Equipo: Zywoo, mezii, tn1r, Belchonokk, Hobbit
-                                                                                                                                                                
-1 → (4)top (4.00), (1)Pistol (3.90), (5)avenger (3.60) | promedio = 3.83  
-2 → (12)assist (4.70), (2)Bottom (3.70), (9)kast (2.65) | promedio = 3.68  
-3 → (18) hellcase (5), (10)kobe (1.65), (14)4k (1.65), (16)cannon (1.65) | promedio = 1.65  
-4 → (6)bait (3.45) | promedio = 3.45  
-5 → (17)farmer (3.35) | promedio = 3.35  
+Equipo: Monesy, try, krimbo, xkacpersky, hobbit 
+
+1 → (4)top (4.10), (15)carry (3.95), (5)avenger (3.70), (9)kast (2.45) | promedio = 3.55  
+2 → (14)4k (1.75), (16)cannon (1.30), (8)flash (1.20), (3)Clutch (0.90) | promedio = 1.29  
+3 → (18) hellcase (5), (11)saver (1.60), (13)Aim bot (0.90), (7)rambo (0.35) | promedio = 1.96  
+4 → (12)assist (4.45), (6)bait (3.05), (1)Pistol (2.80) | promedio = 3.43  
+5 → (2)Bottom (3.10), (17)farmer (3.10), (10)kobe (2.70) | promedio = 2.97  
 
 ## Previous results
 

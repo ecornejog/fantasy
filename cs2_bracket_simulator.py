@@ -31,14 +31,14 @@ from functools import lru_cache
 #    rating, HLTV rating * 1000, etc.) - only the *differences* matter.
 # ---------------------------------------------------------------------------
 TEAMS = [
-    ("Spirit", 2004),
-    ("Vitality", 1961),
-    ("Furia", 1834),
-    ("Mouz", 1945),
-    ("Falcons", 1899),
-    ("Aurora", 1813),
-    ("Parivision", 1607),
-    ("1Win", 1555),
+    ("furia", 1789),
+    ("falcons", 1850),
+    ("legacy", 1801),
+    ("aurora", 1796),
+    ("betboom", 1539),
+    ("9z", 1527),
+    ("Parivision", 1567),
+    ("nip", 1488),
 ]
 
 
@@ -325,44 +325,62 @@ def simulate_tournament(teams):
     for team in teams:
         team.reset_stats()
 
+    # --- GSL BO3 2 groups ---
     t = teams  # shorthand, list of X team names in seed order
-    # --- playoff bracket ---
-    # --- quarterfinals ---
-    
-    qf1_w, qf1_l = play_match(t[1], t[6])
-    qf2_w, qf2_l = play_match(t[7], t[5])
-    qf3_w, qf3_l = play_match(t[4], t[0])
-    qf4_w, qf4_l = play_match(t[2], t[3])
-    qf1_l.elim_rounds = 2
-    qf2_l.elim_rounds = 2
-    qf3_l.elim_rounds = 2
-    qf4_l.elim_rounds = 2
+    # --- opening round ---
+    ow1A, ol1A = play_match(t[1], t[7])
+    ow2A, ol2A = play_match(t[5], t[3])
 
-    # --- semifinals ---
-    sf1_w, sf1_l = play_match(qf1_w, qf2_w)
-    sf2_w, sf2_l = play_match(qf3_w, qf4_w)
+    ow1B, ol1B = play_match(t[2], t[6])
+    ow2B, ol2B = play_match(t[0], t[4])
 
-    # --- finals ---
-    tpd_w, tpd_l = play_match(sf1_l, sf2_l)  # 3rd place match
-    f_w, f_l = play_match(sf1_w, sf2_w)
+    # --- winners round ---
+    wwA, wlA =  play_match(ow1A, ow2A)
+    wwB, wlB =  play_match(ow1B, ow2B)
+
+    wwA.padding_rounds +=1
+    wwB.padding_rounds +=1
     
+    # --- elimination match ---
+    ewA, elA =  play_match(ol1A, ol2A)
+    ewB, elB =  play_match(ol1B, ol2B)
+    
+    elA.elim_rounds = 3
+    elB.elim_rounds = 3
+    
+    # --- decider match ---
+    dwA, dlA =  play_match(wlA, ewA)
+    dwB, dlB =  play_match(wlB, ewB)
+
+    dlA.elim_rounds = 2
+    dlB.elim_rounds = 2
+    
+    # --- single elimination playoff bracket ---
+    # --- Semis ---
+    sw1, sl1 = play_match(wwA, dwB)
+    sw2, sl2 = play_match(wwB, dwA)
+
+    # ---finals ---
+    fw, fl = play_match(sw1, sw2)
+    tpdmw, tpdml = play_match(sl1, sl2)
+
     placements = {
-        f_w: "1st",
-        f_l: "2nd",
-        tpd_w: "3rd",
-        tpd_l: "4th",
-        qf1_l: "5th-8th",
-        qf2_l: "5th-8th",
-        qf3_l: "5th-8th",
-        qf4_l: "5th-8th",
-    }
+            fw: "1st",
+            fl: "2nd",
+            tpdmw: "3rd",
+            tpdml: "4th",
+            dlA: "5th-6th",
+            dlB: "5th-6th",
+            elA: "7th-8th",
+            elB: "7th-8th",
+        }
 
     return placements
 
 # ---------------------------------------------------------------------------
 # 5. MONTE CARLO LOOP
 # ---------------------------------------------------------------------------
-PLACEMENT_ORDER = ["1st", "2nd", "3rd", "4th", "5th-8th"]
+PLACEMENT_ORDER = ["1st", "2nd", "3rd", "4th", "5th-6th", "7th-8th"]
 
 
 
