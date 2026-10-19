@@ -503,3 +503,114 @@ def simulate_tournament(teams):
     }
     '''
     return placements
+
+
+'''
+    # --- Swiss System Buchholz ---
+    WINS_TO_ADVANCE = 3
+    LOSSES_TO_ELIMINATE = 3
+
+    n = len(teams)
+    state = {
+        team.name: {
+            "team": team,
+            "seed": i + 1,
+            "wins": 0,
+            "losses": 0,
+            "opponents": set(),
+        }
+        for i, team in enumerate(teams)
+    }
+    match_log = []
+
+    round_number = 0
+    while True:
+        active = [
+            name for name, s in state.items()
+            if s["wins"] < WINS_TO_ADVANCE and s["losses"] < LOSSES_TO_ELIMINATE
+        ]
+        if not active:
+            break
+        round_number += 1
+
+        # --- Build this round's matches (all pairings decided BEFORE playing) ---
+        if round_number == 1:
+            by_seed = sorted(active, key=lambda nm: state[nm]["seed"])
+            half = len(by_seed) // 2
+            matches = [(by_seed[i], by_seed[i + half]) for i in range(half)]
+        else:
+            bh = {name: buchholz(name, state) for name in active}
+            pools = defaultdict(list)
+            for name in active:
+                pools[(state[name]["wins"], state[name]["losses"])].append(name)
+
+            matches = []
+            for pool in pools.values():
+                pool.sort(key=lambda nm: (-bh[nm], state[nm]["seed"]))
+                matches.extend(pair_pool_buchholz(pool, state))
+
+        # --- Play the round ---
+        for name_a, name_b in matches:
+            winner_team, loser_team = play_match(
+                state[name_a]["team"], state[name_b]["team"]
+            )
+            w = state[winner_team.name]
+            l = state[loser_team.name]
+
+            w["wins"] += 1
+            l["losses"] += 1
+            w["opponents"].add(loser_team.name)
+            l["opponents"].add(winner_team.name)
+            match_log.append((round_number, winner_team.name, loser_team.name))
+
+    # --- Final standings ---
+    final_bh = {name: buchholz(name, state) for name in state}
+    ordered_names = sorted(
+        state,
+        key=lambda nm: (
+            -state[nm]["wins"],
+            state[nm]["losses"],
+            -final_bh[nm],
+            state[nm]["seed"],
+        ),
+    )
+    standings = [state[nm]["team"] for nm in ordered_names]
+    records = {
+        nm: {
+            "wins": state[nm]["wins"],
+            "losses": state[nm]["losses"],
+            "buchholz": final_bh[nm],
+            "seed": state[nm]["seed"],
+        }
+        for nm in state
+    }
+    standings[0].padding_rounds = 2
+    standings[1].padding_rounds = 2
+    standings[2].padding_rounds = 1
+    standings[3].padding_rounds = 1
+    standings[4].padding_rounds = 1
+    standings[11].elim_rounds = 1
+    standings[12].elim_rounds = 1
+    standings[13].elim_rounds = 1
+    standings[14].elim_rounds = 2
+    standings[15].elim_rounds = 2
+        
+    placements = {
+        standings[0]: "3-0",
+        standings[1]: "3-0",
+        standings[2]: "3-1",
+        standings[3]: "3-1",
+        standings[4]: "3-1",
+        standings[5]: "3-2",
+        standings[6]: "3-2",
+        standings[7]: "3-2",
+        standings[8]: "2-3",
+        standings[9]: "2-3",
+        standings[10]: "2-3",
+        standings[11]: "1-3",
+        standings[12]: "1-3",
+        standings[13]: "1-3",
+        standings[14]: "0-3",
+        standings[15]: "0-3",
+    }
+'''

@@ -31,14 +31,22 @@ from functools import lru_cache
 #    rating, HLTV rating * 1000, etc.) - only the *differences* matter.
 # ---------------------------------------------------------------------------
 TEAMS = [
-    ("furia", 1789),
-    ("falcons", 1850),
-    ("legacy", 1801),
-    ("aurora", 1796),
-    ("betboom", 1539),
-    ("9z", 1527),
-    ("Parivision", 1567),
-    ("nip", 1488),
+    ("spirit", 1918),
+    ("legacy", 1755),
+    ("vita", 1988),
+    ("mouz", 1941),
+    ("g2", 1697),
+    ("furia", 1881),
+    ("fut", 1645),
+    ("aurora", 1861),
+    ("bb", 1691),
+    ("nemiga", 1468),
+    ("9z", 1546),
+    ("liquid", 1470),
+    ("navi", 1415),
+    ("dendele", 1348),
+    ("tyloo", 1234),
+    ("mongolz", 1182),
 ]
 
 
@@ -275,7 +283,7 @@ def _index_pairings(n):
     return tuple(build(tuple(range(n))))
 
 
-def pair_pool(pool, state):
+def pair_pool_ESL(pool, state):
     """
     Pairs one result-pool (teams with the same W-L record) using ESL's rule:
 
@@ -312,6 +320,73 @@ def pair_pool(pool, state):
     return [(pool[i], pool[j]) for i, j in best_pairing]
 
 # ---------------------------------------------------------------------------
+# 3.3. Swiss system Buchholz
+# ---------------------------------------------------------------------------
+def buchholz(name, state):
+    """Sum of (wins - losses) of every opponent `name` has faced so far."""
+    return sum(
+        state[opp]["wins"] - state[opp]["losses"]
+        for opp in state[name]["opponents"]
+    )
+
+@lru_cache(maxsize=None)
+def _priority_pairings(n):
+    """
+    Every way to split positions 0..n-1 (0 = best-ordered team) into pairs,
+    listed in PRIORITY order: the best team tries the worst team first, then
+    the next worst, and so on; the remaining teams are then paired the same
+    way. So for 4 teams the order is:
+        (0v3, 1v2), (0v2, 1v3), (0v1, 2v3)
+    n=8 -> 105 options, n=6 -> 15, n=4 -> 3. Cached for Monte Carlo speed.
+
+    ASSUMPTION: Valve publishes its own fallback order for rematches; this
+    is the natural "highest vs lowest, then next valid" order and gives the
+    same result whenever the first choice has no rematch. If you ever need
+    Valve's exact table for rare rematch cases, this is the only place to edit.
+    """
+    def build(items):
+        if not items:
+            return [()]
+        first, rest = items[0], items[1:]
+        result = []
+        for k in range(len(rest) - 1, -1, -1):          # worst partner first
+            partner = rest[k]
+            remaining = rest[:k] + rest[k + 1:]
+            for sub in build(remaining):
+                result.append(((first, partner),) + sub)
+        return result
+
+    return tuple(build(tuple(range(n))))
+
+
+def pair_pool_buchholz(pool, state):
+    """
+    pool: team names of one record pool, ALREADY ORDERED best -> worst
+          (Buchholz desc, then initial seed).
+    Returns the list of (name_a, name_b) matches for that pool: the first
+    pairing in priority order with no rematches. If none exists (very rare),
+    the one with the fewest rematches is used instead of crashing.
+    """
+    if len(pool) % 2 != 0:
+        raise ValueError(f"Pool has an odd number of teams: {pool}")
+
+    best_pairing = None
+    best_rematches = None
+    for index_pairing in _priority_pairings(len(pool)):
+        rematches = sum(
+            1 for i, j in index_pairing if pool[j] in state[pool[i]]["opponents"]
+        )
+        if best_rematches is None or rematches < best_rematches:
+            best_rematches = rematches
+            best_pairing = index_pairing
+            if rematches == 0:
+                break
+
+    return [(pool[i], pool[j]) for i, j in best_pairing]
+
+
+
+# ---------------------------------------------------------------------------
 # 4. BRACKET SIMULATION
 # ---------------------------------------------------------------------------
 
@@ -325,62 +400,121 @@ def simulate_tournament(teams):
     for team in teams:
         team.reset_stats()
 
-    # --- GSL BO3 2 groups ---
-    t = teams  # shorthand, list of X team names in seed order
-    # --- opening round ---
-    ow1A, ol1A = play_match(t[1], t[7])
-    ow2A, ol2A = play_match(t[5], t[3])
+    # --- Swiss System Buchholz ---
+    WINS_TO_ADVANCE = 3
+    LOSSES_TO_ELIMINATE = 3
 
-    ow1B, ol1B = play_match(t[2], t[6])
-    ow2B, ol2B = play_match(t[0], t[4])
-
-    # --- winners round ---
-    wwA, wlA =  play_match(ow1A, ow2A)
-    wwB, wlB =  play_match(ow1B, ow2B)
-
-    wwA.padding_rounds +=1
-    wwB.padding_rounds +=1
-    
-    # --- elimination match ---
-    ewA, elA =  play_match(ol1A, ol2A)
-    ewB, elB =  play_match(ol1B, ol2B)
-    
-    elA.elim_rounds = 3
-    elB.elim_rounds = 3
-    
-    # --- decider match ---
-    dwA, dlA =  play_match(wlA, ewA)
-    dwB, dlB =  play_match(wlB, ewB)
-
-    dlA.elim_rounds = 2
-    dlB.elim_rounds = 2
-    
-    # --- single elimination playoff bracket ---
-    # --- Semis ---
-    sw1, sl1 = play_match(wwA, dwB)
-    sw2, sl2 = play_match(wwB, dwA)
-
-    # ---finals ---
-    fw, fl = play_match(sw1, sw2)
-    tpdmw, tpdml = play_match(sl1, sl2)
-
-    placements = {
-            fw: "1st",
-            fl: "2nd",
-            tpdmw: "3rd",
-            tpdml: "4th",
-            dlA: "5th-6th",
-            dlB: "5th-6th",
-            elA: "7th-8th",
-            elB: "7th-8th",
+    n = len(teams)
+    state = {
+        team.name: {
+            "team": team,
+            "seed": i + 1,
+            "wins": 0,
+            "losses": 0,
+            "opponents": set(),
         }
+        for i, team in enumerate(teams)
+    }
+    match_log = []
+
+    round_number = 0
+    while True:
+        active = [
+            name for name, s in state.items()
+            if s["wins"] < WINS_TO_ADVANCE and s["losses"] < LOSSES_TO_ELIMINATE
+        ]
+        if not active:
+            break
+        round_number += 1
+
+        # --- Build this round's matches (all pairings decided BEFORE playing) ---
+        if round_number == 1:
+            by_seed = sorted(active, key=lambda nm: state[nm]["seed"])
+            half = len(by_seed) // 2
+            matches = [(by_seed[i], by_seed[i + half]) for i in range(half)]
+        else:
+            bh = {name: buchholz(name, state) for name in active}
+            pools = defaultdict(list)
+            for name in active:
+                pools[(state[name]["wins"], state[name]["losses"])].append(name)
+
+            matches = []
+            for pool in pools.values():
+                pool.sort(key=lambda nm: (-bh[nm], state[nm]["seed"]))
+                matches.extend(pair_pool_buchholz(pool, state))
+
+        # --- Play the round ---
+        for name_a, name_b in matches:
+            winner_team, loser_team = play_match(
+                state[name_a]["team"], state[name_b]["team"]
+            )
+            w = state[winner_team.name]
+            l = state[loser_team.name]
+
+            w["wins"] += 1
+            l["losses"] += 1
+            w["opponents"].add(loser_team.name)
+            l["opponents"].add(winner_team.name)
+            match_log.append((round_number, winner_team.name, loser_team.name))
+
+    # --- Final standings ---
+    final_bh = {name: buchholz(name, state) for name in state}
+    ordered_names = sorted(
+        state,
+        key=lambda nm: (
+            -state[nm]["wins"],
+            state[nm]["losses"],
+            -final_bh[nm],
+            state[nm]["seed"],
+        ),
+    )
+    standings = [state[nm]["team"] for nm in ordered_names]
+    records = {
+        nm: {
+            "wins": state[nm]["wins"],
+            "losses": state[nm]["losses"],
+            "buchholz": final_bh[nm],
+            "seed": state[nm]["seed"],
+        }
+        for nm in state
+    }
+    standings[0].padding_rounds = 2
+    standings[1].padding_rounds = 2
+    standings[2].padding_rounds = 1
+    standings[3].padding_rounds = 1
+    standings[4].padding_rounds = 1
+    standings[11].elim_rounds = 1
+    standings[12].elim_rounds = 1
+    standings[13].elim_rounds = 1
+    standings[14].elim_rounds = 2
+    standings[15].elim_rounds = 2
+        
+    placements = {
+        standings[0]: "3-0",
+        standings[1]: "3-0",
+        standings[2]: "3-1",
+        standings[3]: "3-1",
+        standings[4]: "3-1",
+        standings[5]: "3-2",
+        standings[6]: "3-2",
+        standings[7]: "3-2",
+        standings[8]: "2-3",
+        standings[9]: "2-3",
+        standings[10]: "2-3",
+        standings[11]: "1-3",
+        standings[12]: "1-3",
+        standings[13]: "1-3",
+        standings[14]: "0-3",
+        standings[15]: "0-3",
+    }
+
 
     return placements
 
 # ---------------------------------------------------------------------------
 # 5. MONTE CARLO LOOP
 # ---------------------------------------------------------------------------
-PLACEMENT_ORDER = ["1st", "2nd", "3rd", "4th", "5th-6th", "7th-8th"]
+PLACEMENT_ORDER = ["3-0", "3-1", "3-2", "2-3", "1-3", "0-3"]
 
 
 
@@ -418,7 +552,7 @@ def print_results(placement_counts, stat_sums, n_sims, team_names):
     print(header)
     print("-" * len(header))
 
-    sorted_teams = sorted(team_names, key=lambda tm: placement_counts[tm]["1st"], reverse=True)
+    sorted_teams = sorted(team_names, key=lambda tm: placement_counts[tm]["3-0"], reverse=True)
 
     for team in sorted_teams:
         row = team.ljust(col_width)
