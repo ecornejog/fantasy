@@ -31,14 +31,14 @@ from functools import lru_cache
 #    rating, HLTV rating * 1000, etc.) - only the *differences* matter.
 # ---------------------------------------------------------------------------
 TEAMS = [
-    ("spirit", 1918),
-    ("legacy", 1755),
-    ("vita", 1988),
-    ("mouz", 1941),
-    ("g2", 1697),
+    ("fut", 1783),
+    ("nemiga", 1562),
+    ("vita", 1986),
+    ("navi", 1644),
+    ("aurora", 1891),
+    ("mouz", 1961),
+    ("bb", 1823),
     ("furia", 1881),
-    ("fut", 1645),
-    ("aurora", 1861),
 ]
 
 
@@ -394,10 +394,10 @@ def simulate_tournament(teams):
 
     # --- single elimination playoff bracket ---
     # --- Quarter finals ---
-    qw1, ql1 = play_match(teams[0], teams[7])
-    qw2, ql2 = play_match(teams[1], teams[6])
-    qw3, ql3 = play_match(teams[2], teams[5])
-    qw4, ql4 = play_match(teams[3], teams[4])
+    qw1, ql1 = play_match(teams[0], teams[1])
+    qw2, ql2 = play_match(teams[2], teams[3])
+    qw3, ql3 = play_match(teams[4], teams[5])
+    qw4, ql4 = play_match(teams[6], teams[7])
 
     ql1.elim_rounds = 2
     ql2.elim_rounds = 2
