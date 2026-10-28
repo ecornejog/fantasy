@@ -39,14 +39,6 @@ TEAMS = [
     ("furia", 1881),
     ("fut", 1645),
     ("aurora", 1861),
-    ("bb", 1691),
-    ("nemiga", 1468),
-    ("9z", 1546),
-    ("liquid", 1470),
-    ("navi", 1415),
-    ("dendele", 1348),
-    ("tyloo", 1234),
-    ("mongolz", 1182),
 ]
 
 
@@ -400,113 +392,36 @@ def simulate_tournament(teams):
     for team in teams:
         team.reset_stats()
 
-    # --- Swiss System Buchholz ---
-    WINS_TO_ADVANCE = 3
-    LOSSES_TO_ELIMINATE = 3
+    # --- single elimination playoff bracket ---
+    # --- Quarter finals ---
+    qw1, ql1 = play_match(teams[0], teams[7])
+    qw2, ql2 = play_match(teams[1], teams[6])
+    qw3, ql3 = play_match(teams[2], teams[5])
+    qw4, ql4 = play_match(teams[3], teams[4])
 
-    n = len(teams)
-    state = {
-        team.name: {
-            "team": team,
-            "seed": i + 1,
-            "wins": 0,
-            "losses": 0,
-            "opponents": set(),
-        }
-        for i, team in enumerate(teams)
-    }
-    match_log = []
+    ql1.elim_rounds = 2
+    ql2.elim_rounds = 2
+    ql3.elim_rounds = 2
+    ql4.elim_rounds = 2
 
-    round_number = 0
-    while True:
-        active = [
-            name for name, s in state.items()
-            if s["wins"] < WINS_TO_ADVANCE and s["losses"] < LOSSES_TO_ELIMINATE
-        ]
-        if not active:
-            break
-        round_number += 1
+    # --- Semis ---
+    sw1, sl1 = play_match(qw1, qw2)
+    sw2, sl2 = play_match(qw3, qw4)
 
-        # --- Build this round's matches (all pairings decided BEFORE playing) ---
-        if round_number == 1:
-            by_seed = sorted(active, key=lambda nm: state[nm]["seed"])
-            half = len(by_seed) // 2
-            matches = [(by_seed[i], by_seed[i + half]) for i in range(half)]
-        else:
-            bh = {name: buchholz(name, state) for name in active}
-            pools = defaultdict(list)
-            for name in active:
-                pools[(state[name]["wins"], state[name]["losses"])].append(name)
+    # ---finals ---
+    tbdw, tbdl = play_match(sl1, sl2)
+    fw, fl = play_match(sw1, sw2)
 
-            matches = []
-            for pool in pools.values():
-                pool.sort(key=lambda nm: (-bh[nm], state[nm]["seed"]))
-                matches.extend(pair_pool_buchholz(pool, state))
-
-        # --- Play the round ---
-        for name_a, name_b in matches:
-            winner_team, loser_team = play_match(
-                state[name_a]["team"], state[name_b]["team"]
-            )
-            w = state[winner_team.name]
-            l = state[loser_team.name]
-
-            w["wins"] += 1
-            l["losses"] += 1
-            w["opponents"].add(loser_team.name)
-            l["opponents"].add(winner_team.name)
-            match_log.append((round_number, winner_team.name, loser_team.name))
-
-    # --- Final standings ---
-    final_bh = {name: buchholz(name, state) for name in state}
-    ordered_names = sorted(
-        state,
-        key=lambda nm: (
-            -state[nm]["wins"],
-            state[nm]["losses"],
-            -final_bh[nm],
-            state[nm]["seed"],
-        ),
-    )
-    standings = [state[nm]["team"] for nm in ordered_names]
-    records = {
-        nm: {
-            "wins": state[nm]["wins"],
-            "losses": state[nm]["losses"],
-            "buchholz": final_bh[nm],
-            "seed": state[nm]["seed"],
-        }
-        for nm in state
-    }
-    standings[0].padding_rounds = 2
-    standings[1].padding_rounds = 2
-    standings[2].padding_rounds = 1
-    standings[3].padding_rounds = 1
-    standings[4].padding_rounds = 1
-    standings[11].elim_rounds = 1
-    standings[12].elim_rounds = 1
-    standings[13].elim_rounds = 1
-    standings[14].elim_rounds = 2
-    standings[15].elim_rounds = 2
-        
     placements = {
-        standings[0]: "3-0",
-        standings[1]: "3-0",
-        standings[2]: "3-1",
-        standings[3]: "3-1",
-        standings[4]: "3-1",
-        standings[5]: "3-2",
-        standings[6]: "3-2",
-        standings[7]: "3-2",
-        standings[8]: "2-3",
-        standings[9]: "2-3",
-        standings[10]: "2-3",
-        standings[11]: "1-3",
-        standings[12]: "1-3",
-        standings[13]: "1-3",
-        standings[14]: "0-3",
-        standings[15]: "0-3",
-    }
+            fw: "1st",
+            fl: "2nd",
+            tbdw: "3rd",
+            tbdl: "4th",
+            ql1: "5th-8th",
+            ql2: "5th-8th",
+            ql3: "5th-8th",
+            ql4: "5th-8th",
+        }
 
 
     return placements
@@ -514,7 +429,7 @@ def simulate_tournament(teams):
 # ---------------------------------------------------------------------------
 # 5. MONTE CARLO LOOP
 # ---------------------------------------------------------------------------
-PLACEMENT_ORDER = ["3-0", "3-1", "3-2", "2-3", "1-3", "0-3"]
+PLACEMENT_ORDER = ["1st", "2nd", "3rd", "4th", "5th-8th"]
 
 
 
@@ -552,7 +467,7 @@ def print_results(placement_counts, stat_sums, n_sims, team_names):
     print(header)
     print("-" * len(header))
 
-    sorted_teams = sorted(team_names, key=lambda tm: placement_counts[tm]["3-0"], reverse=True)
+    sorted_teams = sorted(team_names, key=lambda tm: placement_counts[tm]["1st"], reverse=True)
 
     for team in sorted_teams:
         row = team.ljust(col_width)
