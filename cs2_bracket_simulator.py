@@ -31,14 +31,22 @@ from functools import lru_cache
 #    rating, HLTV rating * 1000, etc.) - only the *differences* matter.
 # ---------------------------------------------------------------------------
 TEAMS = [
-    ("fut", 1783),
-    ("nemiga", 1562),
-    ("vita", 1986),
-    ("navi", 1644),
-    ("aurora", 1891),
-    ("mouz", 1961),
-    ("bb", 1823),
-    ("furia", 1881),
+    ("legacy", 1663),
+    ("mongolz", 1554),
+    ("heroic", 1539),
+    ("b8", 1468),
+    ("furia", 1910),
+    ("faze", 1538),
+    ("navi", 1591),
+    ("falcons", 1768),
+    ("mouz", 1959),
+    ("tyloo", 1265),
+    ("9z", 1493),
+    ("bb", 1786),
+    ("aurora", 1857),
+    ("liquid", 1526),
+    ("parivision", 1559),
+    ("g2", 1617),    
 ]
 
 
@@ -392,36 +400,85 @@ def simulate_tournament(teams):
     for team in teams:
         team.reset_stats()
 
-    # --- single elimination playoff bracket ---
-    # --- Quarter finals ---
-    qw1, ql1 = play_match(teams[0], teams[1])
-    qw2, ql2 = play_match(teams[2], teams[3])
-    qw3, ql3 = play_match(teams[4], teams[5])
-    qw4, ql4 = play_match(teams[6], teams[7])
+        # --- Double elimination bracket structure ---
+    t = teams  # shorthand, list of X team names in seed order
+    # --- Opening Round ---
+    ow1A, ol1A = play_match(t[0], t[1])
+    ow2A, ol2A = play_match(t[2], t[3])
+    ow3A, ol3A = play_match(t[4], t[5])
+    ow4A, ol4A = play_match(t[6], t[7])
 
-    ql1.elim_rounds = 2
-    ql2.elim_rounds = 2
-    ql3.elim_rounds = 2
-    ql4.elim_rounds = 2
+    ow1B, ol1B = play_match(t[8], t[9])
+    ow2B, ol2B = play_match(t[10], t[11])
+    ow3B, ol3B = play_match(t[12], t[13])
+    ow4B, ol4B = play_match(t[14], t[15])
 
-    # --- Semis ---
-    sw1, sl1 = play_match(qw1, qw2)
-    sw2, sl2 = play_match(qw3, qw4)
+    # --- Upper Semis ---
+    usw1A, usl1A = play_match(ow1A, ow2A)
+    usw2A, usl2A = play_match(ow3A, ow4A)
 
-    # ---finals ---
-    tbdw, tbdl = play_match(sl1, sl2)
-    fw, fl = play_match(sw1, sw2)
+    usw1B, usl1B = play_match(ow1B, ow2B)
+    usw2B, usl2B = play_match(ow3B, ow4B)
+
+    usw1A.padding_rounds += 1
+    usw2A.padding_rounds += 1
+    
+    usw1B.padding_rounds += 1
+    usw2B.padding_rounds += 1
+
+    # --- Upper Final ---
+    ufwA, uflA = play_match(usw1A, usw2A)
+    
+    ufwB, uflB = play_match(usw1B, usw2B)
+
+    # --- Lower Bracket Round 1 (LR1) ---
+    lr1w1A, lr1l1A = play_match(ol1A, ol2A)
+    lr1w2A, lr1l2A = play_match(ol3A, ol4A)
+
+    lr1w1B, lr1l1B = play_match(ol1B, ol2B)
+    lr1w2B, lr1l2B = play_match(ol3B, ol4B)
+
+    lr1l1A.elim_rounds = 2
+    lr1l2A.elim_rounds = 2
+
+    lr1l1B.elim_rounds = 2
+    lr1l2B.elim_rounds = 2 
+
+    # --- Lower Semis (cross-paired to avoid immediate rematches) ---
+    lsw1A, lsl1A = play_match(lr1w1A, usl2A)
+    lsw2A, lsl2A = play_match(lr1w2A, usl1A)
+
+    lsw1B, lsl1B = play_match(lr1w1B, usl2B)
+    lsw2B, lsl2B = play_match(lr1w2B, usl1B)
+
+    lsl1A.elim_rounds = 1
+    lsl2A.elim_rounds = 1
+
+    lsl1B.elim_rounds = 1
+    lsl2B.elim_rounds = 1
+
+    # --- Lower Final ---
+    lfwA, lflA = play_match(lsw1A, lsw2A)
+    lfwB, lflB = play_match(lsw1B, lsw2B)
 
     placements = {
-            fw: "1st",
-            fl: "2nd",
-            tbdw: "3rd",
-            tbdl: "4th",
-            ql1: "5th-8th",
-            ql2: "5th-8th",
-            ql3: "5th-8th",
-            ql4: "5th-8th",
-        }
+        ufwA: "1st",
+        ufwB: "1st",
+        uflA: "2nd",
+        uflB: "2nd",
+        lfwA: "3rd",
+        lfwB: "3rd",
+        lflA: "4th",
+        lflB: "4th",
+        lsl1A: "5th-6th",
+        lsl2A: "5th-6th",
+        lsl1B: "5th-6th",
+        lsl2B: "5th-6th",
+        lr1l1A: "7th-8th",
+        lr1l2A: "7th-8th",
+        lr1l1B: "7th-8th",
+        lr1l2B: "7th-8th"
+    }
 
 
     return placements
@@ -429,7 +486,7 @@ def simulate_tournament(teams):
 # ---------------------------------------------------------------------------
 # 5. MONTE CARLO LOOP
 # ---------------------------------------------------------------------------
-PLACEMENT_ORDER = ["1st", "2nd", "3rd", "4th", "5th-8th"]
+PLACEMENT_ORDER = ["1st", "2nd", "3rd", "4th", "5th-6th", "7th-8th"]
 
 
 
