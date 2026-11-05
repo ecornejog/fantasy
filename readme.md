@@ -4,13 +4,13 @@ Este repo ayuda a crear el mejor equipo y asignar roles del fantasy de hltv.
 
 ## IEM Beijing 26 Group stage
 
-Equipo: Spinx, brollan, try, martinez, zorte
+Equipo: wonderful, pr, 910, bit, techno
 
-1 → (2)Bottom (2.55), (9)kast (2.15), (11)saver (1.30) | promedio = 2.00  
-2 → (12)assist (4.20), (10)kobe (2.65), (16)cannon (2.65) | promedio = 3.17  
-3 → (6)bait (2.75), (4)top (2.60), (1)Pistol (2.40) | promedio = 2.58  
-4 → (17)Hellcase, (8)flash (2.10), (3)Clutch (1.85), (14)4k (1.60) | promedio = 1.85  
-5 → (5)avenger (3.80), (15)carry (2.05), (13)Aim bot (0.25) | promedio = 2.03  
+1 → (5)avenger (3.85), (14)4k (2.30) | promedio = 3.08                                                                        
+2 → (12)assist (4.40), (1)Pistol (2.40) | promedio = 3.40                                                                     
+3 → (4)top (3.40), (15)carry (3.30) | promedio = 3.35  
+4 → (18)hellcase, (9)kast (2.30), (16)cannon (1.70) | promedio = 2.00  
+5 → (6)bait (3.45), (2)Bottom (3.05) | promedio = 3.25    
 
 ## Previous results
 

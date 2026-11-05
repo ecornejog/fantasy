@@ -31,23 +31,13 @@ from functools import lru_cache
 #    rating, HLTV rating * 1000, etc.) - only the *differences* matter.
 # ---------------------------------------------------------------------------
 TEAMS = [
-    ("legacy", 1663),
-    ("mongolz", 1554),
-    ("heroic", 1539),
-    ("b8", 1468),
-    ("furia", 1910),
-    ("faze", 1538),
-    ("navi", 1591),
-    ("falcons", 1768),
-    ("mouz", 1959),
-    ("tyloo", 1265),
-    ("9z", 1493),
-    ("bb", 1786),
-    ("aurora", 1857),
-    ("liquid", 1526),
-    ("parivision", 1559),
-    ("g2", 1617),    
-]
+    ("mongolz", 1718),
+    ("furia", 1916),
+    ("navi", 1730),
+    ("mouz", 1981),
+    ("bb", 1860),
+    ("parivision", 1660),
+    ]
 
 
 N_SIMULATIONS = 100_000  # set the number of simulations to run
@@ -403,81 +393,33 @@ def simulate_tournament(teams):
         # --- Double elimination bracket structure ---
     t = teams  # shorthand, list of X team names in seed order
     # --- Opening Round ---
-    ow1A, ol1A = play_match(t[0], t[1])
-    ow2A, ol2A = play_match(t[2], t[3])
-    ow3A, ol3A = play_match(t[4], t[5])
-    ow4A, ol4A = play_match(t[6], t[7])
-
-    ow1B, ol1B = play_match(t[8], t[9])
-    ow2B, ol2B = play_match(t[10], t[11])
-    ow3B, ol3B = play_match(t[12], t[13])
-    ow4B, ol4B = play_match(t[14], t[15])
-
-    # --- Upper Semis ---
-    usw1A, usl1A = play_match(ow1A, ow2A)
-    usw2A, usl2A = play_match(ow3A, ow4A)
-
-    usw1B, usl1B = play_match(ow1B, ow2B)
-    usw2B, usl2B = play_match(ow3B, ow4B)
-
-    usw1A.padding_rounds += 1
-    usw2A.padding_rounds += 1
     
-    usw1B.padding_rounds += 1
-    usw2B.padding_rounds += 1
 
-    # --- Upper Final ---
-    ufwA, uflA = play_match(usw1A, usw2A)
-    
-    ufwB, uflB = play_match(usw1B, usw2B)
 
-    # --- Lower Bracket Round 1 (LR1) ---
-    lr1w1A, lr1l1A = play_match(ol1A, ol2A)
-    lr1w2A, lr1l2A = play_match(ol3A, ol4A)
+    #quarterfinals
+    qf1w, qf1l = play_match(t[5], t[2])  
+    qf2w, qf2l = play_match(t[1], t[4])
 
-    lr1w1B, lr1l1B = play_match(ol1B, ol2B)
-    lr1w2B, lr1l2B = play_match(ol3B, ol4B)
+    t[0].padding_rounds += 1  # bye to semifinals
+    t[3].padding_rounds += 1  # bye to semifinals
+    qf1l.elim_rounds = 2
+    qf2l.elim_rounds = 2
 
-    lr1l1A.elim_rounds = 2
-    lr1l2A.elim_rounds = 2
+    #semifinals
+    sf1w, sf1l = play_match(t[0], qf1w)    
+    sf2w, sf2l = play_match(t[3], qf2w)
 
-    lr1l1B.elim_rounds = 2
-    lr1l2B.elim_rounds = 2 
-
-    # --- Lower Semis (cross-paired to avoid immediate rematches) ---
-    lsw1A, lsl1A = play_match(lr1w1A, usl2A)
-    lsw2A, lsl2A = play_match(lr1w2A, usl1A)
-
-    lsw1B, lsl1B = play_match(lr1w1B, usl2B)
-    lsw2B, lsl2B = play_match(lr1w2B, usl1B)
-
-    lsl1A.elim_rounds = 1
-    lsl2A.elim_rounds = 1
-
-    lsl1B.elim_rounds = 1
-    lsl2B.elim_rounds = 1
-
-    # --- Lower Final ---
-    lfwA, lflA = play_match(lsw1A, lsw2A)
-    lfwB, lflB = play_match(lsw1B, lsw2B)
+    #final and 3rd place match
+    final_w, final_l = play_match(sf1w, sf2w)
+    third_w, third_l = play_match(sf1l, sf2l)
 
     placements = {
-        ufwA: "1st",
-        ufwB: "1st",
-        uflA: "2nd",
-        uflB: "2nd",
-        lfwA: "3rd",
-        lfwB: "3rd",
-        lflA: "4th",
-        lflB: "4th",
-        lsl1A: "5th-6th",
-        lsl2A: "5th-6th",
-        lsl1B: "5th-6th",
-        lsl2B: "5th-6th",
-        lr1l1A: "7th-8th",
-        lr1l2A: "7th-8th",
-        lr1l1B: "7th-8th",
-        lr1l2B: "7th-8th"
+        final_w: "1st",
+        final_l: "2nd",
+        third_w: "3rd",
+        third_l: "4th",
+        qf1l: "5th-6th",
+        qf2l: "5th-6th",
     }
 
 
@@ -486,7 +428,7 @@ def simulate_tournament(teams):
 # ---------------------------------------------------------------------------
 # 5. MONTE CARLO LOOP
 # ---------------------------------------------------------------------------
-PLACEMENT_ORDER = ["1st", "2nd", "3rd", "4th", "5th-6th", "7th-8th"]
+PLACEMENT_ORDER = ["1st", "2nd", "3rd", "4th", "5th-6th"]
 
 
 
